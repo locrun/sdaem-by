@@ -1,0 +1,27 @@
+.social {
+  max-width: 248px;
+  display: flex;
+  justify-content: space-between;
+
+  .title {
+    display: inline-block;
+    margin-top: 16px;
+    margin-right: 29px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #1e2123;
+  }
+  .socialIcons {
+    width: 112px;
+    display: flex;
+    align-items: center;
+
+    .icon {
+      margin-right: 21px;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}

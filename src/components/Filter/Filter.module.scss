@@ -1,0 +1,159 @@
+@import "../../styles/variables/variables.scss";
+
+.selectStyle {
+  color: black;
+  border: none;
+  padding: 0;
+  outline: none;
+  align-self: center;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 16px;
+  width: 150px;
+}
+.filter {
+  background: #fff;
+  border-radius: 0px 10px 10px 10px;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 33px 18px 0px;
+  .itemColumn {
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+    position: relative;
+  }
+  .itemColumn:after {
+    position: absolute;
+    content: "";
+    border-right: 1px solid #664ef9;
+    opacity: 0.1;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+}
+
+.label {
+  margin-bottom: 7px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #bdbdbd;
+}
+.from {
+  padding: 0 15px;
+  width: 80px;
+  height: 40px;
+  border: none;
+  outline: none;
+  background: #f8f8f8;
+  border-radius: 20px;
+  border: 2px solid #fff;
+  &:hover {
+    border: 2px solid #fff;
+    background: rgba(102, 78, 249, 0.1);
+  }
+  &:focus-within {
+    background: #ffffff;
+    border: 2px solid rgba(102, 78, 249, 0.8);
+  }
+}
+.to {
+  padding: 0 15px;
+  width: 80px;
+  height: 40px;
+  border: none;
+  outline: none;
+  background: #f8f8f8;
+  border-radius: 20px;
+  border: 2px solid #fff;
+  &:hover {
+    border: 2px solid #fff;
+    background: rgba(102, 78, 249, 0.1);
+  }
+  &:focus-within {
+    background: #ffffff;
+    border: 2px solid rgba(102, 78, 249, 0.8);
+  }
+}
+.inputwrapper {
+  width: 175px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.option {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  height: 64px;
+  .optionButton {
+    display: flex;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: $black-gray;
+    cursor: pointer;
+    background: #fff;
+  }
+}
+.onmap {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding-left: 33px;
+
+  .mapButton {
+    margin-right: 5px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: $black-gray;
+    background: #fff;
+  }
+}
+.btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 9px 16px;
+  gap: 5px;
+  width: 123px;
+  height: 37px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  color: #242424;
+
+  background: #ffd54f;
+  border-radius: 22px;
+  position: relative;
+  margin-left: 30px;
+}
+.btn:after {
+  display: block;
+  content: "";
+  border: solid black;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  position: absolute;
+  right: 25px;
+}
+.mark {
+  width: 13px;
+  height: 15px;
+  fill: #664ef9;
+}
+.icn {
+  margin-left: 5px;
+}
