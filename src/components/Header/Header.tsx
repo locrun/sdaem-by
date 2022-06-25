@@ -4,9 +4,10 @@ import { IconSvg } from '../IconSvg/IconSvg'
 import { Button } from "../Button/Button"
 import { Navigation } from '../Navigation/Navigation'
 import classes from './Header.module.scss'
+import React from 'react'
 
 const pages = [
-  { id: 0, name: "Главная", path: "/main" },
+  { id: 0, name: "Главная", path: "/" },
   { id: 1, name: "Новости", path: "/news" },
   { id: 2, name: "Размещение и тарифы", path: "/rates" },
   { id: 3, name: "Объявления на карте", path: "/ads", isIcon: true, },
@@ -23,9 +24,9 @@ const catergories = [
 
 export const Header = () => {
   return (
-    <>
+    <header>
       <div className={classes.topInner} >
-        <header className={classes.topHeaderContainer}>
+        <div className={classes.topHeaderContainer}>
           <Navigation data={pages}
             display={"flex"}
             className={classes.topNavItem}
@@ -40,10 +41,10 @@ export const Header = () => {
               Вход и регистрация
             </Link>
           </div>
-        </header>
+        </div>
       </div>
       <div className={classes.bottomInner}>
-        <header className={classes.bottomHeaderContainer}>
+        <div className={classes.bottomHeaderContainer}>
           <Logo />
           <Navigation
             data={catergories}
@@ -55,9 +56,9 @@ export const Header = () => {
             className={classes.placeBtn}
             onClick={() => console.log("click!!!")}
           />
-        </header>
+        </div>
       </div>
-    </>
+    </header>
   )
 }
 

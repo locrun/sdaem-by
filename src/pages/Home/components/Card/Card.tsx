@@ -36,7 +36,11 @@ export const Card: FC<IPropsCard> = (props) => {
           <IconSvg id={"#mark"} />
         </p>
         <p className={classes.locationItem}>
-          <span className={classes.right}><IconSvg className={classes.dot} id={"#dot"} />Шабаны</span> Грушевка
+          <span className={classes.right}>
+            <IconSvg className={classes.dot} id={"#dot"} />
+            Шабаны
+          </span>
+          Грушевка
           <IconSvg id={"#metro"} />
         </p>
       </div>

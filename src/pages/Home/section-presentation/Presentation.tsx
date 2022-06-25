@@ -4,7 +4,7 @@ import { IconSvg } from "../../../components/IconSvg/IconSvg"
 import client from "../../../assets/images/client.svg"
 import raise from "../../../assets/images/raise.svg"
 import cn from "classnames"
-import classes from "./Services.module.scss"
+import classes from "./Presentation.module.scss"
 
 const data = [
   {
@@ -29,35 +29,35 @@ const data = [
     styleButton: classes.goldBtn, className: classes.gold
   }
 ]
-export const Services: FC = () => {
+export const Presentation: FC = () => {
   return (
     <section className={classes.wrapper}>
-      <div className={cn("container", classes.cont)}>
-        <div className={classes.titleWrapper}>
+      <div className={cn("container", classes.container)}>
+        <div className={classes.searchBlock}>
           <h3 className={classes.title}>Поиск квартир по карте</h3>
           <p className={classes.subtitle}>Ищите квартиры на сутки в центре города, возле парка или в живописном районе</p>
           <Button title={"Открыть карту"} className={classes.openMapBtn}>
             <IconSvg id={"#mark"} className={classes.mark} />
           </Button>
         </div>
-      </div>
-      <div className={classes.servicesBlock}>
-        {
-          data.map((serv) =>
-            <div key={serv.id} className={cn(classes.servItem, serv.className)} >
-              <div className={classes.itemTitleWrapper}>
-                {serv.imgPath &&
-                  <div className={classes.itemImageWrapper}>
-                    <img src={serv.imgPath} alt="картинка иконки" />
-                  </div>
-                }
-                <h4 className={classes.itemTitle}>{serv.title}</h4>
+        <div className={classes.presentationsBlock}>
+          {
+            data.map((card) =>
+              <div key={card.id} className={cn(classes.card, card.className)} >
+                <div className={classes.flex}>
+                  {card.imgPath &&
+                    <div className={classes.cardImg}>
+                      <img src={card.imgPath} alt="картинка иконки" />
+                    </div>
+                  }
+                  <h4 className={classes.cardTitle}>{card.title}</h4>
+                </div>
+                <div className={classes.cardSubtitle}>{card.subtitle.paragraph}</div>
+                <Button title={card.btnName} className={card.styleButton} />
               </div>
-              <div className={classes.itemSubtitle}>{serv.subtitle.paragraph}</div>
-              <Button title={serv.btnName} className={serv.styleButton} />
-            </div>
-          )
-        }
+            )
+          }
+        </div>
       </div>
     </section>
   )

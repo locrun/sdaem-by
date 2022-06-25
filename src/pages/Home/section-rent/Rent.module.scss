@@ -71,6 +71,19 @@
   border-radius: 20px;
   width: 185px;
   z-index: 10;
+  position: relative;
+  &:first-of-type {
+    [class*="-ValueContainer"] {
+      position: relative;
+      padding: 0 17px 0 40px;
+      &:after {
+        content: url("../../../assets/images/metro.svg");
+        position: absolute;
+        top: 1px;
+        left: 12px;
+      }
+    }
+  }
   [class*="-control"] {
     min-height: 25px;
     outline: none;

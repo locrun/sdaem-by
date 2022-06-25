@@ -1,13 +1,4 @@
 @import "../../../styles/variables/variables.scss";
-.cont {
-  position: relative;
-  &:after {
-    content: url("../../../assets/images/decor-white.svg");
-    position: absolute;
-    top: -27px;
-    right: 70px;
-  }
-}
 
 .wrapper {
   background-image: url("../../../assets/images/bg.jpg");
@@ -15,46 +6,21 @@
   background-size: cover;
   position: relative;
   text-align: center;
-  padding-top: 47px;
-  padding-bottom: 75px;
   position: relative;
-
-  .titleWrapper {
-    max-width: 390px;
-    padding: 0 20px;
-    margin: 0 auto;
-    .title {
-      font-weight: 700;
-      font-size: 25px;
-      line-height: 30px;
-      text-align: center;
-      color: #ffffff;
-    }
-    .subtitle {
-      font-weight: 500;
-      font-size: 16px;
-      line-height: 19px;
-      text-align: center;
-
-      color: #ffffff;
-    }
-  }
+  background-color: $moderate-blue;
 }
 
-.openMapBtn {
-  display: inline-flex;
-  flex-direction: row-reverse;
-  align-items: center;
-  justify-content: space-between;
-  width: 167px;
-  padding: 10px 19px;
-  background: #ffffff;
-  border-radius: 19px;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 17px;
-  color: $black-gray;
-  letter-spacing: 0.2px;
+.container {
+  position: relative;
+  padding-top: 50px;
+  padding-bottom: 77px;
+
+  &:after {
+    content: url("../../../assets/images/decor-white.svg");
+    position: absolute;
+    top: 48px;
+    right: 68px;
+  }
 }
 
 .mark {
@@ -64,7 +30,44 @@
   //background: linear-gradient(106.06deg, #ffd54f 1.12%, #fec100 97.96%);
 }
 
-.servicesBlock {
+.searchBlock {
+  max-width: 390px;
+  padding: 0 20px;
+  margin: 0 auto;
+  .title {
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 30px;
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 20px;
+  }
+  .subtitle {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 23px;
+  }
+  .openMapBtn {
+    display: inline-flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+    width: 167px;
+    padding: 10px 19px;
+    background: #ffffff;
+    border-radius: 19px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    color: $black-gray;
+    letter-spacing: 0.2px;
+  }
+}
+
+.presentationsBlock {
   max-width: 1277px;
   margin: 0 auto;
   margin-bottom: -300px;
@@ -79,19 +82,22 @@
     right: 80px;
   }
 }
-.servItem {
+.card {
   width: 406px;
+  height: 345px;
   padding: 30px 37px 45px 37px;
   background: #fffefe;
   box-shadow: 0px 20px 40px rgba(135, 124, 202, 0.15);
   border-radius: 10px;
-
-  .itemTitleWrapper {
+  .flex {
     display: flex;
     align-items: center;
     margin-bottom: 25px;
   }
-  .itemImageWrapper {
+
+  .cardImg {
+    height: 98px;
+    width: 98px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -100,36 +106,37 @@
     background: #ffffff;
     box-shadow: 0px 11px 20px rgba(127, 155, 187, 0.16);
   }
-  .itemTitle {
+  .cardTitle {
     width: 191px;
     font-weight: 700;
     font-size: 18px;
     line-height: 22px;
     color: #664ef9;
+    margin: 0;
   }
-  .itemSubtitle {
+  .cardSubtitle {
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
     text-align: left;
     color: #1e2123;
-    margin-top: 0;
-    margin-bottom: 33px;
+    margin: 0;
   }
 }
+
 .place {
-  .itemTitle {
-    margin-top: 30px;
-    margin-left: 20px;
+  .cardTitle {
+    margin-left: 25px;
+  }
+  .flex {
+    margin-bottom: 23px;
   }
   .placeBtn {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 10px 18px;
-    margin-bottom: 10px;
-    width: 224px;
-    height: 37px;
+    padding: 10px 20px 10px 23px;
+    margin-top: 33px;
     background: linear-gradient(106.06deg, #ffd54f 1.12%, #fec100 97.96%);
     box-shadow: 0px 15px 40px rgba(254, 193, 0, 0.15);
     border-radius: 17px;
@@ -141,20 +148,19 @@
   }
 }
 .price {
-  .itemTitle {
-    margin-top: 30px;
-    margin-left: 5px;
+  .cardTitle {
+    width: 185px;
   }
-  .itemSubtitle {
-    p {
-      margin: 0;
-    }
+  .flex {
+    margin-bottom: 17px;
   }
+
   .priceBtn {
     position: relative;
     display: flex;
     align-items: center;
-    padding: 10px 18px;
+    padding: 10px 21px;
+    margin-top: 33px;
 
     width: 241px;
     height: 37px;
@@ -183,7 +189,7 @@
 }
 .gold {
   position: relative;
-  padding: 30px 50px 45px 40px;
+  padding: 27px 50px 45px 40px;
   overflow: hidden;
   position: relative;
   background: linear-gradient(105.54deg, #ffd54f 33.53%, #fec100 94.13%);
@@ -210,21 +216,22 @@
     left: 243px;
   }
 
-  .itemTitleWrapper {
+  .flex {
     display: flex;
     justify-content: center;
+    align-items: center;
+    margin-bottom: 22px;
   }
 
-  .itemTitle {
+  .cardTitle {
     width: auto;
-    font-style: normal;
     font-weight: 700;
     font-size: 30px;
     line-height: 36px;
     color: #333333;
     margin: 11px;
   }
-  .itemSubtitle {
+  .cardSubtitle {
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;

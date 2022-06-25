@@ -1,0 +1,23 @@
+@import "../../styles/variables/variables.scss";
+
+.breadcrumbs {
+  width: 88px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: $dull-gray;
+
+  .homeRun {
+    width: 13px;
+    height: 12px;
+  }
+  .dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: $moderate-blue;
+  }
+}
