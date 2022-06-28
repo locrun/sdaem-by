@@ -48,6 +48,7 @@
     ]
   },
   "devDependencies": {
-    "miragejs": "^0.1.45"
+    "miragejs": "^0.1.45",
+    "react-share": "^4.4.0"
   }
 }

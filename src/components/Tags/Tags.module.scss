@@ -1,6 +1,6 @@
-@import "../../../../styles/variables/variables.scss";
+@import "../../styles/variables/variables.scss";
 
-.badges {
+.tagList {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -10,7 +10,7 @@
   flex-wrap: wrap;
   bottom: 48px;
 }
-.badgeItem {
+.tagItem {
   background: #664ef9;
   border-radius: 16px;
   transition: $transition;
@@ -22,7 +22,7 @@
   margin-right: 16px;
 }
 
-.badgeLink {
+.tagLink {
   display: inline-block;
   padding: 8px 14px;
   text-decoration: none;

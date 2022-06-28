@@ -2,42 +2,38 @@ import promo1 from "../../../assets/images/promo-1.png"
 import promo2 from "../../../assets/images/promo-2.png"
 import promo3 from "../../../assets/images/promo-3.png"
 import promo4 from "../../../assets/images/promo-4.png"
-import { Budges } from "../components/Badges/Badges"
+import { Tags } from "../../../components/Tags/Tags"
 import { IconSvg } from "../../../components/IconSvg/IconSvg"
 import { Navigation } from "../../../components/Navigation/Navigation"
 import classes from "./Categories.module.scss"
 
-const cardData = [
+const categories = [
   {
-
     title: "Квартиры на сутки",
     subtitle: "Снять квартиру",
     imgPath: promo1,
     badges: true,
   },
   {
-
     title: "Коттеджи и усадьбы",
     subtitle: "Снять коттедж на праздник",
     imgPath: promo2,
     arrow: true
   },
   {
-
     title: "Бани и Сауны",
     subtitle: "Попариться в бане с друзьями",
     imgPath: promo3,
     arrow: true
   },
   {
-
     title: "Авто на прокат",
     subtitle: "Если срочно нужна машина",
     imgPath: promo4,
     arrow: true
   }
 ]
-const navData = [
+const menu = [
   { id: 0, title: 'Квартиры', name: "Apartments" },
   { id: 1, name: "Квартиры в Минске", count: 3567, path: "/" },
   { id: 2, name: "Квартиры в Гомеле", count: 2032, path: "/" },
@@ -59,6 +55,15 @@ const navData = [
   { id: 16, name: "Коттеджи и усадьбы (жилье) у воды,на берегу, на озере", path: "/" }
 
 ]
+const tags = [
+  { name: "Минск", path: "/" },
+  { name: "Витебск", path: "/" },
+  { name: "Гродно", path: "/" },
+  { name: "Гомель", path: "/" },
+  { name: "Брест", path: "/" },
+  { name: "Могилев", path: "/" },
+]
+
 
 export const Categories = () => {
   return (
@@ -66,9 +71,9 @@ export const Categories = () => {
       <div className={classes.content}>
         <div className={classes.cardWrapper}>
           {
-            cardData.map(item =>
+            categories.map(item =>
               <div key={item.title} className={classes.card}>
-                {item.badges && <Budges />}
+                {item.badges && <Tags tags={tags} />}
                 <div className={classes.titleWrapper}>
                   <span className={classes.subtitle}>{item.subtitle}</span>
                   <h3 className={classes.title}>{item.title}</h3>
@@ -83,7 +88,7 @@ export const Categories = () => {
         </div>
         <aside className={classes.sideBarNav}>
           <Navigation
-            data={navData}
+            data={menu}
             display={'block'}
             className={classes.navItem}
             linkStyles={classes.navLink}

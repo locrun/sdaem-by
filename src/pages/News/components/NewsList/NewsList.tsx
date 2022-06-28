@@ -1,24 +1,26 @@
 import { FC } from "react"
 import { Link } from "react-router-dom"
 import classes from "./NewsList.module.scss"
-
+import { INewsList } from "../../../../Interfaces/data"
 
 interface IPropsNewsList {
-  newsList: any
+  newsList: INewsList[],
+  mb?: string
 }
 
 export const NewsList: FC<IPropsNewsList> = (props) => {
 
-  const data = props.newsList
+  const { newsList ,mb} = props
+
   return (
     <div className={classes.newsCardList}>
 
       {
-        data && data.map((news: { id: number, title: string, previewText: string, image: string }) => {
+        newsList.map((news) => {
           return (
-            <div className={classes.card}>
+            <div key={news.id} className={classes.card} style={{marginBottom:mb}}>
               <div className={classes.cardImg}>
-                <img src={news.image} alt="картинка" />
+                <img src={news.image} alt="картинка новости" />
               </div>
               <div className={classes.cardContent}>
                 <h4 className={classes.cardTitle}>
@@ -29,16 +31,19 @@ export const NewsList: FC<IPropsNewsList> = (props) => {
                 </p>
                 <div className={classes.cardFooter}>
                   <div className={classes.cardDate}>
-                    14 Января 2008
+                    {news.date}
                   </div>
-                  <Link to={`detail/${news.id}`} className={classes.readBtn}>Читать</Link>
+                  <Link to={`/news/detail/${news.id}`}
+                    className={classes.readBtn}
+                  >
+                    Читать
+                  </Link >
                 </div>
               </div>
             </div>
           )
         })
       }
-
     </div>
   )
 }

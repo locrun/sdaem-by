@@ -1,4 +1,4 @@
-@import "../../../styles/variables/variables.scss";
+@import "../../../../styles/variables/variables.scss";
 
 .newsCardList {
   display: flex;
@@ -65,23 +65,20 @@
       justify-content: space-between;
 
       .cardDate {
-        width: 125px;
-        height: 37px;
+        display: inline-block;
+        width: auto;
         padding: 12px 8px;
-        display: flex;
-        align-items: center;
         background: #f8f8f8;
         border-radius: 18px;
         font-weight: 500;
         font-size: 14px;
-        line-height: 17px;
-        text-align: right;
+        line-height: 13px;
         color: $light-gray;
       }
 
       .readBtn {
-        width: 81px;
-        height: 37px;
+        display: inline-block;
+        width: auto;
         padding: 10px 15px;
         background: rgba(102, 78, 249, 0.1);
         border-radius: 17px;

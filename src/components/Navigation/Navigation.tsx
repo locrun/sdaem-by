@@ -1,8 +1,9 @@
 import React, { FC } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { IconSvg } from "../IconSvg/IconSvg"
 import styles from "./Navigation.module.scss"
 import cn from "classnames"
+
 
 
 const flats = [
@@ -45,6 +46,7 @@ interface IPropsNav {
 
 export const Navigation: FC<IPropsNav> = (props) => {
   const { className, data, display, iconStyles, linkStyles } = props;
+  const setActive = ({ isActive }: any) => (isActive ? styles.active : "");
   return (
     <nav>
       <ul style={{ display: display }}>
@@ -60,11 +62,12 @@ export const Navigation: FC<IPropsNav> = (props) => {
               {
                 !item.title &&
                 <li className={cn(className, styles.menu)} >
-                  <Link
-                    to={item.path || ""}
-                    className={linkStyles}>
+                  <NavLink
+                    to={item.path || ''}
+                    className={setActive}
+                  >
                     {item.name}
-                  </Link>
+                  </NavLink>
                   {item.count && <span className={styles.amount}>{item.count}</span>}
                   {item.isIcon && <IconSvg id={"#mark"} className={iconStyles} />}
                   {item.dropDown && <MenuDropDown />}
@@ -73,6 +76,6 @@ export const Navigation: FC<IPropsNav> = (props) => {
             </React.Fragment>
           )}
       </ul>
-    </nav>
+    </nav >
   )
 }

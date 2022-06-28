@@ -1,12 +1,12 @@
 import { Logo } from "../Logo/Logo"
 import { Navigation } from "../Navigation/Navigation"
-import { Payment } from "../Payment/Payment"
-import { Social } from "../Social/Social"
+import { Payment } from "./Payment/Payment"
+import { Social } from "./Social/Social"
 import classes from "./Footer.module.scss"
 
 const pages = [
   { id: 1, name: "Новости", path: "/news" },
-  { id: 2, name: "Размещение и тарифы", path: "/rates" },
+  { id: 2, name: "Размещение и тарифы", path: "/rate" },
   { id: 3, name: "Объявления на карте", path: "/ads" },
   { id: 4, name: "Контакты", path: "/contacts" },
 ];

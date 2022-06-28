@@ -6,7 +6,6 @@
 .menu:hover .dropdownList {
   opacity: 1;
   visibility: visible;
-  transition: $transition;
 }
 .dropdownList {
   margin: 0;
@@ -22,7 +21,7 @@
   top: 90px;
   left: 0;
   width: 248px;
-  transition: $transition;
+
   &:after {
     content: "";
     position: absolute;
@@ -80,4 +79,7 @@
   line-height: 17px;
   text-align: right;
   color: #bdbdbd;
+}
+.active {
+  border-color: #ffd54f !important;
 }

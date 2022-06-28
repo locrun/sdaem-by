@@ -1,6 +1,6 @@
-import inst from "../../assets/images/instagram.svg"
-import vk from "../../assets/images/vk.svg"
-import fb from "../../assets/images/facebook.svg"
+import inst from "../../../assets/images/instagram.svg"
+import vk from "../../../assets/images/vk.svg"
+import fb from "../../../assets/images/facebook.svg"
 import classes from "./Social.module.scss"
 
 const arr = [

@@ -71,12 +71,12 @@
     &:nth-child(13) {
       border-bottom: 1px solid #f5bc03;
       width: 50px;
-      .navLink:hover {
+      a:hover {
         transform: none;
       }
     }
   }
-  .navLink {
+  a {
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;

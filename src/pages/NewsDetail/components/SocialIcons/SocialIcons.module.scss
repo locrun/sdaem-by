@@ -1,0 +1,32 @@
+@import "../../../../styles/variables/variables.scss";
+
+.social {
+  display: flex;
+  justify-content: space-between;
+}
+.socialMediaButton {
+  border-radius: 50%;
+  background-color: rgba(102, 78, 249, 0.1) !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px !important;
+  margin-right: 22px;
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.icon {
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+
+  svg,
+  path {
+    fill: $moderate-blue !important;
+  }
+  rect {
+    fill: rgba(102, 78, 249, 0.1) !important;
+  }
+}

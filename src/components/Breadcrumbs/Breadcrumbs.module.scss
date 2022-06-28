@@ -1,23 +1,33 @@
 @import "../../styles/variables/variables.scss";
 
 .breadcrumbs {
-  width: 88px;
   font-weight: 400;
   font-size: 14px;
   line-height: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   color: $dull-gray;
 
-  .homeRun {
-    width: 13px;
-    height: 12px;
+  .breadcrumbsLink {
+    display: flex;
   }
+
   .dot {
-    width: 3px;
-    height: 3px;
+    width: 4px;
+    height: 4px;
     border-radius: 50%;
     background: $moderate-blue;
+    margin-right: 7px;
   }
+
+  .children {
+    display: inline-block;
+    margin-right: 8px;
+  }
+}
+.homeRun {
+  width: 13px;
+  height: 12px;
+  margin-right: 6px;
+  fill: $moderate-blue;
 }

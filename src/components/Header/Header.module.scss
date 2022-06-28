@@ -17,17 +17,19 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
-  margin: 13px 0;
   margin-right: 57px;
   display: flex;
   align-items: center;
+  a {
+    color: $light-gray;
+    padding: 16px 0;
+    border-bottom: 3px solid #f8f8f8;
+  }
 
   &:last-child {
     margin-right: 0;
   }
-  a {
-    color: $light-gray;
-  }
+
   &:nth-child(4) {
     flex-direction: row-reverse;
   }
