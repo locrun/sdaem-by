@@ -1,24 +1,29 @@
 import { FC } from "react"
 import { Link } from "react-router-dom"
 import classes from "./NewsList.module.scss"
-import { INewsList } from "../../../../Interfaces/data"
+import { INews } from "../../../../Interfaces/INews"
 
 interface IPropsNewsList {
-  newsList: INewsList[],
-  mb?: string
+  newsList: INews[],
+  mb?: string,
+  loading?: boolean,
+  error?: string | null
 }
 
 export const NewsList: FC<IPropsNewsList> = (props) => {
 
-  const { newsList ,mb} = props
-
+  const { newsList, mb, loading, error } = props
   return (
     <div className={classes.newsCardList}>
-
+      {error && <h1>Error Page:{error}</h1>}
+      {loading && <h1>Loading...</h1>}
       {
         newsList.map((news) => {
           return (
-            <div key={news.id} className={classes.card} style={{marginBottom:mb}}>
+            <div
+              key={news.id}
+              className={classes.card}
+              style={{ marginBottom: mb }}>
               <div className={classes.cardImg}>
                 <img src={news.image} alt="картинка новости" />
               </div>
@@ -42,8 +47,11 @@ export const NewsList: FC<IPropsNewsList> = (props) => {
               </div>
             </div>
           )
+
         })
+
       }
+
     </div>
   )
 }

@@ -1,8 +1,11 @@
+import { FC } from "react";
 import { Router } from "./router/Router";
 
-const App = () => {
+const App: FC = () => {
   return (
-    <Router />
+    <>
+      <Router />
+    </>
   );
 }
 

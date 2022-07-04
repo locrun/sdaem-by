@@ -1,43 +1,57 @@
-import { FC } from "react"
+import { FC, useEffect } from "react"
 import { useParams } from "react-router"
+import { useAppDispatch, useAppSelector } from "../../../hooks/redux/redux-hooks"
+
 import { Breadcrumbs } from "../../../components/Breadcrumbs/Breadcrumbs"
 import { Title } from "../../../components/Title/Title"
-import { SocialIcons } from "../components/SocialIcons/SocialIcons"
-import { useNewsPerPage } from "../../../hooks/useNewsPerPage"
+import { ShareButtons } from "../../../components/ShareButtons/ShareButtons"
+
 import classes from "./Detail.module.scss"
 import cn from "classnames"
 
+import { fetchNews } from "../../../store/thunks/newsThunk"
+
 export const Detail: FC = () => {
   const { id } = useParams()
-  const { news } = useNewsPerPage(3, Number(id))
+  const dispatch = useAppDispatch()
+
+  const { news, loading, error } = useAppSelector(state => state.news)
+
+  useEffect(() => {
+    dispatch(fetchNews())
+  }, [dispatch])
+
+  const detail = news?.find((news) => news.id === Number(id));
 
   return (
     <section className={classes.wrapper}>
       <div className={cn("container", classes.container)}>
         <Breadcrumbs
-          name={news ? news.title : ''}
+          name={detail ? detail.title : ''}
           marginBottom={"25px"}
           fill={classes.fill}
         >
           <span className={classes.color}>Новости</span>
         </Breadcrumbs >
-        <Title title={news ? news.title : '...loading'} />
+        <Title title={detail ? detail.title : '...loading'} />
         <div className={classes.flex}>
           <div className={classes.date}>
-            {news ? news.date : '14 Января 2008'}
+            {detail ? detail.date : '14 Января 2008'}
           </div>
           <div className={classes.share}>
             <span>Поделиться</span>
-            <SocialIcons />
+            <ShareButtons
+              title={detail?.title}
+            />
           </div>
         </div>
-        {news &&
+        {detail &&
           <>
             <div className={classes.newsImg}>
-              <img src={news.image} alt="картинка" />
+              <img src={detail.image} alt="картинка" />
             </div>
             <div>
-              <p className={classes.fullText}>{news.fullText}</p>
+              <p className={classes.fullText}>{detail.fullText}</p>
             </div>
           </>
         }

@@ -9,13 +9,14 @@ interface IButtonProps {
   disabled?: boolean;
   onClick?: () => void,
   children?: JSX.Element;
+  type?: "button" | "submit" | "reset"
 }
 
 export const Button: FC<IButtonProps> = (props) => {
-  const { title, className, onClick, children } = props;
+  const { title, className, onClick, children, type } = props;
   return (
     <button
-      type="button"
+      type={type}
       className={cn(classes.button, className)}
       onClick={onClick}
     >

@@ -1,16 +1,37 @@
 import { FC } from "react"
+import { createSearchParams } from "react-router-dom";
 import { Button } from "../../../../components/Button/Button"
 import { IconSvg } from "../../../../components/IconSvg/IconSvg"
 import { Title } from "../../../../components/Title/Title"
 import classes from "./SearchInput.module.scss"
-export const SearchInput: FC = () => {
+
+interface IPropsSearchInput {
+  value: string,
+  setSearchParams: Function,
+  onClick: () => void
+}
+
+export const SearchInput: FC<IPropsSearchInput> = (props) => {
+  const { value, setSearchParams, onClick } = props
   return (
     <div className={classes.flex}>
       <Title title={"Новости"} />
       <form className={classes.searchForm} action="">
-        <input className={classes.searchInput} type="text" placeholder="Поиск по статьям" />
-        <Button className={classes.searchBtn}>
-          <IconSvg id={"#search"} className={classes.searchIcon} />
+        <input className={classes.searchInput}
+          type="text"
+          placeholder="Поиск по статьям"
+          value={value}
+          onChange={(e) => {
+            setSearchParams(createSearchParams({ filter: e.target.value }));
+          }}
+        />
+        <Button
+          type={"button"}
+          className={classes.searchBtn}
+          onClick={onClick}>
+          <IconSvg
+            id={"#search"}
+            className={classes.searchIcon} />
         </Button>
       </form>
     </div>
