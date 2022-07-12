@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import newsReducer from "./reducers/newsReducer";
+import flatReducer from "./reducers/flatReducer";
 
 const store = configureStore({
   reducer: {
     news: newsReducer,
+    flat: flatReducer,
   },
 });
 export default store;

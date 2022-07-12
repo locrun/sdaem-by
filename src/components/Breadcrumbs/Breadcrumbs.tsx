@@ -4,12 +4,11 @@ import { IconSvg } from "../../components/IconSvg/IconSvg"
 import classes from "./Breadcrumbs.module.scss"
 import cn from "classnames"
 
-interface IPropsBreadcrumbs {
+type IPropsBreadcrumbs = {
   name: string,
   children?: JSX.Element,
   fill?: string,
   marginBottom?: string
-
 }
 
 export const Breadcrumbs: FC<IPropsBreadcrumbs> = (props) => {
@@ -20,8 +19,8 @@ export const Breadcrumbs: FC<IPropsBreadcrumbs> = (props) => {
   }
   return (
     <div
-      className={classes.breadcrumbs}
       style={styles}
+      className={classes.breadcrumbs}
     >
       <Link to={"/news"} className={classes.breadcrumbsLink}>
         <IconSvg id={"#home-run"} className={cn(!fill ? classes.homeRun : fill)} />

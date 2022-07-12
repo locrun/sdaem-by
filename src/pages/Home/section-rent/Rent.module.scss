@@ -1,5 +1,10 @@
 @import "../../../styles/variables/variables.scss";
-
+.prompt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+}
 .wrapper {
   width: 100%;
   position: relative;

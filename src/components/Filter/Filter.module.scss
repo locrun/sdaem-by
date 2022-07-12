@@ -1,6 +1,6 @@
 @import "../../styles/variables/variables.scss";
 
-.selectStyle {
+.select {
   color: black;
   border: none;
   padding: 0;
@@ -10,6 +10,8 @@
   font-size: 14px;
   line-height: 16px;
   width: 150px;
+  position: relative;
+  z-index: 20;
 }
 .filter {
   background: #fff;
@@ -24,6 +26,7 @@
     flex-direction: column;
     padding: 0 20px;
     position: relative;
+    color: #bdbdbd;
   }
   .itemColumn:after {
     position: absolute;
@@ -41,7 +44,7 @@
   font-weight: 500;
   font-size: 14px;
   line-height: 17px;
-  color: #bdbdbd;
+  color: inherit;
 }
 .from {
   padding: 0 15px;
@@ -156,4 +159,51 @@
 }
 .icn {
   margin-left: 5px;
+}
+.clearBtn {
+  padding: 10px 16px;
+  margin-right: 30px;
+  margin-left: 50px;
+  background: #f8f8f8;
+  border-radius: 22px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  color: $black-gray;
+}
+.showBtn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 9px 16px;
+  background: $moderate-blue;
+  border-radius: 22px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  color: #ffffff;
+}
+
+.filterTransform {
+  padding: 0;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.itemColumnTransform {
+  display: flex;
+  height: 82px;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: center;
+  color: #664ef9 !important;
+
+  & > .label {
+    margin-bottom: 0;
+    margin-right: 20px;
+  }
 }

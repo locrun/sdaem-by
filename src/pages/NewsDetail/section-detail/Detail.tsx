@@ -21,6 +21,7 @@ export const Detail: FC = () => {
     dispatch(fetchNews())
   }, [dispatch])
 
+
   const detail = news?.find((news) => news.id === Number(id));
 
   return (
@@ -38,12 +39,9 @@ export const Detail: FC = () => {
           <div className={classes.date}>
             {detail ? detail.date : '14 Января 2008'}
           </div>
-          <div className={classes.share}>
-            <span>Поделиться</span>
-            <ShareButtons
-              title={detail?.title}
-            />
-          </div>
+          <ShareButtons
+            title={detail?.title}
+          />
         </div>
         {detail &&
           <>
@@ -56,5 +54,6 @@ export const Detail: FC = () => {
           </>
         }
       </div>
-    </section>)
+    </section>
+  )
 }

@@ -1,20 +1,20 @@
-@import "../../styles/variables/variables.scss";
-@import "../variables/variables";
+// @import "../../styles/variables/variables.scss";
+// @import "../variables/variables";
 
-@mixin button {
-  transition: $transition;
+// @mixin button {
+//   transition: $transition;
+//   //[type="button"]
+//   &:enabled {
+//     &:hover {
+//       filter: $btn-hover;
+//     }
 
-  &[type="button"]:enabled {
-    &:hover {
-      filter: $btn-hover;
-    }
+//     &:active {
+//       filter: $btn-active;
+//     }
 
-    &:active {
-      filter: $btn-active;
-    }
-
-    &:focus {
-      filter: $btn-focus;
-    }
-  }
-}
+//     &:focus {
+//       filter: $btn-focus;
+//     }
+//   }
+// }

@@ -1,8 +1,17 @@
-import { FC } from "react"
+import { FC, useState, useEffect } from "react"
+import { useAppDispatch } from "../../../hooks/redux/redux-hooks";
 import { Link } from "react-router-dom";
 
 import { Autocomplete } from "../../../components/Autocomplete/Autocomplete"
-import { Card } from "../components/Card/Card";
+import { TiledCards } from "../components/TiledCards/TiledCards";
+
+import { useFilter } from "../../../hooks/useFilter";
+import { getMinskValues } from "../../../store/reducers/flatReducer";
+import { flatFetch } from "../../../store/thunks/flatThunk";
+
+
+import { ISelectOption } from "../../../Interfaces/ISelectOption";
+import { OnChangeValue } from "react-select";
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from "swiper";
@@ -11,17 +20,49 @@ import "swiper/css/navigation";
 import "../swiper.scss"
 import classes from "./Rent.module.scss"
 
+const metroOptions = [
+  { value: "Малиновка", label: "Малиновка" },
+  { value: "Институт культуры", label: "Институт культуры" },
+  { value: "Восток", label: "Восток" },
+  { value: "Академия наук", label: "Академия наук" },
+  { value: "Грушевка", label: "Грушевка" }
+]
+
+const areaOptions = [
+  { value: "Шабаны", label: "Шабаны" },
+  { value: "Советский", label: "Советский" },
+  { value: "Ленинский", label: "Ленинский" },
+  { value: "Первомайский", label: "Первомайский" },
+  { value: "Московский", label: "Московский" },
+  { value: "Фрунзенский", label: "Фрунзенский" }
+]
 
 export const Rent: FC = () => {
-  const onChangeHandler = () => {
-    console.log("change")
+  const dispatch = useAppDispatch()
+  const { minskData } = useFilter()
+
+  useEffect(() => {
+    dispatch(flatFetch())
+  }, [dispatch])
+
+  const [metro, setMetro] = useState<ISelectOption>()
+  const [area, setArea] = useState<ISelectOption>()
+
+  useEffect(() => {
+    dispatch(getMinskValues({
+      metro: metro?.value || null,
+      area: area?.value || null
+    }))
+  }, [dispatch, metro, area])
+
+  const onChangeMetro = (newValue: OnChangeValue<ISelectOption, boolean>) => {
+    setMetro(newValue as ISelectOption)
   }
 
-  const data = [
-    { id: 0, desc: "Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание..." },
-    { id: 1, desc: "Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание..." },
-    { id: 2, desc: "Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание..." }
-  ]
+  const onChangeArea = (newValue: OnChangeValue<ISelectOption, boolean>) => {
+    setArea(newValue as ISelectOption)
+  }
+
   return (
     <section className={classes.wrapper}>
       <div className={"container"}>
@@ -33,39 +74,40 @@ export const Rent: FC = () => {
             </div>
             <div className={classes.selectWrapper}>
               <Autocomplete
+                options={metroOptions}
                 placeholder={'Метро'}
                 classNames={classes.selectStyle}
-                onChange={onChangeHandler} />
+                onChange={onChangeMetro} />
               <Autocomplete
+                options={areaOptions}
                 placeholder={"Район"}
                 classNames={classes.selectStyle}
-                onChange={onChangeHandler} />
+                onChange={onChangeArea} />
             </div>
           </div>
 
           <Swiper
             modules={[Navigation]}
-            loop={true}
+            simulateTouch={false}
             slidesPerView={3}
             spaceBetween={30}
             navigation
           >
             {
-              data.map((card) =>
-                <SwiperSlide key={card.id}>
-                  <Card data={card} />
+              minskData?.map((flat) =>
+                <SwiperSlide key={flat.id}>
+                  <TiledCards data={flat} />
                 </SwiperSlide>
               )
             }
           </Swiper>
-
           <div className={classes.offers}>
             <div className={classes.row}>
-              <span>341</span>
+              <span>{minskData.length}</span>
               <span>+</span>
               <p>Предложений по Минску</p>
             </div>
-            <Link to={"/"} className={classes.seeAllBtn}>
+            <Link to={"/catalog"} className={classes.seeAllBtn}>
               Посмотреть все
             </Link>
           </div>

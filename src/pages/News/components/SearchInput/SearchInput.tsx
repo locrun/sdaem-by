@@ -1,3 +1,4 @@
+
 import { FC } from "react"
 import { createSearchParams } from "react-router-dom";
 import { Button } from "../../../../components/Button/Button"
@@ -9,6 +10,7 @@ interface IPropsSearchInput {
   value: string,
   setSearchParams: Function,
   onClick: () => void
+
 }
 
 export const SearchInput: FC<IPropsSearchInput> = (props) => {
@@ -26,7 +28,6 @@ export const SearchInput: FC<IPropsSearchInput> = (props) => {
           }}
         />
         <Button
-          type={"button"}
           className={classes.searchBtn}
           onClick={onClick}>
           <IconSvg

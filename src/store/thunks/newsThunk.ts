@@ -1,3 +1,4 @@
+import { NEWS_URL } from "../../constants/newsUrl";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 type News = {
@@ -12,15 +13,18 @@ type News = {
 
 export const fetchNews = createAsyncThunk<
   News[],
-  number,
+  undefined,
   { rejectValue: string }
->("news/fetchNews", async (pageCount, { rejectWithValue }) => {
-  const response = await fetch(
-    `https://62c1f527eff7f7856f17e0ab.mockapi.io/api/news/sdaem-by?page=${pageCount}&limit=9`
-  );
-  if (!response.ok) {
-    return rejectWithValue("Server Error!");
+>(
+  "news/fetchNews",
+
+  async (_, { rejectWithValue }) => {
+    const response = await fetch(`${NEWS_URL}`);
+    if (!response.ok) {
+      return rejectWithValue("Server Error!");
+    }
+    const data = await response.json();
+
+    return data;
   }
-  const data = await response.json();
-  return data;
-});
+);

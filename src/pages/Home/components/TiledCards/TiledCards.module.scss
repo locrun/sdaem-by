@@ -2,18 +2,26 @@
 
 .card {
   width: 406px;
-  background: #fffefe;
-
+  height: 522px;
   background: #fffefe;
   border-radius: 10px;
+  margin-bottom: 30px;
+  position: relative;
 
-  .imgWrapper {
+  & > .image {
+    width: 406px;
     height: 227px;
     background: #e4e2e2;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 10px;
+    & > img {
+      width: inherit;
+      height: inherit;
+      border-radius: inherit;
+      object-fit: cover;
+    }
   }
 }
 .cardData {
@@ -24,15 +32,14 @@
   content: "Gold";
   padding: 9px 12px;
   position: absolute;
-  right: 3px;
-  top: 0%;
+  top: 0;
+  right: 0;
   background: linear-gradient(106.06deg, #ffd54f 1.12%, #fec100 97.96%);
   border-radius: 0px 10px 10px 10px;
   font-weight: 700;
   font-size: 18px;
   line-height: 22px;
   color: #ffffff;
-  text-shadow: 0px 1px 0px rgba(147, 79, 0, 0.3);
 }
 
 .info {
@@ -143,10 +150,12 @@
     }
   }
 }
+.metroName {
+  margin-right: 30px;
+}
 .dot {
   width: 8px !important;
   height: 8px !important;
-  margin-left: 30px;
   margin-right: 5px !important;
 }
 .right {
@@ -154,10 +163,17 @@
   justify-content: center;
   align-items: center;
 }
-.iconPhone {
+.phoneIcon {
   width: 15px;
   height: 15px;
 }
+.heartIcon {
+  fill: rgba(235, 87, 87, 1);
+  &:hover {
+    fill: rgb(1, 177, 115);
+  }
+}
+
 .buttons {
   display: flex;
   justify-content: space-between;
@@ -166,13 +182,14 @@
   .contactsBtn {
     display: flex;
     flex-direction: row;
+    flex-flow: row-reverse;
     align-items: center;
     padding: 10px 15px;
     gap: 10px;
+    border-radius: 18px;
+
     background: #ffffff;
     box-shadow: 0px 5px 20px rgba(0, 96, 206, 0.1);
-    border-radius: 18px;
-    flex-flow: row-reverse;
     font-weight: 700;
     font-size: 14px;
     line-height: 17px;
@@ -180,21 +197,20 @@
   }
 
   .moreBtn {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
     padding: 10px 15px;
-    gap: 10px;
     background: rgba(255, 213, 79, 0.1);
     border-radius: 17px;
-
     font-weight: 700;
     font-size: 14px;
     line-height: 17px;
     color: #fec100;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+  }
+  .bookmarksBtn {
+    padding: 9px;
+    width: 33px;
+    height: 33px;
+    background: rgba(235, 87, 87, 0.1);
+    border-radius: 22px;
   }
 }
 .buttons:after {

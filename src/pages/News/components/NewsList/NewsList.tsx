@@ -13,6 +13,15 @@ interface IPropsNewsList {
 export const NewsList: FC<IPropsNewsList> = (props) => {
 
   const { newsList, mb, loading, error } = props
+
+  const scrollToTop = () => {
+    return window.scrollTo({
+      top: 200,
+      left: 0,
+      behavior: 'smooth'
+    })
+  }
+
   return (
     <div className={classes.newsCardList}>
       {error && <h1>Error Page:{error}</h1>}
@@ -38,8 +47,10 @@ export const NewsList: FC<IPropsNewsList> = (props) => {
                   <div className={classes.cardDate}>
                     {news.date}
                   </div>
-                  <Link to={`/news/detail/${news.id}`}
+                  <Link
+                    to={`/news/detail/${news.id}`}
                     className={classes.readBtn}
+                    onClick={() => scrollToTop()}
                   >
                     Читать
                   </Link >
@@ -52,6 +63,6 @@ export const NewsList: FC<IPropsNewsList> = (props) => {
 
       }
 
-    </div>
+    </div >
   )
 }

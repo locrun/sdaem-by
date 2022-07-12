@@ -1,30 +1,26 @@
 import { FC } from "react";
-import Select from "react-select";
+import Select, { ActionMeta, SingleValue } from "react-select";
 
+import { ISelectOption } from "../../Interfaces/ISelectOption";
 import classes from "./Autocomplete.module.scss";
 import cn from "classnames"
-const options = [
-  { value: 'Москва', label: 'Москва' },
-  { value: 'Казань', label: 'Казань' },
-  { value: 'Ленинград', label: 'Ленинград' },
-  { value: 'Дубай', label: 'Дубай' },
-  { value: 'Стамбул', label: 'Стамбул' }
-]
 
 interface ISelectProps {
-  placeholder: string,
-  classNames: string,
-  onChange: () => void;
-
+  placeholder?: string,
+  classNames?: string,
+  onChange?: ((newValue: SingleValue<ISelectOption>, actionMeta: ActionMeta<ISelectOption>) => void) | undefined;
+  options?: ISelectOption[]
+  value?: ISelectOption
 }
 export const Autocomplete: FC<ISelectProps> = (props) => {
-  const { placeholder, classNames, onChange } = props
+  const { placeholder, classNames, onChange, options, value } = props
   return (
     <Select
       className={cn(classes.input, classNames)}
+      options={options}
+      value={value}
       placeholder={placeholder}
       classNamePrefix={classNames}
-      options={options}
       onChange={onChange}
     />
   )

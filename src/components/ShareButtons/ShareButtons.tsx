@@ -13,51 +13,53 @@ import classes from "./ShareButtons.module.scss"
 
 
 interface IPropsShareButtons {
-  title: string | undefined
+  title?: string | undefined
 }
 
 export const ShareButtons: FC<IPropsShareButtons> = (props) => {
   const { title } = props
 
   return (
-    <div className={classes.social}>
-      <VKShareButton
-        url={"http://www.camperstribe.com"}
-        title={title}
-        className={classes.socialMediaButton}
-      >
-        <IconSvg id={"#vk"} className={classes.icon} />
-      </VKShareButton>
+    <div className={classes.share}>
+      <span>Поделиться</span>
+      <div className={classes.social}>
+        <VKShareButton
+          url={"http://www.camperstribe.com"}
+          title={title}
+          className={classes.socialMediaButton}
+        >
+          <IconSvg id={"#vk"} className={classes.icon} />
+        </VKShareButton>
 
-      <FacebookShareButton
-        url={"http://www.camperstribe.com"}
-        className={classes.socialMediaButton}
+        <FacebookShareButton
+          url={"http://www.camperstribe.com"}
+          className={classes.socialMediaButton}
 
-      >
-        <IconSvg id={"#fb"} className={classes.icon} />
-      </FacebookShareButton>
+        >
+          <IconSvg id={"#fb"} className={classes.icon} />
+        </FacebookShareButton>
 
-      <ViberShareButton
-        url={"http://www.camperstribe.com"}
-        className={classes.socialMediaButton}>
-        <IconSvg id={"#viber"} className={classes.icon} />
-      </ViberShareButton>
+        <ViberShareButton
+          url={"http://www.camperstribe.com"}
+          className={classes.socialMediaButton}>
+          <IconSvg id={"#viber"} className={classes.icon} />
+        </ViberShareButton>
 
-      <TelegramShareButton
-        url={"http://www.camperstribe.com"}
-        className={classes.socialMediaButton}
+        <TelegramShareButton
+          url={"http://www.camperstribe.com"}
+          className={classes.socialMediaButton}
 
-      >
-        <IconSvg id={"#telegram"} className={classes.icon} />
-      </TelegramShareButton>
+        >
+          <IconSvg id={"#telegram"} className={classes.icon} />
+        </TelegramShareButton>
 
-      <WhatsappShareButton
-        url={"http://www.camperstribe.com"}
-        className={classes.socialMediaButton}
-      >
-        <IconSvg id={"#whatsapp"} className={classes.icon} />
-      </WhatsappShareButton>
-
-    </div >
+        <WhatsappShareButton
+          url={"http://www.camperstribe.com"}
+          className={classes.socialMediaButton}
+        >
+          <IconSvg id={"#whatsapp"} className={classes.icon} />
+        </WhatsappShareButton>
+      </div >
+    </div>
   )
 }
