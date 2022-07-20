@@ -16,25 +16,23 @@ export const NewsList: FC<IPropsNewsList> = (props) => {
 
   const scrollToTop = () => {
     return window.scrollTo({
-      top: 200,
+      top: 0,
       left: 0,
       behavior: 'smooth'
     })
   }
-
   return (
     <div className={classes.newsCardList}>
       {error && <h1>Error Page:{error}</h1>}
-      {loading && <h1>Loading...</h1>}
       {
-        newsList.map((news) => {
+        newsList?.map((news) => {
           return (
             <div
               key={news.id}
               className={classes.card}
               style={{ marginBottom: mb }}>
               <div className={classes.cardImg}>
-                <img src={news.image} alt="картинка новости" />
+                <img src={`/${news.image}`} alt="картинка новости" />
               </div>
               <div className={classes.cardContent}>
                 <h4 className={classes.cardTitle}>
@@ -58,11 +56,8 @@ export const NewsList: FC<IPropsNewsList> = (props) => {
               </div>
             </div>
           )
-
         })
-
       }
-
     </div >
   )
 }

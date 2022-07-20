@@ -2,18 +2,18 @@ import { FC } from "react"
 
 import { IconSvg } from "../../../../components/IconSvg/IconSvg"
 import { Button } from "../../../../components/Button/Button"
-import { IFlats } from "../../../../Interfaces/IFlats"
+import { ICards } from "../../../../Interfaces/ICards"
 import classes from "./ListCards.module.scss"
 
-interface IPropsCard {
-  data: IFlats;
+interface IProps {
+  data: ICards;
   className?: string
 }
 
-export const ListCards: FC<IPropsCard> = (props) => {
+export const ListCards: FC<IProps> = (props) => {
 
   const { city, address, metro, area, image, price,
-    capacity, rooms, description } = props.data
+    capacity, rooms, description, type } = props.data
 
   return (
     <div className={classes.card}>
@@ -26,7 +26,7 @@ export const ListCards: FC<IPropsCard> = (props) => {
             <span className={classes.title}>{rooms}-комн. апартаменты на Грушевке</span>
             <p className={classes.address}>
               <IconSvg id={"#mark"} className={classes.locationIcon} />
-              {city}, {address}
+              {city}, {address || type}
             </p>
           </div>
           <div className={classes.price}>

@@ -8,13 +8,16 @@ interface IButtonProps {
   className?: string;
   disabled?: boolean;
   onClick?: () => void,
-  children?: JSX.Element;
+  children?: React.ReactNode | boolean;
+  type?: "button" | "submit" | "reset";
+  ref?: React.MutableRefObject<Node | undefined | null>
 }
 
 export const Button: FC<IButtonProps> = (props) => {
-  const { title, className, onClick, children } = props;
+  const { title, className, onClick, children, type } = props;
   return (
     <button
+      type={type}
       className={cn(classes.button, className)}
       onClick={onClick}
     >

@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 import { Autocomplete } from "../../../components/Autocomplete/Autocomplete"
 import { TiledCards } from "../components/TiledCards/TiledCards";
 
-import { useFilter } from "../../../hooks/useFilter";
+import { useApartmentsFilter } from "../../../hooks/useApartmentsFilter";
 import { getMinskValues } from "../../../store/reducers/flatReducer";
-import { flatFetch } from "../../../store/thunks/flatThunk";
+import { fetchFlat } from "../../../store/thunks/flatThunk";
 
 
 import { ISelectOption } from "../../../Interfaces/ISelectOption";
@@ -39,10 +39,10 @@ const areaOptions = [
 
 export const Rent: FC = () => {
   const dispatch = useAppDispatch()
-  const { minskData } = useFilter()
+  const { minskData } = useApartmentsFilter()
 
   useEffect(() => {
-    dispatch(flatFetch())
+    dispatch(fetchFlat())
   }, [dispatch])
 
   const [metro, setMetro] = useState<ISelectOption>()

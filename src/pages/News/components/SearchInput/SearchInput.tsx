@@ -10,7 +10,6 @@ interface IPropsSearchInput {
   value: string,
   setSearchParams: Function,
   onClick: () => void
-
 }
 
 export const SearchInput: FC<IPropsSearchInput> = (props) => {
@@ -18,7 +17,7 @@ export const SearchInput: FC<IPropsSearchInput> = (props) => {
   return (
     <div className={classes.flex}>
       <Title title={"Новости"} />
-      <form className={classes.searchForm} action="">
+      <form className={classes.searchForm}>
         <input className={classes.searchInput}
           type="text"
           placeholder="Поиск по статьям"
@@ -29,7 +28,9 @@ export const SearchInput: FC<IPropsSearchInput> = (props) => {
         />
         <Button
           className={classes.searchBtn}
-          onClick={onClick}>
+          onClick={onClick}
+          type={"button"}
+        >
           <IconSvg
             id={"#search"}
             className={classes.searchIcon} />

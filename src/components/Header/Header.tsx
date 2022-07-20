@@ -1,10 +1,13 @@
+import { FC } from 'react'
 import { Link } from 'react-router-dom'
 import { Logo } from '../Logo/Logo'
 import { IconSvg } from '../IconSvg/IconSvg'
 import { Button } from "../Button/Button"
 import { Navigation } from '../Navigation/Navigation'
+import { DropdownPage } from '../Dropdown/DropdownPage'
 import classes from './Header.module.scss'
-import React from 'react'
+
+
 
 const mainPages = [
   { id: 0, name: "Главная", path: "/" },
@@ -14,15 +17,8 @@ const mainPages = [
   { id: 4, name: "Контакты", path: "/contacts" },
 ];
 
-const categoryPages = [
-  { id: 0, name: "Квартиры на сутки", path: "/", isIcon: true, dropDown: true },
-  { id: 1, name: "Коттеджы и усадьбы", path: "/", },
-  { id: 2, name: "Бани и Сауны", path: "/" },
-  { id: 3, name: "Авто на прокат", path: "/" },
-];
 
-
-export const Header = () => {
+export const Header: FC = () => {
   return (
     <header>
       <div className={classes.topInner} >
@@ -47,12 +43,7 @@ export const Header = () => {
       <div className={classes.bottomInner}>
         <div className={classes.bottomHeaderContainer}>
           <Logo />
-          <Navigation
-            data={categoryPages}
-            display={"flex"}
-            iconStyles={classes.bottomMark}
-            className={classes.bottomNavitem}
-          />
+          <DropdownPage />
           <Button
             title="+ Разместить объявление"
             className={classes.placeBtn}

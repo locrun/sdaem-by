@@ -1,7 +1,7 @@
 import { FLAT_URL } from "../../constants/flatUrl";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-type flat = {
+type Flat = {
   id: number;
   city: string;
   address: string;
@@ -25,11 +25,11 @@ type flat = {
   flat: [];
 };
 
-export const flatFetch = createAsyncThunk<
-  flat[],
+export const fetchFlat = createAsyncThunk<
+  Flat[],
   string | undefined,
   { rejectValue: string }
->("flat/flatFetch", async (city, { rejectWithValue }) => {
+>("flat/fetchFlat", async (city, { rejectWithValue }) => {
   const response = await fetch(`${FLAT_URL}`);
   if (!response.ok) {
     return rejectWithValue("Server Error!");

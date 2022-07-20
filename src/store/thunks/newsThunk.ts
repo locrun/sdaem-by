@@ -15,16 +15,11 @@ export const fetchNews = createAsyncThunk<
   News[],
   undefined,
   { rejectValue: string }
->(
-  "news/fetchNews",
-
-  async (_, { rejectWithValue }) => {
-    const response = await fetch(`${NEWS_URL}`);
-    if (!response.ok) {
-      return rejectWithValue("Server Error!");
-    }
-    const data = await response.json();
-
-    return data;
+>("news/fetchNews", async (_, { rejectWithValue }) => {
+  const response = await fetch(`${NEWS_URL}`);
+  if (!response.ok) {
+    return rejectWithValue("Server Error!");
   }
-);
+  const data = await response.json();
+  return data;
+});

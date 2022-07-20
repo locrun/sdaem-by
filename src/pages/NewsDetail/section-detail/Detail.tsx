@@ -1,4 +1,4 @@
-import { FC, useEffect } from "react"
+import { FC, useState, useEffect } from "react"
 import { useParams } from "react-router"
 import { useAppDispatch, useAppSelector } from "../../../hooks/redux/redux-hooks"
 
@@ -15,6 +15,8 @@ export const Detail: FC = () => {
   const { id } = useParams()
   const dispatch = useAppDispatch()
 
+
+
   const { news, loading, error } = useAppSelector(state => state.news)
 
   useEffect(() => {
@@ -22,8 +24,8 @@ export const Detail: FC = () => {
   }, [dispatch])
 
 
-  const detail = news?.find((news) => news.id === Number(id));
-
+  const detail = news.find((news) => news.id === Number(id));
+  console.log(detail?.image)
   return (
     <section className={classes.wrapper}>
       <div className={cn("container", classes.container)}>
@@ -46,7 +48,7 @@ export const Detail: FC = () => {
         {detail &&
           <>
             <div className={classes.newsImg}>
-              <img src={detail.image} alt="картинка" />
+              <img src={`/${detail.image}`} alt="картинка" />
             </div>
             <div>
               <p className={classes.fullText}>{detail.fullText}</p>

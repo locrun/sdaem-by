@@ -6,17 +6,23 @@ type INewsState = {
   news: INews[];
   loading: boolean;
   error: string | null;
+  searchFilterValue: string;
 };
 
 const initialState: INewsState = {
   news: [],
   loading: false,
   error: null,
+  searchFilterValue: "",
 };
 const newsSlice = createSlice({
   name: "news",
   initialState,
-  reducers: {},
+  reducers: {
+    setFilterValue(state, action) {
+      state.searchFilterValue = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchNews.pending, (state) => {
@@ -34,6 +40,7 @@ const newsSlice = createSlice({
   },
 });
 
+export const { setFilterValue } = newsSlice.actions;
 export default newsSlice.reducer;
 
 function isError(action: AnyAction) {

@@ -1,26 +1,30 @@
 import { useState, useEffect } from "react";
 import { useAppSelector } from "./redux/redux-hooks";
-import { IFlats } from "../Interfaces/IFlats";
 
-export const usePagination = (displayPerPage: number, data: IFlats[]) => {
-  const { values } = useAppSelector((state) => state.flat);
+export const usePagination = (displayPerPage: number, data: any) => {
+  const { flatsData } = useAppSelector((state) => state.flat);
+  const { searchFilterValue } = useAppSelector((state) => state.news);
 
   const [forcePage, setForcePage] = useState(1);
+  const [showPerPage, setShowPerPage] = useState(6);
 
-  const [showPerPage] = useState(displayPerPage);
+  useEffect(() => {
+    setForcePage(1);
+    setShowPerPage(displayPerPage);
+  }, [displayPerPage]);
 
   const lastIndex = forcePage * showPerPage;
 
   const firstIndex = lastIndex - showPerPage;
 
-  const slicedArray = data.slice(firstIndex, lastIndex);
+  const slicedArray = data?.slice(firstIndex, lastIndex);
 
   useEffect(() => {
     setForcePage(1);
-  }, [values]);
+  }, [flatsData, searchFilterValue]);
 
   const pageCount = [];
-  for (let i = 0; i < Math.ceil(data.length / showPerPage); i++) {
+  for (let i = 0; i < Math.ceil(data?.length / showPerPage); i++) {
     pageCount.push(i);
   }
 

@@ -6,13 +6,15 @@ interface IPropsTitle {
   title: string,
   fontSize?: string,
   lineHeight?: string
+  color?: string
 }
 
 export const Title: FC<IPropsTitle> = (props) => {
-  const { title, fontSize, lineHeight } = props
+  const { title, fontSize, lineHeight, color } = props
   const styles = {
     fontSize,
-    lineHeight
+    lineHeight,
+    color
   }
   return (
     <span

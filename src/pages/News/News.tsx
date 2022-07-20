@@ -1,57 +1,26 @@
-import { FC, useEffect, useState } from "react"
+import { FC } from "react"
 
-import { useAppDispatch, useAppSelector } from "../../hooks/redux/redux-hooks"
 import { useSearchParams } from "react-router-dom"
 
 import { Breadcrumbs } from "../../components/Breadcrumbs/Breadcrumbs"
 import { SearchInput } from "./components/SearchInput/SearchInput"
-import { NewsList } from "./components/NewsList/NewsList"
+
+import { usePagination } from "../../hooks/usePagination"
 import { Pagination } from "../../components/Pagination/Pagination"
+import { NewsList } from "./components/NewsList/NewsList"
 
-import classes from "./News.module.scss"
+
+import { useArticleSearch } from "../../hooks/useArticleSearch"
 import cn from "classnames"
-
-import { fetchNews } from "../../store/thunks/newsThunk"
+import classes from "./News.module.scss"
 
 
 export const News: FC = () => {
-
-  const { news, loading, error } = useAppSelector(state => state.news);
-  const dispatch = useAppDispatch();
-  console.log(news)
-
   const [searchParams, setSearchParams] = useSearchParams("");
-  let filterValue = searchParams.get("filter") || ""
+  let valueFromUrlParams = searchParams.get("filter") || ''
 
-
-  // const [currentPage, setCurrentPage] = useState(1)
-  // const [newsPerPage] = useState(9);
-
-
-  // useEffect(() => {
-  //   dispatch(fetchNews({ currentPage, newsPerPage, filterValue: '' }))
-  // }, [dispatch, currentPage, newsPerPage])
-
-  // useEffect(() => {
-  //   if (filterValue === '') {
-  //     dispatch(fetchNews({ currentPage, newsPerPage, filterValue }))
-  //   }
-  // }, [dispatch, currentPage, newsPerPage, filterValue])
-
-
-  // const handlerClickSearchArticle = () => {
-  //   if (filterValue !== "") {
-  //     dispatch(fetchNews( filterValue ))
-  //   }
-  // }
-
-  // const handlePageChange = ({ selected }: any) => {
-  //   setCurrentPage(selected + 1)
-  // }
-  const [currentPage, setCurrentPage] = useState(1);
-  const handlePageChange = ({ selected }: any) => {
-    setCurrentPage(selected + 1)
-  }
+  const { handleArticleSearch, filteredData } = useArticleSearch(valueFromUrlParams)
+  const { handlePageChange, pageCount, slicedArray, forcePage } = usePagination(9, filteredData)
 
 
   return (
@@ -60,19 +29,20 @@ export const News: FC = () => {
         <div>
           <Breadcrumbs name={"Новости"} marginBottom={"25px"} />
           <SearchInput
-            value={filterValue}
+            value={valueFromUrlParams}
             setSearchParams={setSearchParams}
-            onClick={() => "handlerClickSearchArticle"}
+            onClick={handleArticleSearch}
           />
           <NewsList
-            newsList={news}
-            loading={loading}
-            error={error}
+            newsList={slicedArray}
+          // loading={loading}
+          // error={error}
           />
         </div>
         <div className={classes.mt}>
           <Pagination
-            pageCount={9}
+            forcePage={forcePage - 1}
+            pageCount={pageCount.length}
             onChange={handlePageChange}
           />
         </div>
@@ -80,3 +50,5 @@ export const News: FC = () => {
     </section>
   )
 }
+
+

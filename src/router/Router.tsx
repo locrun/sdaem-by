@@ -13,14 +13,14 @@ export const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="" element={<Layout />}>
+        <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="news" element={<News />} />
           <Route path="/news/detail/:id" element={<NewsDetail />} />
           <Route path="ads" element={<Ads />} />
           <Route path="rate" element={<Rate />} />
           <Route path="contacts" element={<Contacts />} />
-          <Route path="catalog" element={<Catalog />} />
+          <Route path="catalog/:type" element={<Catalog />} />
           <Route path="404" element={<NotFound />} />
         </Route>
         <Route path="*" element={<Navigate to="/" />} />

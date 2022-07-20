@@ -1,36 +1,49 @@
 import { FC, useState, useEffect } from "react"
+import { useLocation } from "react-router"
 import { useAppDispatch, useAppSelector } from "../../hooks/redux/redux-hooks"
-import { getFilterValues } from "../../store/reducers/flatReducer"
-
-import { Pagination } from "../../components/Pagination/Pagination"
 
 import { Autocomplete } from "../../components/Autocomplete/Autocomplete"
-import { Filter } from "../../components/Filter/Filter"
 import { Title } from "../../components/Title/Title"
 import { Breadcrumbs } from "../../components/Breadcrumbs/Breadcrumbs"
 import { TiledCards } from "../Home/components/TiledCards/TiledCards"
 import { ListCards } from "../Home/components/ListCards/ListCards"
+import { Pagination } from "../../components/Pagination/Pagination"
+import { Filter } from "../../components/Filter/Filter"
 import { Button } from "../../components/Button/Button"
 import { ShareButtons } from "../../components/ShareButtons/ShareButtons"
 import { IconSvg } from "../../components/IconSvg/IconSvg"
 
-import { useFilter } from "../../hooks/useFilter"
+import { useCottagesFilter } from "../../hooks/useCottagesFilter"
+import { useApartmentsFilter } from "../../hooks/useApartmentsFilter"
+import { useBathsFilter } from "../../hooks/useBathsFilter"
+import { useCarsFilter } from "../../hooks/useCarsFilter"
 import { usePagination } from "../../hooks/usePagination"
+
+import { getDataFlats } from "../../store/reducers/flatReducer"
+import { getDataCottages } from "../../store/reducers/cottagesReducer"
+
+import { fetchCottages } from "../../store/thunks/cottagesThunk"
+import { fetchFlat } from "../../store/thunks/flatThunk"
+
 
 import cn from "classnames"
 import classes from "./Catalog.module.scss"
+import { ICards } from "../../Interfaces/ICards"
+
+
 
 
 type TagsButton = {
   room?: string,
   area?: string
 }
-const tagsButton = [
+const tagsButtons = [
   { name: "1-комнатные", value: { room: '1' } },
   { name: "2-комнатные", value: { room: '2' } },
   { name: "3-комнатные", value: { room: '3' } },
   { name: "4-комнатные", value: { room: '4' } },
   { name: "5-комнатные", value: { room: '5' } },
+  { name: "Шабаны р.", value: { area: 'Шабаны' } },
   { name: "Заводской р.", value: { area: 'Заводской' } },
   { name: "Ленинский р.", value: { area: 'Ленинский' } },
   { name: "Московский р.", value: { area: 'Московский' } },
@@ -48,33 +61,76 @@ const options = [
 ]
 export const Catalog: FC = () => {
 
-  const { filteredData } = useFilter()
-
-  const { pageCount, slicedArray, handlePageChange, forcePage }
-    = usePagination(3, filteredData)
-
-
+  const location = useLocation()
   const dispatch = useAppDispatch()
-  const { values } = useAppSelector(state => state.flat)
 
+  const { filteredApartmentsData } = useApartmentsFilter()
+  const { filteredCottagesData } = useCottagesFilter()
+  const { filteredBathsData } = useBathsFilter()
+  const { filteredCarsData } = useCarsFilter()
+
+  const { flatsData } = useAppSelector(state => state.flat)
+  const { cottagesData } = useAppSelector(state => state.cottages)
 
   const [active, setActive] = useState<number>()
-  const [isActive, setIsActive] = useState('tiles')
+  const [isActive, setIsActive] = useState<string>('tiles')
+
+
+  const [array, setArray] = useState<any[]>([])
+
+  const displayPerPage = isActive === "tiles" ? 6 : 3
+  const { pageCount, slicedArray, handlePageChange, forcePage }
+    = usePagination(displayPerPage, array)
+
+
+
+  useEffect(() => {
+    if (location.pathname === '/catalog/flats') {
+      dispatch(fetchFlat())
+    }
+    if (location.pathname === '/catalog/cottages') {
+      dispatch(fetchCottages())
+    }
+  }, [dispatch, location.pathname])
+
+  useEffect(() => {
+    switch (location.pathname) {
+      case "/catalog/flats":
+        return setArray(filteredApartmentsData);
+      case "/catalog/cottages":
+        return setArray(filteredCottagesData)
+      case "/catalog/baths":
+        return setArray(filteredBathsData)
+      case "/catalog/cars":
+        return setArray(filteredCarsData)
+      default:
+        setArray(filteredApartmentsData);
+    }
+  }, [location, filteredApartmentsData, filteredCottagesData, filteredBathsData, filteredCarsData])
+
+
 
   const clickHandler = (tagValue: TagsButton) => {
     if (tagValue.room) {
-      dispatch(getFilterValues({
-        ...values,
+      dispatch(getDataFlats({
+        ...flatsData,
+        rooms: tagValue.room
+      }))
+      dispatch(getDataCottages({
+        ...cottagesData,
         rooms: tagValue.room
       }))
     }
     if (tagValue.area) {
-      dispatch(getFilterValues({
-        ...values,
+      dispatch(getDataFlats({
+        ...flatsData,
+        area: tagValue.area
+      }))
+      dispatch(getDataCottages({
+        ...cottagesData,
         area: tagValue.area
       }))
     }
-
   }
 
 
@@ -88,7 +144,7 @@ export const Catalog: FC = () => {
             <p>Рекомендуем посмотреть</p>
             <div className={classes.tagsFlex}>
               {
-                tagsButton?.map((tag, index) => (
+                tagsButtons?.map((tag, index) => (
                   <Button
                     key={tag.name}
                     title={tag.name}
@@ -142,22 +198,21 @@ export const Catalog: FC = () => {
       <div className="container">
         {isActive === "tiles" ?
           <div className={classes.tilesCardWrapper}>
-            {slicedArray.map(flat =>
+            {slicedArray.map((items: ICards) =>
               <TiledCards
-                key={flat.id}
-                data={flat}
+                key={items.id}
+                data={items}
                 className={classes.shadow}
               />
             )}
           </div>
           :
           <div className={classes.listCardWrapper}>
-            {slicedArray.map(flat =>
+            {slicedArray.map((items: ICards) =>
               <ListCards
-                key={flat.id}
-                data={flat}
-                className={classes.shadow}
-              />
+                key={items.id}
+                data={items}
+                className={classes.shadow} />
             )}
           </div>
         }

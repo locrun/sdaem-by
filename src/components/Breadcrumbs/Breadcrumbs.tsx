@@ -24,7 +24,9 @@ export const Breadcrumbs: FC<IPropsBreadcrumbs> = (props) => {
     >
       <Link to={"/news"} className={classes.breadcrumbsLink}>
         <IconSvg id={"#home-run"} className={cn(!fill ? classes.homeRun : fill)} />
-        {children && <span className={classes.children}>{children}</span>}
+        {
+          children && <span className={classes.children}>{children}</span>
+        }
       </Link>
       <IconSvg id={"#dot"} className={classes.dot} />
       <span>{name}</span>

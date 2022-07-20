@@ -1,13 +1,12 @@
 import { createSlice, AnyAction, PayloadAction } from "@reduxjs/toolkit";
-import { flatFetch } from "../thunks/flatThunk";
+import { fetchFlat } from "../thunks/flatThunk";
 import { IFlats } from "../../Interfaces/IFlats";
 
 type IFlatState = {
   flat: IFlats[];
   loading: boolean;
   error: string | null;
-
-  values: {
+  flatsData: {
     cityName: null | string;
     rooms: null | string;
     minPrice: null | string;
@@ -26,8 +25,8 @@ const initialState: IFlatState = {
   flat: [],
   loading: false,
   error: null,
-  values: {
-    cityName: "Минск",
+  flatsData: {
+    cityName: null,
     rooms: null,
     minPrice: null,
     maxPrice: null,
@@ -43,22 +42,21 @@ const flatSlice = createSlice({
   name: "flat",
   initialState,
   reducers: {
-    getFilterValues(state, action) {
+    getDataFlats(state, action) {
       console.log(action);
-      state.values = action.payload;
+      state.flatsData = action.payload;
     },
     getMinskValues(state, action) {
-      console.log(action);
       state.minsk = action.payload;
     },
   },
   extraReducers: (builder) => {
     builder
-      .addCase(flatFetch.pending, (state) => {
+      .addCase(fetchFlat.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
-      .addCase(flatFetch.fulfilled, (state, action) => {
+      .addCase(fetchFlat.fulfilled, (state, action) => {
         state.flat = action.payload;
         state.loading = false;
       })
@@ -69,7 +67,7 @@ const flatSlice = createSlice({
   },
 });
 
-export const { getFilterValues, getMinskValues } = flatSlice.actions;
+export const { getDataFlats, getMinskValues } = flatSlice.actions;
 export default flatSlice.reducer;
 function isError(action: AnyAction) {
   return action.type.endsWith("rejected");

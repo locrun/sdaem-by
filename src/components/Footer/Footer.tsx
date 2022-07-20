@@ -12,9 +12,9 @@ const pages = [
 ];
 
 const products = [
-  { id: 0, name: "Коттеджы и усадьбы", path: "/" },
-  { id: 1, name: "Бани и сауны", path: "/" },
-  { id: 2, name: "Авто на прокат", path: "/" },
+  { id: 0, name: "Коттеджы и усадьбы" },
+  { id: 1, name: "Бани и сауны" },
+  { id: 2, name: "Авто на прокат" },
 ]
 
 const flats = [
@@ -61,7 +61,8 @@ export const Footer = () => {
               <Navigation
                 data={pages}
                 display={"block"}
-                className={classes.footerNavItem} />
+                className={classes.item}
+              />
             </div>
             <div className={classes.bottomRow}>
               <Social />

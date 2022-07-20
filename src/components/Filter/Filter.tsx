@@ -1,18 +1,25 @@
-import { FC, useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux/redux-hooks"
 
-import { getFilterValues } from "../../store/reducers/flatReducer";
-import { ISelectOption } from "../../Interfaces/ISelectOption";
+import { getDataFlats } from "../../store/reducers/flatReducer";
+import { getDataCottages } from "../../store/reducers/cottagesReducer";
+
+
+import { ExtraOptions } from "./ExtraOptions/ExtraOptions";
 import { Autocomplete } from "../Autocomplete/Autocomplete";
 import { OnChangeValue } from "react-select";
+
+import { ISelectOption } from "../../Interfaces/ISelectOption";
 
 import { IconSvg } from "../IconSvg/IconSvg";
 import { Button } from "../Button/Button";
 
-import option from "../../assets/images/options.svg"
+
+
 import classes from "./Filter.module.scss";
 import cn from "classnames"
+
 
 const cityOptions = [
   { value: 'Минск', label: 'Минск' },
@@ -20,7 +27,7 @@ const cityOptions = [
   { value: 'Гродно', label: 'Гродно' },
   { value: 'Могилев', label: 'Могилев' },
   { value: 'Брест', label: 'Брест' },
-  //{ value: 'Витебск', label: 'Витебск' }
+
 ]
 const roomsOptions = [
   { value: '1', label: '1' },
@@ -30,18 +37,28 @@ const roomsOptions = [
   { value: '5', label: '5' }
 ]
 
+const cottagesType = [
+  { value: 'Агроусадьба', label: 'Агроусадьба' },
+  { value: 'Коттедж на сутки', label: 'Коттедж на сутки' },
+  { value: 'Загородный комплекс', label: 'Загородный комплекс' },
+  { value: 'База отдыха', label: 'База отдыха' },
+]
 export const Filter: FC = () => {
   const location = useLocation()
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
-  const { values } = useAppSelector(state => state.flat)
+  const { flatsData } = useAppSelector(state => state.flat)
+  const { cottagesData } = useAppSelector(state => state.cottages)
 
-  const isPathName = location.pathname === '/' ? true : false
+  const homePath = location.pathname === '/' ? true : false
+  const cottagesPath = location.pathname === "/catalog/cottages" ? true : false
+  const flatsPath = location.pathname === "/catalog/flats" ? true : false
 
   const [min, setMin] = useState('')
   const [max, setMax] = useState('')
   const [city, setCity] = useState<ISelectOption>()
   const [rooms, setRooms] = useState<ISelectOption>()
+  const [type, setType] = useState<ISelectOption>()
 
   const onChangeCity = (newValue: OnChangeValue<ISelectOption, boolean>) => {
     setCity(newValue as ISelectOption)
@@ -49,119 +66,172 @@ export const Filter: FC = () => {
   const onChangeRooms = (newValue: OnChangeValue<ISelectOption, boolean>) => {
     setRooms(newValue as ISelectOption)
   }
+  const onChangeType = (newValue: OnChangeValue<ISelectOption, boolean>) => {
+    setType(newValue as ISelectOption)
+  }
 
   useEffect(() => {
-    if (values.cityName) {
-      setCity({ value: values.cityName, label: values.cityName })
+    if (flatsData.cityName && !cottagesPath) {
+      setCity({ value: flatsData.cityName, label: flatsData.cityName })
     }
-    if (values.rooms) {
-      setRooms({ value: values.rooms, label: values.rooms })
+    if (flatsData.rooms && !cottagesPath) {
+      setRooms({ value: flatsData.rooms, label: flatsData.rooms })
     }
-    if (values.minPrice) {
-      setMin(values.minPrice)
-    }
-    if (values.maxPrice) {
-      setMax(values.maxPrice)
-    }
-  }, [values.cityName, values.rooms, values.minPrice, values.maxPrice])
 
-  const onClickHandler = () => {
-    dispatch(getFilterValues({
-      minPrice: min || values.minPrice,
-      maxPrice: max || values.maxPrice,
-      cityName: city?.value || values.cityName,
-      rooms: rooms?.value || values.rooms
-    }))
-    return navigate("/catalog")
+    if (flatsData.minPrice && !cottagesPath) {
+      setMin(flatsData.minPrice)
+    } else {
+      setMin('')
+    }
+
+    if (flatsData.maxPrice && !cottagesPath) {
+      setMax(flatsData.maxPrice)
+    } else {
+      setMax('')
+    }
+
+    if (cottagesData.type) {
+      setType({ value: cottagesData.type, label: cottagesData.type })
+    }
+    if (cottagesData.maxPrice && cottagesPath) {
+      setMax(cottagesData.maxPrice)
+    }
+    if (cottagesData.minPrice && cottagesPath) {
+      setMin(cottagesData.minPrice)
+    }
+
+  }, [flatsData.cityName, flatsData.rooms, flatsData.minPrice, flatsData.maxPrice, cottagesPath, cottagesData.type, cottagesData.maxPrice, cottagesData.minPrice])
+
+
+  const onHandleDispatchToProps = () => {
+    if (homePath || flatsPath)
+      dispatch(getDataFlats({
+        cityName: city?.value || flatsData.cityName,
+        rooms: rooms?.value || flatsData.rooms,
+        minPrice: min || flatsData.minPrice,
+        maxPrice: max || flatsData.maxPrice,
+      }))
+
+    if (cottagesPath)
+      dispatch(getDataCottages({
+        cityName: cottagesData.cityName,
+        rooms: cottagesData.rooms,
+        type: type?.value || cottagesData.type,
+        minPrice: min || cottagesData.minPrice,
+        maxPrice: max || cottagesData.maxPrice,
+      }))
   }
+
   return (
     <>
-      <div className={cn(classes.filter, {
-        [classes.filterTransform]: !isPathName
+      <div className={cn(classes.wrapper, {
+        [classes.wrapperTransform]: !homePath
       })}>
+        <div className={classes.filters}>
+          {homePath &&
+            <div className={classes.autocomplete}>
+              <span className={classes.label}>Город</span>
+              <Autocomplete
+                value={city}
+                options={cityOptions}
+                placeholder={"Выберите"}
+                onChange={onChangeCity}
+                classNames={classes.select}
+              />
+            </div>
+          }
 
-        {isPathName &&
-          <div className={classes.itemColumn}>
-            <span className={classes.label}>Город</span>
-            <Autocomplete
-              value={city}
-              options={cityOptions}
-              placeholder={"Выберите"}
-              onChange={onChangeCity}
-              classNames={classes.select}
-            />
+          <div className={cn(classes.autocomplete, {
+            [classes.autocompleteTransform]: !homePath
+          })}>
+            {flatsPath || homePath ? <>
+              <span className={classes.label}>Комнаты</span>
+              <Autocomplete
+                value={rooms}
+                options={roomsOptions}
+                placeholder={"Выберите"}
+                onChange={onChangeRooms}
+                classNames={classes.select}
+              />
+            </> : null
+            }
+            {cottagesPath &&
+              <>
+                <span className={classes.label}>Тип</span>
+                <Autocomplete
+                  value={type}
+                  options={cottagesType}
+                  placeholder={"Выберите"}
+                  onChange={onChangeType}
+                  classNames={classes.select}
+                />
+              </>
+            }
           </div>
-        }
-
-        <div className={cn(classes.itemColumn, {
-          [classes.itemColumnTransform]: !isPathName
-        })}>
-          <span className={classes.label}>Комнаты</span>
-          <Autocomplete
-            value={rooms}
-            options={roomsOptions}
-            placeholder={"Выберите"}
-            onChange={onChangeRooms}
-            classNames={classes.select}
-          />
-        </div>
-        <div className={cn(classes.itemColumn, {
-          [classes.itemColumnTransform]: !isPathName
-        })}>
-          <span className={classes.label}>Цена за сутки (BYN)</span>
-          <div className={classes.inputwrapper}>
-            <input
-              value={min}
-              className={classes.from}
-              type="text"
-              placeholder="От"
-              onChange={(e) => setMin(e.target.value)}
-              minLength={2}
-              maxLength={4}
-            />
-            <span>-</span>
-            <input
-              value={max}
-              className={classes.to}
-              type="text"
-              placeholder="До"
-              onChange={(e) => setMax(e.target.value)}
-              minLength={2}
-              maxLength={4}
-            />
+          <div className={cn(classes.autocomplete, {
+            [classes.Transform]: !homePath
+          })}>
+            <span className={classes.label}>Цена за сутки (BYN)</span>
+            <span>
+              <input
+                value={min}
+                className={classes.from}
+                type="text"
+                placeholder="От"
+                onChange={(e) => setMin(e.target.value)}
+                minLength={2}
+                maxLength={4}
+              />
+              <span>-</span>
+              <input
+                value={max}
+                className={classes.to}
+                type="text"
+                placeholder="До"
+                onChange={(e) => setMax(e.target.value)}
+                minLength={2}
+                maxLength={4}
+              />
+            </span>
           </div>
         </div>
-        <div className={cn(classes.itemColumn, classes.option)}>
-          <button className={classes.optionButton}>Больше опций
-            <img className={classes.icn} src={option} alt="icn" />
-          </button>
+        <div className={classes.buttons}>
+          <Button className={cn(classes.optionsButton, {
+            [classes.optionsButtonTransform]: !homePath
+          })} onClick={() => console.log("click")}>
+            Больше опций
+            <IconSvg id={"#options"} className={classes.optionsIcon} />
+          </Button>
+          {homePath &&
+            <Button className={classes.mapButton}>
+              На карте
+              <IconSvg id={"#mark"} className={classes.mark} />
+            </Button>
+          }
+          {!homePath &&
+            <Button
+              title={"Очистить"}
+              className={classes.clearBtn}
+              onClick={() => console.log('clear filter data')}
+            />}
+
+          {!homePath ?
+            <Button
+              title={"Показать объекты"}
+              className={classes.showSelectedBtn}
+              onClick={onHandleDispatchToProps}
+            />
+            :
+            <Button
+              title="Показать"
+              className={classes.showAllBtn}
+              onClick={() => { navigate("/catalog/flats"); onHandleDispatchToProps() }}
+            />
+          }
         </div>
-
-        {isPathName &&
-          <div className={classes.onmap}>
-            <button className={classes.mapButton}>На карте</button>
-            <IconSvg id={"#mark"} className={classes.mark} />
-          </div>
-        }
-        {!isPathName &&
-          <Button
-            title={"Очистить"}
-            className={classes.clearBtn}
-            onClick={onClickHandler}
-          />}
-
-        {!isPathName ?
-          <Button
-            title={"Показать объекты"}
-            className={classes.showBtn}
-            onClick={onClickHandler}
-          />
-          :
-          <Button
-            title="Показать"
-            className={classes.btn}
-            onClick={onClickHandler} />
-        }
+      </div>
+      <div>
+        <ExtraOptions />
       </div>
     </>
   )
