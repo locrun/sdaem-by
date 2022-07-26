@@ -13,10 +13,14 @@
   background: none;
   position: relative;
   border-bottom: 3px solid #ffffff;
+
+  &:last-child {
+    margin-right: 0;
+  }
 }
 .icon {
   fill: #ffd54f;
-  width: 12px;
+  width: 15px;
   height: 15px;
   margin-left: 15px;
 }

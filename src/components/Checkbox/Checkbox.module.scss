@@ -1,0 +1,41 @@
+@import "../../styles/variables/variables.scss";
+
+.checkboxList {
+  width: 248px;
+  margin-left: 2px;
+
+  & > li {
+    margin-bottom: 10px;
+  }
+}
+.customCheckbox {
+  display: none;
+}
+.customCheckbox + label {
+  display: flex;
+  align-items: flex-end;
+  user-select: none;
+  position: relative;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: $black-gray;
+}
+.customCheckbox + label::before {
+  content: "";
+  width: 18px;
+  height: 18px;
+  background: #664ef9;
+  border-radius: 5px;
+  margin-right: 10px;
+  border: 1px solid #664ef9;
+}
+.customCheckbox:checked + label::after {
+  content: url(../../assets/images/check.svg);
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

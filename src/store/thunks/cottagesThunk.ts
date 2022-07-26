@@ -2,17 +2,21 @@ import { COTTAGES_URL } from "../../constants/cottagesUrl";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 type Cottages = {
-  id: number;
-  image: string;
-  city: string;
-  type: string;
-  price: string;
-  capacity: string;
-  rooms: string;
-  square: string;
-  label: string;
-  description: string;
+  items: {
+    id: number;
+    image: string;
+    city: string;
+    type: string;
+    price: string;
+    capacity: string;
+    rooms: string;
+    square: string;
+    label: string;
+    description: string;
+  }[];
+
   cottages: [];
+  typeOptions: [{ value: string; label: string }];
 };
 
 export const fetchCottages = createAsyncThunk<

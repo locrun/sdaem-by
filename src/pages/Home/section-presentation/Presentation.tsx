@@ -5,6 +5,7 @@ import client from "../../../assets/images/client.svg"
 import raise from "../../../assets/images/raise.svg"
 import cn from "classnames"
 import classes from "./Presentation.module.scss"
+import { OpenMapButton } from "../../../components/OpenMapButton/OpenMapButton"
 
 const data = [
   {
@@ -36,9 +37,7 @@ export const Presentation: FC = () => {
         <div className={classes.searchBlock}>
           <h3 className={classes.title}>Поиск квартир по карте</h3>
           <p className={classes.subtitle}>Ищите квартиры на сутки в центре города, возле парка или в живописном районе</p>
-          <Button title={"Открыть карту"} className={classes.openMapBtn}>
-            <IconSvg id={"#mark"} className={classes.mark} />
-          </Button>
+          <OpenMapButton />
         </div>
         <div className={classes.presentationsBlock}>
           {
@@ -53,7 +52,9 @@ export const Presentation: FC = () => {
                   <h4 className={classes.cardTitle}>{card.title}</h4>
                 </div>
                 <div className={classes.cardSubtitle}>{card.subtitle.paragraph}</div>
-                <Button title={card.btnName} className={card.styleButton} />
+                <Button className={card.styleButton} >
+                  {card.btnName}
+                </Button>
               </div>
             )
           }

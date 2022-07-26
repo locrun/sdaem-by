@@ -2,7 +2,9 @@ import { useState, useEffect } from "react";
 import { useAppSelector } from "./redux/redux-hooks";
 
 export const usePagination = (displayPerPage: number, data: any) => {
-  const { flatsData } = useAppSelector((state) => state.flat);
+  const { flatsData } = useAppSelector((state) => state.flats);
+  const { cottagesData } = useAppSelector((state) => state.cottages);
+  const { bathsData } = useAppSelector((state) => state.baths);
   const { searchFilterValue } = useAppSelector((state) => state.news);
 
   const [forcePage, setForcePage] = useState(1);
@@ -21,7 +23,7 @@ export const usePagination = (displayPerPage: number, data: any) => {
 
   useEffect(() => {
     setForcePage(1);
-  }, [flatsData, searchFilterValue]);
+  }, [flatsData, cottagesData, bathsData, searchFilterValue]);
 
   const pageCount = [];
   for (let i = 0; i < Math.ceil(data?.length / showPerPage); i++) {

@@ -16,8 +16,7 @@ interface IPropsShareButtons {
   title?: string | undefined
 }
 
-export const ShareButtons: FC<IPropsShareButtons> = (props) => {
-  const { title } = props
+export const ShareButtons: FC<IPropsShareButtons> = ({ title }) => {
 
   return (
     <div className={classes.share}>

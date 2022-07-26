@@ -4,7 +4,7 @@ import { useParams } from "react-router"
 import { useAppDispatch, useAppSelector } from "../../../hooks/redux/redux-hooks"
 
 import { Title } from "../../../components/Title/Title"
-import { NewsList } from "../../News/components/NewsList/NewsList"
+import { NewsList } from "../../../components/NewsList/NewsList"
 
 import classes from "./ReadMore.module.scss"
 import cn from "classnames"
@@ -29,10 +29,12 @@ export const ReadMore = () => {
     <section className={classes.wrapper}>
       <div className={cn("container", classes.container)}>
         <div className={classes.title}>
-          <Title title={"Читайте также"} />
+          <Title  >
+            Читайте также
+          </Title>
         </div>
         <NewsList newsList={list} mb={"0"} />
       </div>
-    </section>
+    </section >
   )
 }

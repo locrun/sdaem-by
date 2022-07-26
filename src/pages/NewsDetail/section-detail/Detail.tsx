@@ -36,7 +36,9 @@ export const Detail: FC = () => {
         >
           <span className={classes.color}>Новости</span>
         </Breadcrumbs >
-        <Title title={detail ? detail.title : '...loading'} />
+        <Title>
+          {detail ? detail.title : '...loading'}
+        </Title>
         <div className={classes.flex}>
           <div className={classes.date}>
             {detail ? detail.date : '14 Января 2008'}

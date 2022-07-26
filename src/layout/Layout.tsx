@@ -4,7 +4,7 @@ import { Footer } from "../components/Footer/Footer";
 
 export const Layout = () => {
   return (
-    <div className={"main-layout"}>
+    <div className="main-layout">
       <Header />
       <main >
         <Outlet />

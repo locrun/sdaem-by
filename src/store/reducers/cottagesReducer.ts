@@ -31,7 +31,7 @@ const cottagesSlice = createSlice({
   name: "cottages",
   initialState,
   reducers: {
-    getDataCottages(state, action) {
+    setCottages(state, action) {
       console.log(action);
       state.cottagesData = action.payload;
     },
@@ -53,7 +53,7 @@ const cottagesSlice = createSlice({
   },
 });
 
-export const { getDataCottages } = cottagesSlice.actions;
+export const { setCottages } = cottagesSlice.actions;
 export default cottagesSlice.reducer;
 function isError(action: AnyAction) {
   return action.type.endsWith("rejected");

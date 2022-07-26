@@ -1,0 +1,30 @@
+.sectionWrapper {
+  padding-top: 75px;
+  padding-bottom: 86px;
+  background-image: url(../../../assets/images/bg.jpg);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  display: inline-block;
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 30px;
+  text-align: center;
+  color: #ffffff;
+}
+.subtitle {
+  margin-bottom: 23px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: #ffffff;
+
+  & > p {
+    margin: 0;
+  }
+}

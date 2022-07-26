@@ -7,8 +7,8 @@ interface IPaginationProps {
   pageCount: number,
   onChange: ({ selected }: { selected: number }) => void
 }
-export const Pagination: FC<IPaginationProps> = (props) => {
-  const { pageCount, onChange, forcePage } = props
+export const Pagination: FC<IPaginationProps> = ({ pageCount, onChange, forcePage }) => {
+
   return (
     <ReactPaginate
       breakLabel="..."

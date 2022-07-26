@@ -6,22 +6,28 @@ import classes from "./Autocomplete.module.scss";
 import cn from "classnames"
 
 interface ISelectProps {
-  placeholder?: string,
   classNames?: string,
-  onChange?: ((newValue: SingleValue<ISelectOption>, actionMeta: ActionMeta<ISelectOption>) => void) | undefined;
-  options?: ISelectOption[]
+  options: ISelectOption[]
   value?: ISelectOption
+  placeholder?: string,
+  onChange?: ((newValue: SingleValue<ISelectOption>, actionMeta: ActionMeta<ISelectOption>) => void) | undefined;
 }
-export const Autocomplete: FC<ISelectProps> = (props) => {
-  const { placeholder, classNames, onChange, options, value } = props
+export const Autocomplete: FC<ISelectProps> = (
+  { placeholder,
+    classNames,
+    onChange,
+    options,
+    value }) => {
+
   return (
     <Select
       className={cn(classes.input, classNames)}
       options={options}
       value={value}
-      placeholder={placeholder}
-      classNamePrefix={classNames}
       onChange={onChange}
+      classNamePrefix={classNames}
+      isSearchable={false}
+      placeholder={placeholder}
     />
   )
 }

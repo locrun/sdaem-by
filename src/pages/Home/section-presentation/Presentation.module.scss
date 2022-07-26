@@ -23,13 +23,6 @@
   }
 }
 
-.mark {
-  width: 14px;
-  height: 15px;
-  fill: #ffd54f;
-  //background: linear-gradient(106.06deg, #ffd54f 1.12%, #fec100 97.96%);
-}
-
 .searchBlock {
   max-width: 390px;
   padding: 0 20px;
@@ -49,21 +42,6 @@
     text-align: center;
     color: #ffffff;
     margin-bottom: 23px;
-  }
-  .openMapBtn {
-    display: inline-flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    justify-content: space-between;
-    width: 167px;
-    padding: 10px 19px;
-    background: #ffffff;
-    border-radius: 19px;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 17px;
-    color: $black-gray;
-    letter-spacing: 0.2px;
   }
 }
 

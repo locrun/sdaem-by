@@ -1,27 +1,26 @@
 import { FC } from "react";
-import cn from "classnames";
+
 import classes from './Button.module.scss'
+import cn from "classnames";
 
 
-interface IButtonProps {
-  title?: string,
+interface IPropsButton {
   className?: string;
   disabled?: boolean;
   onClick?: () => void,
   children?: React.ReactNode | boolean;
   type?: "button" | "submit" | "reset";
-  ref?: React.MutableRefObject<Node | undefined | null>
 }
 
-export const Button: FC<IButtonProps> = (props) => {
-  const { title, className, onClick, children, type } = props;
+export const Button: FC<IPropsButton> = ({ className, onClick, children, type = "button", disabled }) => {
+
   return (
     <button
       type={type}
       className={cn(classes.button, className)}
       onClick={onClick}
+      disabled={disabled}
     >
-      {title}
       {children}
     </button>
   )

@@ -88,7 +88,7 @@
   }
 }
 
-.optionsButton {
+.optionButton {
   height: 100%;
   display: flex;
   align-items: center;
@@ -100,22 +100,16 @@
   cursor: pointer;
   background: #ffffff;
   position: relative;
-  transition: $transition;
+  border-bottom: 3px solid #ffffff;
+  & > span {
+    margin-top: 3px;
+  }
   .optionsIcon {
     width: 18px;
     height: 18px;
     margin-left: 5px;
   }
 
-  &:hover:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    border-bottom: 3px solid #4e64f9;
-  }
   &:before {
     position: absolute;
     content: "";
@@ -125,7 +119,7 @@
     height: 62px;
   }
 }
-.optionsButtonTransform {
+.btnTransform {
   position: relative;
   &:before {
     position: absolute;
@@ -237,7 +231,7 @@
   }
 }
 
-.autocompleteTransform {
+.transform {
   display: flex;
   height: 82px;
   flex-direction: row !important;
@@ -249,4 +243,8 @@
     margin-bottom: 0;
     margin-right: 20px;
   }
+}
+
+.activeClass {
+  border-bottom: 3px solid#4E64F9;
 }

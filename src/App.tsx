@@ -3,9 +3,7 @@ import { Router } from "./router/Router";
 
 const App: FC = () => {
   return (
-    <>
-      <Router />
-    </>
+    <Router />
   );
 }
 

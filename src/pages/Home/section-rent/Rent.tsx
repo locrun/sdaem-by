@@ -3,11 +3,11 @@ import { useAppDispatch } from "../../../hooks/redux/redux-hooks";
 import { Link } from "react-router-dom";
 
 import { Autocomplete } from "../../../components/Autocomplete/Autocomplete"
-import { TiledCards } from "../components/TiledCards/TiledCards";
+import { TiledCards } from "../../../components/TiledCards/TiledCards";
 
-import { useApartmentsFilter } from "../../../hooks/useApartmentsFilter";
-import { getMinskValues } from "../../../store/reducers/flatReducer";
-import { fetchFlat } from "../../../store/thunks/flatThunk";
+import { useFilter } from "../../../hooks/useFilter";
+import { setMinsk } from "../../../store/reducers/flatsReducer";
+import { fetchFlats } from "../../../store/thunks/flatThunk";
 
 
 import { ISelectOption } from "../../../Interfaces/ISelectOption";
@@ -39,17 +39,17 @@ const areaOptions = [
 
 export const Rent: FC = () => {
   const dispatch = useAppDispatch()
-  const { minskData } = useApartmentsFilter()
+  const { minskData } = useFilter()
 
   useEffect(() => {
-    dispatch(fetchFlat())
+    dispatch(fetchFlats())
   }, [dispatch])
 
   const [metro, setMetro] = useState<ISelectOption>()
   const [area, setArea] = useState<ISelectOption>()
 
   useEffect(() => {
-    dispatch(getMinskValues({
+    dispatch(setMinsk({
       metro: metro?.value || null,
       area: area?.value || null
     }))
@@ -103,7 +103,7 @@ export const Rent: FC = () => {
           </Swiper>
           <div className={classes.offers}>
             <div className={classes.row}>
-              <span>{minskData.length}</span>
+              <span>{minskData?.length}</span>
               <span>+</span>
               <p>Предложений по Минску</p>
             </div>

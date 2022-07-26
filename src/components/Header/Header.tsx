@@ -7,8 +7,6 @@ import { Navigation } from '../Navigation/Navigation'
 import { DropdownPage } from '../Dropdown/DropdownPage'
 import classes from './Header.module.scss'
 
-
-
 const mainPages = [
   { id: 0, name: "Главная", path: "/" },
   { id: 1, name: "Новости", path: "/news" },
@@ -16,7 +14,6 @@ const mainPages = [
   { id: 3, name: "Объявления на карте", path: "/ads", isIcon: true, },
   { id: 4, name: "Контакты", path: "/contacts" },
 ];
-
 
 export const Header: FC = () => {
   return (
@@ -45,10 +42,11 @@ export const Header: FC = () => {
           <Logo />
           <DropdownPage />
           <Button
-            title="+ Разместить объявление"
             className={classes.placeBtn}
             onClick={() => console.log("click!!!")}
-          />
+          >
+            + Разместить объявление
+          </Button>
         </div>
       </div>
     </header>

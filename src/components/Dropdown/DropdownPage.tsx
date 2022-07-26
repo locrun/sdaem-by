@@ -1,15 +1,18 @@
 import React, { FC, useEffect, useState, useRef } from "react"
 import { Link } from "react-router-dom";
-import { CSSTransition } from "react-transition-group";
+
 
 import { useAppDispatch, useAppSelector } from "../../hooks/redux/redux-hooks";
-import { getDataFlats } from "../../store/reducers/flatReducer";
-import { getDataCottages } from "../../store/reducers/cottagesReducer";
+import { setFlats } from "../../store/reducers/flatsReducer";
+import { setCottages } from "../../store/reducers/cottagesReducer";
+
 
 import { IconSvg } from "../IconSvg/IconSvg";
 
+import { CSSTransition } from "react-transition-group";
 import classes from "./Dropdown.module.scss"
 import { TRANSITION } from "../../constants/transition";
+import { setBaths } from "../../store/reducers/bathsReducer";
 
 
 const apartments = [
@@ -38,21 +41,21 @@ const baths = [
 ]
 
 const cars = [
-  { id: 0, title: "Авто на прокат в Минске", cityName: "Минск", path: "catalog/car" },
-  { id: 1, title: "Авто на прокат в Гомеле", cityName: "Гомель", path: "catalog/car" },
-  { id: 2, title: "Авто на прокат в Бресте", cityName: "Брест", path: "catalog/car" },
-  { id: 3, title: "Авто на прокат в Витебске", cityName: "Витебск", path: "catalog/car" },
-  { id: 4, title: "Авто на прокат в Гродно", cityName: "Гродно", path: "catalog/car" },
-  { id: 5, title: "Авто на прокат в Могилеве", cityName: "Могилев", path: "catalog/car" },
+  { id: 0, title: "Авто на прокат в Минске", cityName: "Минск", path: "catalog/cars" },
+  { id: 1, title: "Авто на прокат в Гомеле", cityName: "Гомель", path: "catalog/cars" },
+  { id: 2, title: "Авто на прокат в Бресте", cityName: "Брест", path: "catalog/cars" },
+  { id: 3, title: "Авто на прокат в Витебске", cityName: "Витебск", path: "catalog/cars" },
+  { id: 4, title: "Авто на прокат в Гродно", cityName: "Гродно", path: "catalog/cars" },
+  { id: 5, title: "Авто на прокат в Могилеве", cityName: "Могилев", path: "catalog/cars" },
 ]
 
-interface IProps {
+interface IPropsDropdown {
   className?: string
-  children?: React.ReactNode
-  isOpen?: boolean
+  children: React.ReactNode
+  isOpen: boolean
 }
 
-export const Dropdown: FC<IProps> = ({ isOpen, children, className }) => {
+export const Dropdown: FC<IPropsDropdown> = ({ isOpen, children, className }) => {
   const nodeRef = useRef(null)
   return (
     <CSSTransition
@@ -71,8 +74,9 @@ export const Dropdown: FC<IProps> = ({ isOpen, children, className }) => {
 
 export const DropdownPage: FC = () => {
   const dispatch = useAppDispatch()
-  const { flatsData } = useAppSelector(state => state.flat)
+  const { flatsData } = useAppSelector(state => state.flats)
   const { cottagesData } = useAppSelector(state => state.cottages)
+  const { bathsData } = useAppSelector(state => state.baths)
 
 
   const [flatOpen, setFlatOpen] = useState(false);
@@ -154,22 +158,21 @@ export const DropdownPage: FC = () => {
             className={classes.alert}
           >
             <ul className={classes.list}>
-              {apartments.map((item) => {
-                return (
-                  <li
-                    key={item.id}
-                    className={classes.listItem}
-                    onClick={() => dispatch(getDataFlats({
-                      ...flatsData,
-                      cityName: item.cityName
-                    }))}
-                  >
-                    <Link to={item.path} className={classes.itemLink}>
-                      {item.title}
-                    </Link>
-                  </li>
-                )
-              })}
+              {apartments.map((item) =>
+                <li
+                  key={item.id}
+                  className={classes.listItem}
+                  onClick={() => dispatch(setFlats({
+                    ...flatsData,
+                    cityName: item.cityName
+                  }))}
+                >
+                  <Link to={item.path} className={classes.itemLink}>
+                    {item.title}
+                  </Link>
+                </li>
+
+              )}
             </ul>
           </Dropdown>
         </button>
@@ -184,22 +187,20 @@ export const DropdownPage: FC = () => {
             className={classes.myNode}
           >
             <ul className={classes.list}>
-              {cottages.map((item) => {
-                return (
-                  <li
-                    key={item.id}
-                    className={classes.listItem}
-                    onClick={() => dispatch(getDataCottages({
-                      ...cottagesData,
-                      cityName: item.cityName
-                    }))}
-                  >
-                    <Link to={item.path} className={classes.itemLink}>
-                      {item.title}
-                    </Link>
-                  </li>
-                )
-              })}
+              {cottages.map((item) =>
+                <li
+                  key={item.id}
+                  className={classes.listItem}
+                  onClick={() => dispatch(setCottages({
+                    ...cottagesData,
+                    cityName: item.cityName
+                  }))}
+                >
+                  <Link to={item.path} className={classes.itemLink}>
+                    {item.title}
+                  </Link>
+                </li>
+              )}
             </ul>
           </Dropdown>
         </button>
@@ -214,21 +215,21 @@ export const DropdownPage: FC = () => {
             className={classes.myNode}
           >
             <ul className={classes.list}>
-              {baths.map((item) => {
-                return (
-                  <li
-                    key={item.id}
-                    className={classes.listItem}
-                    onClick={() => dispatch(getDataCottages({
-                      cityName: item.cityName
-                    }))}
-                  >
-                    <Link to={item.path} className={classes.itemLink}>
-                      {item.title}
-                    </Link>
-                  </li>
-                )
-              })}
+              {baths.map((item) =>
+                <li
+                  key={item.id}
+                  className={classes.listItem}
+                  onClick={() => dispatch(setBaths({
+                    ...bathsData,
+                    cityName: item.cityName
+                  }))}
+                >
+                  <Link to={item.path} className={classes.itemLink}>
+                    {item.title}
+                  </Link>
+                </li>
+
+              )}
             </ul>
           </Dropdown>
         </button>
@@ -243,21 +244,19 @@ export const DropdownPage: FC = () => {
             className={classes.myNode}
           >
             <ul className={classes.list}>
-              {cars.map((item) => {
-                return (
-                  <li
-                    key={item.id}
-                    className={classes.listItem}
-                    onClick={() => dispatch(getDataCottages({
-                      cityName: item.cityName
-                    }))}
-                  >
-                    <Link to={item.path} className={classes.itemLink}>
-                      {item.title}
-                    </Link>
-                  </li>
-                )
-              })}
+              {cars.map((item) =>
+                <li
+                  key={item.id}
+                  className={classes.listItem}
+                  onClick={() => dispatch(setCottages({
+                    cityName: item.cityName
+                  }))}
+                >
+                  <Link to={item.path} className={classes.itemLink}>
+                    {item.title}
+                  </Link>
+                </li>
+              )}
             </ul>
           </Dropdown>
         </button >

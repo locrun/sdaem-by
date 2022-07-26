@@ -3,11 +3,11 @@ import { FC } from "react"
 import { useSearchParams } from "react-router-dom"
 
 import { Breadcrumbs } from "../../components/Breadcrumbs/Breadcrumbs"
-import { SearchInput } from "./components/SearchInput/SearchInput"
+import { SearchInput } from "../../components/SearchInput/SearchInput"
 
 import { usePagination } from "../../hooks/usePagination"
 import { Pagination } from "../../components/Pagination/Pagination"
-import { NewsList } from "./components/NewsList/NewsList"
+import { NewsList } from "../../components/NewsList/NewsList"
 
 
 import { useArticleSearch } from "../../hooks/useArticleSearch"

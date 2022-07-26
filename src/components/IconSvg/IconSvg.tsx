@@ -6,8 +6,8 @@ interface IPropsSvg {
   className?: string
 }
 
-export const IconSvg: FC<IPropsSvg> = (props) => {
-  const { id, className } = props;
+export const IconSvg: FC<IPropsSvg> = ({ id, className }) => {
+
   return (
     <svg className={className}>
       <use href={sprite + id} />

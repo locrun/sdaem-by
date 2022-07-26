@@ -1,0 +1,90 @@
+@import "../../styles/variables/variables.scss";
+
+.newsCardList {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  .card {
+    width: 406px;
+    height: 500px;
+    margin-bottom: 30px;
+    background: #fffefe;
+    filter: drop-shadow(0px 20px 40px rgba(135, 124, 202, 0.15));
+    border-radius: 10px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+    .cardImg {
+      width: 406px;
+      height: 227px;
+      background: #e4e2e2;
+      border-radius: 10px;
+
+      img {
+        display: block;
+        width: 406px;
+        height: 227px;
+        border-radius: 10px;
+        object-fit: cover;
+      }
+    }
+    .cardTitle {
+      margin: 0;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 19px;
+      color: $black-gray;
+    }
+    .cardDescr {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 17px;
+      color: $dull-gray;
+      display: -webkit-box;
+      -webkit-line-clamp: 5;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-top: 0;
+      margin-bottom: 30px;
+    }
+
+    .cardContent {
+      padding: 30px 20px 23px 20px;
+      height: 273px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .cardFooter {
+      display: flex;
+      justify-content: space-between;
+
+      .cardDate {
+        display: inline-block;
+        width: auto;
+        padding: 12px 8px;
+        background: #f8f8f8;
+        border-radius: 18px;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 13px;
+        color: $light-gray;
+      }
+
+      .readBtn {
+        display: inline-block;
+        width: auto;
+        padding: 10px 15px;
+        background: rgba(102, 78, 249, 0.1);
+        border-radius: 17px;
+
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 17px;
+        color: $moderate-blue;
+      }
+    }
+  }
+}

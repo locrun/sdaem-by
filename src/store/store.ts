@@ -1,13 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
 import newsReducer from "./reducers/newsReducer";
-import flatReducer from "./reducers/flatReducer";
+import flatsReducer from "./reducers/flatsReducer";
 import cottagesReducer from "./reducers/cottagesReducer";
+import bathsReducer from "./reducers/bathsReducer";
 
 const store = configureStore({
   reducer: {
     news: newsReducer,
-    flat: flatReducer,
+    flats: flatsReducer,
     cottages: cottagesReducer,
+    baths: bathsReducer,
   },
 });
 export default store;
