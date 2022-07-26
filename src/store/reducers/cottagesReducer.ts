@@ -32,7 +32,6 @@ const cottagesSlice = createSlice({
   initialState,
   reducers: {
     setCottages(state, action) {
-      console.log(action);
       state.cottagesData = action.payload;
     },
   },

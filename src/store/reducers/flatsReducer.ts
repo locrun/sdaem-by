@@ -54,7 +54,6 @@ const flatsSlice = createSlice({
   initialState,
   reducers: {
     setFlats(state, action) {
-      console.log(action);
       state.flatsData = action.payload;
     },
     setMinsk(state, action) {
@@ -64,7 +63,6 @@ const flatsSlice = createSlice({
       state.active = action.payload;
     },
     setValueToSortByPrice(state, action) {
-      console.log(action);
       state.sortValue = action.payload;
     },
   },

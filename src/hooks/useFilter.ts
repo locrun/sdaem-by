@@ -16,6 +16,8 @@ export const useFilter = () => {
   const [dispatch, setDispath] = useState<any>([]);
   const [filteredData, setFilteredData] = useState<any>([]);
 
+  // Здесь я получаю данные категорий с сервера в зависимости от выбранной
+  // для фильтрации
   useEffect(() => {
     switch (location.pathname) {
       case path.HOME:
@@ -35,6 +37,8 @@ export const useFilter = () => {
     }
   }, [baths, cottages, flats, location.pathname]);
 
+  // Здесь я получаю установленные данные, выбранной категории с Redux
+  // для фильтрации
   useEffect(() => {
     switch (location.pathname) {
       case path.HOME:
@@ -54,6 +58,7 @@ export const useFilter = () => {
     }
   }, [flatsData, cottagesData, bathsData, location.pathname]);
 
+  // Здесь фильтрация данных на основании данных из фильтра и данных с сервера
   useEffect(() => {
     const filtered = currentFetchData
       ?.filter((item: { city: string }) =>
@@ -77,6 +82,7 @@ export const useFilter = () => {
           : true
       );
 
+    // Сортировка по цене
     if (sortValue.value === "По возрастанию цены") {
       filtered?.sort((a: any, b: any) => a.price - b.price);
     } else if (filtered && sortValue.value === "По убыванию цены") {

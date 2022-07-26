@@ -32,7 +32,6 @@ const bathsSlice = createSlice({
   initialState,
   reducers: {
     setBaths(state, action) {
-      console.log(action);
       state.bathsData = action.payload;
     },
   },

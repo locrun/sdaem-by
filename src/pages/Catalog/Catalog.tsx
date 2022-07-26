@@ -6,7 +6,6 @@ import { fetchFlats } from "../../store/thunks/flatThunk";
 import { fetchBaths } from "../../store/thunks/bathsThunk";
 
 import { Recommended } from "./section-recommended/Recommended"
-import { DiffButtons } from "./section-diffbuttons/DiffButtons"
 import { Products } from "./section-products/Products"
 import { ShowMap } from "./section-showmap/ShowMap"
 
