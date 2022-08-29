@@ -1,0 +1,98 @@
+@import "../../../styles/variables/variables.scss";
+
+.btnActiveClass {
+  background: #ffffff !important;
+  box-shadow: 0px 5px 20px rgba(0, 96, 206, 0.1);
+
+  & > svg {
+    fill: $moderate-blue;
+    transition: $transition;
+  }
+}
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+.listIcon {
+  width: 14px;
+  height: 14px;
+  fill: #bdbdbd;
+  transition: $transition;
+}
+.showListBtn {
+  margin-right: 21px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: row-reverse;
+  padding: 10px 15px;
+  gap: 10px;
+  border-radius: 18px;
+  font-weight: 600;
+  font-size: 14px;
+  color: $black-gray;
+  background: none;
+  transition: $transition;
+  &:hover {
+    background: #f8f8f8;
+    transition: $transition;
+  }
+}
+.tilesIcon {
+  width: 14px;
+  height: 14px;
+  fill: #bdbdbd;
+  transition: $transition;
+}
+.showTilesBtn {
+  margin-right: 65px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: row-reverse;
+  padding: 10px 15px;
+  gap: 10px;
+
+  border-radius: 18px;
+  font-weight: 500;
+  font-size: 14px;
+  color: $black-gray;
+  background: transparent;
+  transition: $transition;
+
+  &:hover {
+    background: #f8f8f8;
+    transition: $transition;
+  }
+}
+.showMapIcon {
+  width: 14px;
+  height: 14px;
+  fill: $moderate-blue;
+  transition: $transition;
+}
+.showMapBtn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-flow: row-reverse;
+  padding: 10px 15px;
+  gap: 10px;
+  background: #ffffff;
+  box-shadow: 0px 5px 20px rgba(0, 96, 206, 0.1);
+  border-radius: 18px;
+
+  font-weight: 600;
+  font-size: 14px;
+  color: $black-gray;
+  transition: $transition;
+
+  &:hover {
+    color: #6fa4c7;
+    transition: $transition;
+    & > .showMapIcon {
+      fill: #6fa4c7;
+      transition: $transition;
+    }
+  }
+}

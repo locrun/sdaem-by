@@ -1,0 +1,38 @@
+@import "../../../../styles/variables/variables.scss";
+
+.badgesList {
+  margin: 0;
+  padding: 0;
+  padding: 0 38px;
+  list-style: none;
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  bottom: 48px;
+}
+.listItem {
+  background: $moderate-blue;
+  border-radius: 16px;
+  transition: $transition;
+  &:hover {
+    background: #612bfb;
+    transition: $transition;
+  }
+  margin-bottom: 14px;
+  margin-right: 16px;
+}
+.button {
+  display: inline-block;
+  padding: 8px 14px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: rgba(255, 255, 255, 0.7);
+  transition: $transition;
+  background: none;
+  &:hover {
+    color: #ffffff;
+    transition: $transition;
+  }
+}

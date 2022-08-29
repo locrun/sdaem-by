@@ -1,0 +1,164 @@
+@import "../../../../styles/variables/variables.scss";
+
+.buttons {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.optionButton {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  color: $black-gray;
+  cursor: pointer;
+  background: #ffffff;
+  position: relative;
+  border-bottom: 3px solid #ffffff;
+  transition: $transition;
+  & > span {
+    margin-top: 3px;
+  }
+  .optionsIcon {
+    width: 18px;
+    height: 18px;
+    margin-left: 5px;
+  }
+
+  &:before {
+    position: absolute;
+    content: "";
+    border-right: 1px solid $moderate-blue;
+    opacity: 0.1;
+    right: 0;
+    height: 62px;
+  }
+  &:hover {
+    border-bottom: 3px solid #4e64f9;
+    transition: $transition;
+  }
+}
+.btnTransform {
+  position: relative;
+  padding-right: 33px;
+  &:before {
+    position: absolute;
+    content: "";
+    border-right: 1px solid #664ef9;
+    opacity: 0.1;
+    right: 0;
+    height: 100%;
+  }
+}
+.activeClass {
+  border-bottom: 3px solid#4E64F9;
+}
+.mapButton {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  padding: 0 30px;
+  font-size: 14px;
+  line-height: 17px;
+  color: $black-gray;
+  background: #fff;
+  border-bottom: 3px solid #ffffff;
+  transition: $transition;
+
+  .mark {
+    margin-left: 5px;
+    width: 13px;
+    height: 15px;
+    fill: #664ef9;
+  }
+  &:hover {
+    border-bottom: 3px solid #4e64f9;
+    transition: $transition;
+  }
+}
+
+.showAllBtn {
+  display: flex;
+  align-items: center;
+  padding: 9px 16px;
+  margin: 0 33px 0 16px;
+  gap: 5px;
+  width: 123px;
+  height: 37px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  color: #242424;
+  background: #ffd54f;
+  border-radius: 22px;
+  position: relative;
+  transition: $transition;
+  &:after {
+    display: block;
+    content: "";
+    border: solid black;
+    border-width: 0 2px 2px 0;
+    padding: 3px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    position: absolute;
+    right: 25px;
+  }
+  &:hover {
+    background: #fec100;
+    transition: $transition;
+  }
+}
+
+.clearBtn {
+  padding: 10px 16px;
+  margin-right: 30px;
+  margin-left: 50px;
+  background: #f8f8f8;
+  border-radius: 22px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  color: $black-gray;
+  transition: $transition;
+  &:hover {
+    background: #f1f1f1;
+    transition: $transition;
+  }
+}
+.showSelectedBtn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 9px 16px;
+  width: 192px;
+  height: 37px;
+  background: $moderate-blue;
+  border-radius: 22px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  color: #ffffff;
+  &:after {
+    display: block;
+    content: "";
+    border: solid #ffffff;
+    border-width: 0 2px 2px 0;
+    padding: 3px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    position: absolute;
+    right: 25px;
+  }
+}

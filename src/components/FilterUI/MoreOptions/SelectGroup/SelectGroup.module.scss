@@ -1,0 +1,29 @@
+.select {
+  width: 200px;
+  position: relative;
+  align-self: center;
+  padding: 0;
+  z-index: 1;
+  color: black;
+  border: none;
+  outline: none;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.autocomplete {
+  margin-right: 48px;
+  &:last-child {
+    margin-right: 0;
+  }
+  & > span {
+    display: inline-block;
+    margin-left: 2px;
+    margin-bottom: 11px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #664ef9;
+  }
+}

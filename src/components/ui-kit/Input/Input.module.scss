@@ -1,0 +1,107 @@
+@import "../../../styles/variables/variables.scss";
+.label {
+  display: inline-block;
+  margin-bottom: 15px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: $dull-gray;
+}
+.inputWrapper {
+  position: relative;
+}
+.input {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 15px 20px;
+  padding-left: 55px;
+  width: 260px;
+  height: 50px;
+  background: #f8f8f8;
+  border-radius: 30px;
+  cursor: default;
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: $black-gray;
+  border: 2px solid #f8f8f8;
+  position: relative;
+  outline: transparent;
+  transition: $transition;
+
+  &:focus {
+    border: 2px solid rgba(102, 78, 249, 0.8);
+  }
+  &:focus + svg {
+    fill: $moderate-blue;
+    opacity: 1;
+  }
+
+  &::placeholder {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: $dull-gray;
+    background: none;
+  }
+}
+.error {
+  border: 2px solid rgba(235, 87, 87, 1);
+  border-radius: 30px;
+}
+
+.user {
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  z-index: 1;
+  top: 13px;
+  left: 20px;
+  fill: $dull-gray;
+  opacity: 0.3;
+  transition: $transition;
+}
+.mail {
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  z-index: 1;
+  top: 17px;
+  left: 20px;
+  fill: $dull-gray;
+  opacity: 0.3;
+  transition: $transition;
+}
+.password {
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  z-index: 1;
+  top: 13px;
+  left: 20px;
+  fill: $dull-gray;
+  opacity: 0.3;
+  transition: $transition;
+}
+.warning {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  opacity: 0;
+  fill: #eb5757;
+  transition: $transition;
+}
+.showWarning {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  opacity: 1;
+  transition: $transition;
+}

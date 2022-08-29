@@ -1,0 +1,49 @@
+@import "../../styles/variables/variables.scss";
+
+:root {
+  --swiper-navigation-size: 18px;
+}
+
+.swiper {
+  min-height: 340px;
+  position: static;
+  padding-top: 35px;
+  padding-bottom: 105px;
+  filter: drop-shadow(0px 20px 40px rgba(135, 124, 202, 0.15));
+}
+
+.swiper-button-prev {
+  padding: 19px;
+  border: 1px solid $moderate-blue;
+  border-radius: 50%;
+  color: $moderate-blue;
+  margin-right: 50px;
+  &:hover {
+    background: rgba(102, 78, 249, 0.1);
+  }
+}
+.swiper-button-next {
+  padding: 19px;
+  border: 1px solid $moderate-blue;
+  border-radius: 50%;
+  color: $moderate-blue;
+  margin-left: 50px;
+  &:hover {
+    background: rgba(102, 78, 249, 0.1);
+  }
+}
+
+.swiper-button-prev:after {
+  font-size: 15px !important;
+}
+
+.swiper-button-next:after {
+  font-size: 15px !important;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  position: absolute;
+  top: 90.9%;
+  left: 46.6%;
+}

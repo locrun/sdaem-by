@@ -1,0 +1,80 @@
+@import "../../../styles/variables/variables.scss";
+
+.mr {
+  margin-right: 3px;
+}
+.input {
+  width: 306px;
+  height: 50px;
+  margin-bottom: 20px;
+  font-weight: 500;
+  //font-size: 25px;
+  line-height: 25px;
+  color: $black-gray;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+.rememberMy {
+  display: flex;
+}
+.link {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: $moderate-blue;
+}
+.switch {
+  display: inline-block;
+  width: 34px;
+  height: 20px;
+  margin-right: 8px;
+  border-radius: 19px;
+  z-index: 0;
+  position: relative;
+  transition-duration: 300ms;
+  background: #bdbdbd;
+  border-radius: 100px;
+  opacity: 0.3;
+}
+.switch::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  top: 3px;
+  left: 3px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
+  transition-duration: 300ms;
+  z-index: 1;
+}
+.switchActive {
+  background: $moderate-blue;
+  opacity: 1;
+}
+.switchActive::after {
+  left: 17px;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 306px;
+  margin-top: 38px;
+  margin-bottom: 55px;
+  padding: 12px 0;
+  gap: 10px;
+  background: #ffd54f;
+  border-radius: 33px;
+
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+
+  color: $black-gray;
+}

@@ -1,0 +1,33 @@
+@import "../../styles/variables/variables.scss";
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
+  color: $dull-gray;
+
+  .breadcrumbsLink {
+    display: flex;
+    margin-right: 7px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
+    align-items: center;
+    color: #4e64f9;
+  }
+}
+.homeRun {
+  width: 13px;
+  height: 12px;
+  margin-right: 6px;
+  fill: $moderate-blue;
+}
+.dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  fill: $moderate-blue;
+  margin-right: 7px;
+}

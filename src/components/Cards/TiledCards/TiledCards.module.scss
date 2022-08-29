@@ -1,0 +1,260 @@
+@import "../../../styles/variables/variables.scss";
+
+.card {
+  width: 406px;
+  background: #fffefe;
+  margin-bottom: 30px;
+  position: relative;
+  border-radius: 10px;
+
+  .image {
+    width: 406px;
+    height: 228px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #e4e2e2;
+
+    & > img {
+      display: inline-block;
+      height: auto;
+      object-fit: contain;
+    }
+  }
+}
+.owner {
+  position: absolute;
+  bottom: 75px;
+  left: -52px;
+}
+.cardData {
+  padding: 20px 20px 15px 20px;
+  overflow: hidden;
+}
+
+.card:after {
+  content: "Gold";
+  padding: 9px 12px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: linear-gradient(106.06deg, #ffd54f 1.12%, #fec100 97.96%);
+  border-radius: 0px 10px 10px 10px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  color: #ffffff;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  .price {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    color: $moderate-blue;
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+
+    span {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 17px;
+      color: #bdbdbd;
+    }
+  }
+  .capacity {
+    padding: 8px;
+    background: #f8f8f8;
+    border-radius: 18px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #686868;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    height: 34px;
+
+    .user {
+      width: 15px;
+      height: 15px;
+      margin-right: 7px;
+      fill: $dull-gray;
+    }
+  }
+
+  .rooms {
+    padding: 8px;
+    background: #f8f8f8;
+    border-radius: 18px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #686868;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 34px;
+  }
+  .square {
+    padding: 8px;
+    background: #f8f8f8;
+    border-radius: 18px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #686868;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 34px;
+  }
+}
+
+.desc {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #8291a3;
+  max-height: 62px;
+  min-height: 62px;
+  overflow: hidden;
+}
+
+.location {
+  display: flex;
+  flex-direction: column;
+  margin-top: 25px;
+
+  .locationItem {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: #000000;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-top: 0;
+
+    svg {
+      width: 20px;
+      height: 20px;
+      fill: #bdbdbd;
+      margin-right: 4px;
+      background: "#BDBDBD";
+      &:nth-child(1) {
+        width: 15px;
+        height: 15px;
+        margin-right: 9px;
+        fill: #bdbdbd;
+      }
+    }
+  }
+}
+.metroName {
+  margin-right: 30px;
+}
+.dot {
+  width: 8px !important;
+  height: 8px !important;
+  margin-right: 5px !important;
+}
+.right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.phoneIcon {
+  width: 17px;
+  height: 17px;
+  fill: #664ef9;
+}
+.heartIcon {
+  width: 15px;
+  height: 15px;
+  stroke-width: 1px solid #eb5757;
+  fill: rgba(235, 87, 87, 1);
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding-top: 15px;
+  .contactsBtn {
+    display: flex;
+    flex-direction: row;
+    flex-flow: row-reverse;
+    align-items: center;
+    padding: 10px 17px;
+    gap: 10px;
+    border-radius: 18px;
+
+    background: #ffffff;
+    box-shadow: 0px 5px 20px rgba(0, 96, 206, 0.1);
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    color: #664ef9;
+    transition: $transition;
+    &:hover {
+      background: #f5f3ff;
+      transition: $transition;
+    }
+  }
+
+  .moreBtn {
+    padding: 10px 17px;
+    background: rgba(255, 213, 79, 0.1);
+    border-radius: 17px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    color: #fec100;
+    transition: $transition;
+    &:hover {
+      background: rgba(255, 213, 79, 0.2);
+      transition: $transition;
+    }
+  }
+  .bookmarksBtn {
+    padding: 9px;
+    width: 33px;
+    height: 33px;
+    background: rgba(235, 87, 87, 0.1);
+    border-radius: 22px;
+  }
+}
+.buttons:after {
+  content: "";
+  position: absolute;
+  border-bottom: 1px solid #664ef9;
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: 0.1;
+}
+
+.area {
+  display: flex;
+  align-items: center;
+  padding: 8px 14px;
+  gap: 6px;
+  background: #f8f8f8;
+  border-radius: 18px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  margin: 0 0 0 10px;
+  color: #664ef9;
+
+  & > span {
+    color: $black-gray;
+  }
+}

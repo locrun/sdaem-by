@@ -1,0 +1,10 @@
+@import "../../../styles/variables/variables.scss";
+
+.nothing {
+  font-size: 26px;
+  font-weight: 900;
+  color: $black-gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

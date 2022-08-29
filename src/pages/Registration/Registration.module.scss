@@ -1,0 +1,83 @@
+@import "../../styles/variables/variables.scss";
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(1.09deg, #7e6af3 0.86%, #6540cd 99.01%);
+  position: relative;
+  z-index: 1;
+}
+.wrapper:after {
+  display: block;
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-image: url("../../assets/images/decor.svg");
+  background-position: top 50px right 250px;
+  opacity: 0.3;
+  z-index: -1;
+}
+.flex {
+  display: flex;
+}
+.content {
+  padding: 50px;
+  background: #fffefe;
+  box-shadow: 0px 20px 40px rgba(39, 95, 158, 0.2);
+  border-radius: 10px;
+}
+.title {
+  display: inline-block;
+  margin-left: 72px;
+  margin-bottom: 30px;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 30px;
+  text-align: center;
+  color: #000000;
+  text-align: center;
+}
+
+.undertakes {
+  max-width: 388px;
+  margin-left: 50px;
+
+  .underTitle {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 150%;
+    color: $dull-gray;
+  }
+
+  .text {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    color: $dull-gray;
+  }
+  .text:before {
+    content: "•";
+    margin-right: 3px;
+  }
+  .isAccount {
+    margin-top: 70px;
+    span {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+      color: #686868;
+      margin-right: 5px;
+    }
+    .link {
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 26px;
+      color: $moderate-blue;
+    }
+  }
+}

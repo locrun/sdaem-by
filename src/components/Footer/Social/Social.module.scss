@@ -1,0 +1,37 @@
+.wrapper {
+  max-width: 248px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  display: inline-block;
+  margin-top: 16px;
+  margin-right: 29px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #1e2123;
+}
+.flex {
+  width: 112px;
+  display: flex;
+  align-items: center;
+}
+.link {
+  display: flex;
+  margin-right: 21px;
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.icon {
+  width: 25px;
+  height: 25px;
+}
+
+.facebook {
+  width: 21px;
+  height: 21px;
+}

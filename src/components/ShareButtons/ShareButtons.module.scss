@@ -1,0 +1,47 @@
+@import "../../styles/variables/variables.scss";
+.share {
+  max-width: 350px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  span {
+    margin-right: 15px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: $black-gray;
+  }
+}
+.social {
+  display: flex;
+  justify-content: space-between;
+}
+.socialMediaButton {
+  border-radius: 50%;
+  background-color: #f4f5fa !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px !important;
+  margin-right: 22px;
+  transition: $transition;
+  &:hover {
+    background-color: rgba(102, 78, 249, 0.1) !important;
+    transition: $transition;
+    .icon {
+      fill: $moderate-blue;
+    }
+  }
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.icon {
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  fill: $black-gray;
+  transition: $transition;
+}

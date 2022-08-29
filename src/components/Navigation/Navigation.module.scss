@@ -1,0 +1,16 @@
+@import "../../styles/variables/variables.scss";
+
+.icon {
+  margin-right: 5px;
+  width: 11px;
+  height: 11px;
+  fill: $light-gray;
+}
+
+.active {
+  border-color: #ffd54f !important;
+  color: $black-gray !important;
+  .icon {
+    fill: $black-gray;
+  }
+}

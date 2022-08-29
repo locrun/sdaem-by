@@ -1,0 +1,280 @@
+@import "../../../styles/variables/variables.scss";
+
+.wrapper {
+  position: relative;
+  text-align: center;
+  background: linear-gradient(0deg, #7e6af3 -2.23%, #6540cd 100.04%);
+  z-index: 1;
+
+  &:after {
+    display: block;
+    content: "";
+    position: absolute;
+    background-image: url("../../../assets/images/decor.svg");
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    opacity: 0.4;
+    z-index: -1;
+  }
+}
+
+.container {
+  position: relative;
+  padding-top: 50px;
+  padding-bottom: 77px;
+
+  &:after {
+    content: url("../../../assets/images/square-white.svg");
+    position: absolute;
+    top: 48px;
+    right: 68px;
+  }
+}
+
+.searchBlock {
+  max-width: 390px;
+  padding: 0 20px;
+  margin: 0 auto;
+  .title {
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 30px;
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 20px;
+  }
+  .subtitle {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 23px;
+  }
+}
+
+.presentationsBlock {
+  max-width: 1277px;
+  margin: 0 auto;
+  margin-bottom: -300px;
+  padding-top: 95px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  &:after {
+    content: url("../../../assets/images/square.svg");
+    position: absolute;
+    bottom: -113px;
+    right: 80px;
+  }
+}
+.card {
+  width: 406px;
+  height: 345px;
+  padding: 30px 37px 45px 37px;
+  background: #fffefe;
+  box-shadow: 0px 20px 40px rgba(135, 124, 202, 0.15);
+  border-radius: 10px;
+  .flex {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+  }
+
+  .cardImg {
+    height: 98px;
+    width: 98px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 18px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0px 11px 20px rgba(127, 155, 187, 0.16);
+  }
+  .cardTitle {
+    width: 191px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color: #664ef9;
+    margin: 0;
+  }
+  .cardSubtitle {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: left;
+    color: #1e2123;
+    margin: 0;
+  }
+}
+
+.place {
+  .cardTitle {
+    margin-left: 25px;
+  }
+  .flex {
+    margin-bottom: 23px;
+  }
+  .placeBtn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 20px 10px 23px;
+    margin-top: 33px;
+    background: linear-gradient(106.06deg, #ffd54f 1.12%, #fec100 97.96%);
+    box-shadow: 0px 15px 40px rgba(254, 193, 0, 0.15);
+    border-radius: 17px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    color: #242424;
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+  }
+}
+.price {
+  .cardTitle {
+    width: 185px;
+  }
+  .flex {
+    margin-bottom: 17px;
+  }
+
+  .priceBtn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 10px 21px;
+    margin-top: 33px;
+
+    width: 241px;
+    height: 37px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    color: #242424;
+
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(106.06deg, #ffd54f 1.12%, #fec100 97.96%);
+    box-shadow: 0px 15px 40px rgba(254, 193, 0, 0.15);
+    border-radius: 17px;
+
+    &:after {
+      content: "";
+      border: solid black;
+      border-width: 0 2px 2px 0;
+      display: inline-block;
+      padding: 3px;
+      transform: rotate(-45deg);
+      -webkit-transform: rotate(-45deg);
+      position: absolute;
+      right: 27px;
+    }
+  }
+}
+.gold {
+  position: relative;
+  padding: 27px 50px 45px 40px;
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(105.54deg, #ffd54f 33.53%, #fec100 94.13%);
+
+  &:before {
+    content: "";
+    position: absolute;
+    background: url("../../../assets/images/cross-1.svg");
+    background-repeat: no-repeat;
+    width: 80px;
+    height: 80px;
+    top: 35%;
+    right: 3%;
+    z-index: 10;
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    width: 343.91px;
+    height: 343.91px;
+    background: #ffc200;
+    transform: rotate(45deg);
+    top: 200px;
+    left: 243px;
+  }
+
+  .flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 22px;
+  }
+
+  .cardTitle {
+    width: auto;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 36px;
+    color: #333333;
+    margin: 11px;
+  }
+  .cardSubtitle {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: left;
+    color: #1e2123;
+    margin-top: 0;
+    margin-bottom: 40px;
+    position: relative;
+
+    &:after {
+      content: "";
+      position: absolute;
+      background: url("../../../assets/images/cross-2.svg");
+      background-repeat: no-repeat;
+      width: 80px;
+      height: 80px;
+      top: 180%;
+      right: 13%;
+      z-index: 10;
+    }
+
+    p:nth-child(2) {
+      width: 280px;
+    }
+  }
+  .goldBtn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 10px 18px;
+    width: 194px;
+    height: 37px;
+    position: relative;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    color: #ffffff;
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+
+    background: linear-gradient(270deg, #7e6af3 0%, #6540cd 100%);
+    box-shadow: 0px 15px 40px rgba(0, 96, 206, 0.15);
+    border-radius: 17px;
+    &:after {
+      content: "";
+      border: solid #ffffff;
+      border-width: 0 2px 2px 0;
+      display: inline-block;
+      padding: 3px;
+      transform: rotate(-45deg);
+      -webkit-transform: rotate(-45deg);
+      position: absolute;
+      right: 27px;
+    }
+  }
+}

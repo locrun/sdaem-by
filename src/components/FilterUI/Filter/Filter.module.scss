@@ -1,0 +1,30 @@
+.filterWrapper {
+  background: #ffffff;
+  box-shadow: 0px 20px 40px rgba(39, 95, 158, 0.08);
+  border-radius: 0 10px 10px 10px;
+}
+
+.wrapper {
+  height: 100px;
+  background: #fff;
+  border-radius: 0px 10px 10px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .content {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+.wrapperTransform {
+  height: 82px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+._radiusNone {
+  border-radius: 0px 10px 0px 0px;
+}

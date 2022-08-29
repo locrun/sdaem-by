@@ -1,0 +1,56 @@
+@import "../../../styles/variables/variables.scss";
+
+.form {
+  text-align: center;
+
+  .input {
+    width: 306px;
+    margin-bottom: 20px;
+  }
+  .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    padding: 12px 0;
+    gap: 10px;
+    width: 306px;
+
+    background: #ffd54f;
+    border-radius: 33px;
+
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    color: $black-gray;
+  }
+  .inputError {
+    padding: 12px 77px 12px 40px;
+    width: 100%;
+    margin-top: 20px;
+    gap: 10px;
+    display: none;
+    background: #eb5757;
+    border-radius: 33px;
+
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+
+    color: #ffffff;
+    position: relative;
+  }
+  .showError {
+    display: inline-block;
+  }
+  .icon {
+    width: 21px;
+    height: 21px;
+    position: absolute;
+    right: 78px;
+    top: 15px;
+    opacity: 1;
+    fill: rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease-in-out;
+  }
+}

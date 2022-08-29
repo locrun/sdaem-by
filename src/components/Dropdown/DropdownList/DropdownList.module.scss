@@ -1,0 +1,91 @@
+@import "../../../styles/variables/variables.scss";
+
+.button {
+  margin-right: 80px;
+  padding: 22px 0;
+  display: flex;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  color: $black-gray;
+  background: none;
+  position: relative;
+  &:last-child {
+    margin-right: 0;
+  }
+}
+.button:after {
+  display: block;
+  content: "";
+  position: absolute;
+  height: 3px;
+  width: 0%;
+  bottom: 0;
+  background-color: #ffd54f;
+  -webkit-transition: width 0.3s ease-in-out;
+  -moz--transition: width 0.3s ease-in-out;
+  transition: width 0.3s ease-in-out;
+}
+
+.button:hover:after,
+.button:focus:after {
+  width: 100%;
+}
+.icon {
+  fill: #ffd54f;
+  width: 15px;
+  height: 15px;
+  margin-left: 15px;
+}
+.list {
+  position: absolute;
+  top: 90px;
+  left: 0;
+  min-width: 246px;
+  z-index: 1;
+  display: inline-block;
+  background: #ffffff;
+  box-shadow: 0px 0px 40px rgba(135, 124, 202, 0.3);
+  border-radius: 10px;
+  list-style: none;
+  text-align: left;
+  z-index: 2;
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: -26px;
+    padding: 13px 0;
+    width: 100%;
+    cursor: default;
+  }
+}
+.listItem {
+  color: $black-gray;
+  display: inline-block;
+  width: 100%;
+  &:hover {
+    background: #f8f8f8;
+  }
+  &:first-child {
+    border-radius: 10px 10px 0 0;
+  }
+  &:last-child {
+    margin-bottom: 0;
+    border-radius: 0 0 10px 10px;
+  }
+}
+.itemLink {
+  width: 100%;
+  display: inline-block;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 10px 15px;
+  line-height: 17px;
+  color: $black-gray;
+  text-decoration: none;
+  z-index: 0;
+}
+.active {
+  border-color: #ffd54f !important;
+}

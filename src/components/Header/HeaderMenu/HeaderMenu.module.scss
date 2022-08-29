@@ -1,0 +1,31 @@
+.wrapper {
+  width: 100%;
+  background: #ffffff;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+.container {
+  max-width: 1315px;
+  margin: 0 auto;
+  padding: 0 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.link {
+  margin-left: 80px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  color: #ffffff;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  padding: 10px 22px;
+  gap: 10px;
+  background: linear-gradient(90deg, #9d94ff 0%, #6b50e9 94.5%);
+  border-radius: 19px;
+}

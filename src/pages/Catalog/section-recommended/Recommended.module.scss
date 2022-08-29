@@ -1,0 +1,69 @@
+@import "../../../styles/variables/variables.scss";
+
+.wrapper {
+  position: relative;
+  padding: 42px 0;
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #94afff 0%, #4e64f9 94.5%);
+    opacity: 0.1;
+    z-index: -1;
+  }
+}
+
+.title {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 100%;
+  color: $black-gray;
+}
+.label {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+  display: inline-block;
+  color: $black-gray;
+}
+.recommend {
+  margin-top: 15px;
+}
+
+.list {
+  margin-top: 25px;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.listItem {
+  display: flex;
+  align-items: center;
+  padding: 6px 10px;
+  background: rgba(102, 78, 249, 0.1);
+  border-radius: 17px;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
+  color: $moderate-blue;
+  cursor: pointer;
+  transition: $transition;
+  &:last-child {
+    margin-right: 0;
+  }
+  &:hover {
+    background: rgba(102, 78, 249, 0.2);
+    transition: $transition;
+  }
+}
+
+.cross {
+  width: 10px;
+  height: 10px;
+  margin-left: 10px;
+}

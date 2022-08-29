@@ -1,0 +1,46 @@
+@import "../../styles/variables/variables.scss";
+
+.wrapper {
+  position: relative;
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 30px;
+    right: 0;
+    width: 54%;
+    height: 75%;
+    background: linear-gradient(90deg, #94afff 0%, #4e64f9 94.5%);
+    border-radius: 40px 0 0 40px;
+    opacity: 0.1;
+    z-index: -1;
+  }
+}
+.container {
+  padding-top: 42px;
+  padding-bottom: 100px;
+  min-height: 750px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.mt {
+  margin-top: 50px;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+  margin: 0 150px;
+  color: red;
+  border: 1px solid red;
+}

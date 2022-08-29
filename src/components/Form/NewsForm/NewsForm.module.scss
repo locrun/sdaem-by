@@ -1,0 +1,37 @@
+@import "../../../styles/variables/variables.scss";
+
+.searchForm {
+  width: 622px;
+  height: 37px;
+  position: relative;
+
+  .searchInput {
+    width: 100%;
+    padding: 11px 70px 11px 21px;
+    background: #ffffff;
+    box-shadow: 0px 10px 20px rgba(0, 96, 206, 0.05);
+    border-radius: 20px;
+    &::placeholder {
+      font-family: Inter;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 17px;
+      color: $dull-gray;
+    }
+  }
+
+  .searchBtn {
+    position: absolute;
+    right: 0;
+    padding: 10px 18px;
+    width: 53px;
+    height: 37px;
+    background: #664ef9;
+    border-radius: 19px;
+
+    .searchIcon {
+      width: 18px;
+      height: 18px;
+    }
+  }
+}

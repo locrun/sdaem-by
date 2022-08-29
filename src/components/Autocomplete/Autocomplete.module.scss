@@ -1,0 +1,117 @@
+@import "../../styles/variables/variables.scss";
+
+.input {
+  color: black;
+  border: none;
+  padding: 0;
+  outline: none;
+  align-self: center;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 16px;
+
+  @media screen and (min-width: 0px) and (max-width: 320px) {
+    font-size: 10px;
+    line-height: 10px;
+    min-width: 200px;
+    max-width: 200px;
+  }
+
+  @media screen and (min-width: 321px) and (max-width: 767px) {
+    font-size: 12px;
+    line-height: 14px;
+    min-width: 200px;
+    max-width: 200px;
+  }
+  [class*="-control"] {
+    min-height: 25px;
+    outline: none;
+    box-shadow: none;
+    border-radius: 20px;
+    background: #f8f8f8;
+    border: 2px solid #fff;
+
+    &:hover {
+      border: 2px solid #fff;
+      background: rgba(102, 78, 249, 0.1);
+    }
+    &:focus-within {
+      background: #ffffff;
+      border: 2px solid rgba(102, 78, 249, 0.8);
+      filter: drop-shadow(0px 5px 15px rgba(135, 124, 202, 0.25));
+    }
+
+    @media screen and (min-width: 0px) and (max-width: 767px) {
+      width: 200px;
+      min-height: 20px;
+    }
+  }
+  [class*="-ValueContainer"] {
+    color: black;
+    padding: 0 12px 0;
+
+    @media screen and (min-width: 0px) and (max-width: 767px) {
+      padding: 0 4px 0;
+    }
+  }
+  [class*="-option"] {
+    color: #1e2123;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 15px;
+    background-color: white;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    cursor: pointer;
+    position: relative;
+    z-index: 100;
+    @media screen and (min-width: 0px) and (max-width: 320px) {
+      font-size: 10px;
+      line-height: 10px;
+    }
+    @media screen and (min-width: 321px) and (max-width: 767px) {
+      font-size: 12px;
+      line-height: 14px;
+    }
+    &:hover {
+      color: $black-gray;
+      background-color: #f8f8f8;
+    }
+    &:active {
+      background-color: white;
+      opacity: 1;
+    }
+  }
+  [class*="-IndicatorsContainer"] {
+    display: none;
+    svg {
+      color: $moderate-blue;
+    }
+  }
+
+  [class*="-indicators"] {
+    display: none;
+  }
+  [class*="indicators"] {
+    display: block;
+  }
+  [class*="-singleValue"] {
+    margin: 0;
+    padding: 0;
+  }
+  [class*="-placeholder"] {
+    margin: 0;
+    padding: 0;
+    color: $dull-gray;
+  }
+  [class*="-Input"] {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}

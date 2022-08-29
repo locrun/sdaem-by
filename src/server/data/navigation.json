@@ -1,0 +1,7 @@
+[
+  { "id": 0, "item": "Главная", "path": "/" },
+  { "id": 1, "item": "Новости", "path": "/news" },
+  { "id": 2, "item": "Размещение и тарифы", "path": "/rate" },
+  { "id": 3, "item": "Объявления на карте", "path": "/advert", "isIcon": true },
+  { "id": 4, "item": "Контакты", "path": "/contacts" }
+]

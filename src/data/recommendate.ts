@@ -1,0 +1,17 @@
+export const recommend = [
+  { name: "1-комнатные", key: "room", room: "1 комн." },
+  { name: "2-комнатные", key: "room", room: "2 комн." },
+  { name: "3-комнатные", key: "room", room: "3 комн." },
+  { name: "4-комнатные", key: "room", room: "4 комн." },
+  { name: "5-комнатные", key: "room", room: "5 комн." },
+  { name: "Шабаны р.", key: "area", area: "Шабаны" },
+  { name: "Заводской р.", key: "area", area: "Заводской" },
+  { name: "Ленинский р.", key: "area", area: "Ленинский" },
+  { name: "Московский р.", key: "area", area: "Московский" },
+  { name: "Октябрьский р.", key: "area", area: "Октябрьский" },
+  { name: "Партизанский р.", key: "area", area: "Партизанский" },
+  { name: "Первомайский р.", key: "area", area: "Первомайский" },
+  { name: "Советский р.", key: "area", area: "Советский" },
+  { name: "Фрунзенский р.", key: "area", area: "Фрунзенский" },
+  { name: "Центральный р.", key: "area", area: "Центральный" },
+];

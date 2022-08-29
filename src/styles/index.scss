@@ -1,0 +1,14 @@
+@import "../styles/vendor/fonts/fonts.scss";
+@import "../styles/base/globals.scss";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, sans-serif;
+  background-color: #fdfdfe;
+  overflow-y: scroll;
+  position: relative;
+}

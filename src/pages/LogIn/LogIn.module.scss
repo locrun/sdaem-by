@@ -1,0 +1,56 @@
+@import "../../styles/variables/variables.scss";
+
+.wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(1.09deg, #7e6af3 0.86%, #6540cd 99.01%);
+  padding: 200px 0;
+  height: 100vh;
+  z-index: 1;
+  text-align: center;
+}
+.wrapper:after {
+  display: block;
+  content: "";
+  background: url("../../assets/images/decor.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  opacity: 0.4;
+  z-index: -1;
+}
+
+.content {
+  position: relative;
+  width: 406px;
+  padding: 50px;
+  background: #fffefe;
+  box-shadow: 0px 20px 40px rgba(39, 95, 158, 0.2);
+  border-radius: 10px;
+}
+.title {
+  display: inline-block;
+  margin-bottom: 15px;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 30px;
+  text-align: center;
+  color: #000000;
+}
+.mb {
+  margin-bottom: 35px;
+}
+.text {
+  display: inline-block;
+  color: $dull-gray;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+}

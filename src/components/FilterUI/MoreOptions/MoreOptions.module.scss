@@ -1,0 +1,16 @@
+@import "../../../styles/variables/variables.scss";
+
+.selectWrapper {
+  background-color: #ffffff;
+  border-top: 1px solid rgba(78, 100, 249, 0.1);
+  padding: 20px 20px 0 20px;
+  display: flex;
+}
+
+.checkboxWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 30px 20px 20px 20px;
+  background: #ffffff;
+  border-radius: 0px 0px 10px 10px;
+}

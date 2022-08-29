@@ -1,0 +1,44 @@
+.select {
+  background: #ffffff;
+  box-shadow: 0px 10px 20px rgba(0, 96, 206, 0.1);
+  border-radius: 20px;
+  width: 232px;
+  position: relative;
+  z-index: 0;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+
+  [class*="-ValueContainer"] {
+    position: relative;
+    padding: 0 17px 0 37px;
+    &:after {
+      content: url("../../../assets/images/sortIcon.svg");
+      position: absolute;
+      top: 1px;
+      left: 12px;
+    }
+  }
+
+  [class*="-control"] {
+    min-height: 25px;
+    outline: none;
+    box-shadow: none;
+    border-radius: 20px;
+    background: #fff;
+    border: 2px solid #fff;
+
+    &:hover {
+      border: 2px solid rgba(102, 78, 249, 0);
+      background: rgba(102, 78, 249, 0.1);
+    }
+    &:focus-within {
+      background: #ffffff;
+      border: 2px solid rgba(102, 78, 249, 0.8);
+    }
+    @media screen and (min-width: 0px) and (max-width: 767px) {
+      width: 200px;
+      min-height: 20px;
+    }
+  }
+}

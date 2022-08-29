@@ -1,0 +1,58 @@
+@import "../../../styles/variables/variables.scss";
+
+.checkboxList {
+  width: 248px;
+  margin-left: 2px;
+
+  & > li {
+    margin-bottom: 10px;
+  }
+}
+.customCheckbox {
+  display: none;
+}
+.customCheckbox + label {
+  display: inline-flex;
+  align-items: flex-end;
+  user-select: none;
+  position: relative;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: $black-gray;
+
+  & > span {
+    margin-bottom: 2px;
+  }
+}
+.customCheckbox + label::before {
+  content: "";
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  margin-right: 10px;
+  background: #f8f8f8;
+  border: 1px solid #f0f0f0;
+  transition: $transition;
+  content: url("");
+}
+.customCheckbox + label:hover::before {
+  background: rgba(102, 78, 249, 0.1);
+  border: 1px solid rgba(102, 78, 249, 0.1);
+  transition: $transition;
+  content: url(../../../assets/images/check.svg);
+  text-align: center;
+}
+
+.customCheckbox:checked + label::after {
+  content: url(../../../assets/images/check.svg);
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  background: #664ef9;
+  border: 1px solid #664ef9;
+}

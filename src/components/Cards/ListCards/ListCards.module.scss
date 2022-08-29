@@ -1,0 +1,257 @@
+@import "../../../styles/variables/variables.scss";
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+.image {
+  width: 537px;
+  height: 300px;
+  min-width: 537px;
+  overflow: hidden;
+  background: #e4e2e2;
+  border-radius: 10px;
+  & > img {
+    width: 537px;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+}
+.card {
+  display: flex;
+  max-width: 100%;
+  margin-bottom: 30px;
+  color: $black-gray;
+  background: #fffefe;
+  border-radius: 10px;
+  filter: drop-shadow(0px 20px 40px rgba(135, 124, 202, 0.15));
+}
+.owner {
+  position: absolute;
+  left: 35%;
+  top: -25%;
+}
+.cardData {
+  padding: 20px 25px 25px 25px;
+  max-height: 300px;
+  overflow: hidden;
+}
+
+.title {
+  display: inline-block;
+  margin-top: 5px;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 100%;
+  color: $black-gray;
+}
+.listInfo {
+  display: flex;
+}
+
+.address {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: #000000;
+
+  .locationIcon {
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+    fill: #664ef9;
+  }
+}
+
+.capacity {
+  display: flex;
+  flex-flow: row-reverse;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 14px;
+  height: 34px;
+  background: #f8f8f8;
+  border-radius: 18px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: $dull-gray;
+  margin-right: 15px;
+
+  .userIcon {
+    width: 21px;
+    height: 21px;
+    fill: #686868;
+    margin-right: 6px;
+  }
+}
+.rooms {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px 14px;
+  gap: 6px;
+  height: 34px;
+  margin-right: 15px;
+
+  background: #f8f8f8;
+  border-radius: 18px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: $dull-gray;
+}
+
+.metro {
+  display: flex;
+  align-items: center;
+  padding: 8px 14px;
+  gap: 6px;
+  height: 34px;
+  margin-right: 15px;
+
+  background: #f8f8f8;
+  border-radius: 18px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: $dull-gray;
+
+  .metroIcon {
+    width: 22px;
+    height: 22px;
+    fill: $moderate-blue;
+    align-self: flex-start;
+  }
+}
+
+.area {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px 14px;
+  gap: 6px;
+  background: #f8f8f8;
+  border-radius: 18px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+
+  & > span {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: $moderate-blue;
+  }
+}
+
+.price {
+  display: flex;
+  flex-direction: column;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 30px;
+  color: $moderate-blue;
+
+  & > span {
+    display: flex;
+    justify-content: end;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #7a7f86;
+  }
+}
+.description {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+  color: $dull-gray;
+  margin-top: 16px;
+  margin-bottom: 25px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  & > .flex {
+    display: flex;
+    align-items: center;
+  }
+}
+.contactsBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 15px;
+  margin-right: 15px;
+
+  background: #f8f8f8;
+  border-radius: 18px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  color: $moderate-blue;
+  transition: $transition;
+  .phoneIcon {
+    width: 16px;
+    height: 17px;
+    fill: $moderate-blue;
+    margin-right: 10px;
+  }
+  &:hover {
+    background: #f5f3ff;
+    transition: $transition;
+  }
+}
+
+.bookmarksBtn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 9px 15px;
+  gap: 10px;
+  width: 133px;
+  height: 35px;
+  background: rgba(235, 87, 87, 0.1);
+  border-radius: 22px;
+
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  color: #eb5757;
+
+  & > .heartIcon {
+    fill: rgba(235, 87, 87, 1);
+  }
+}
+.moreBtn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px 15px;
+  gap: 10px;
+  background: rgba(255, 213, 79, 0.1);
+  border-radius: 17px;
+
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  color: #fec100;
+  transition: $transition;
+  &:hover {
+    background: rgba(255, 213, 79, 0.2);
+    transition: $transition;
+  }
+}
+.heartIcon {
+  width: 15px;
+  height: 15px;
+  stroke-width: 1px solid #eb5757;
+  fill: rgba(235, 87, 87, 1);
+}

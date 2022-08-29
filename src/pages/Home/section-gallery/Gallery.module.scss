@@ -1,0 +1,16 @@
+@import "../../../styles/variables/variables.scss";
+
+.wrapper {
+  max-width: 1340px;
+  margin: 0 auto;
+}
+
+.content {
+  margin-top: 86px;
+  margin-bottom: 105px;
+  display: flex;
+}
+
+.scroll::-webkit-scrollbar {
+  visibility: hidden;
+}

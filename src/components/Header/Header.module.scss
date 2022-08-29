@@ -1,0 +1,67 @@
+@import "../../styles/variables/variables.scss";
+
+.header {
+  width: 100%;
+  background: #f8f8f8;
+}
+.container {
+  max-width: 1315px;
+  margin: 0 auto;
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navList {
+  display: flex;
+}
+
+.navListItem {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  margin-right: 57px;
+  display: flex;
+  align-items: center;
+  a {
+    color: $light-gray;
+    padding: 16px 0;
+    border-bottom: 3px solid #f8f8f8;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 275px;
+}
+.bookmark {
+  padding: 16px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  font-size: 14px;
+  color: $light-gray;
+  line-height: 17px;
+  border-bottom: 3px solid #f8f8f8;
+}
+.heart {
+  width: 18px;
+  height: 16px;
+  fill: rgba(130, 145, 163, 1);
+  margin-left: 11px;
+}
+
+.login {
+  color: $moderate-blue;
+  padding: 16px 0px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  border-bottom: 3px solid #f8f8f8;
+}

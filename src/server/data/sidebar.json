@@ -1,0 +1,194 @@
+[
+  {
+    "title": "Квартиры",
+    "list": [
+      {
+        "id": 0,
+        "value": "Квартиры в Минске",
+        "city": "Минск",
+        "path": "catalog/flats",
+        "amount": 13
+      },
+      {
+        "id": 1,
+        "value": "Квартиры в Гомеле",
+        "city": "Гомель",
+        "path": "catalog/flats",
+        "amount": 8
+      },
+      {
+        "id": 2,
+        "value": "Квартиры в Бресте",
+        "city": "Брест",
+        "path": "catalog/flats",
+        "amount": 11
+      },
+      {
+        "id": 3,
+        "value": "Квартиры в Витебске",
+        "city": "Витебск",
+        "path": "catalog/flats",
+        "amount": 8
+      },
+      {
+        "id": 4,
+        "value": "Квартиры в Гродно",
+        "city": "Гродно",
+        "path": "catalog/flats",
+        "amount": 9
+      },
+      {
+        "id": 5,
+        "value": "Квартиры в Могилеве",
+        "city": "Могилев",
+        "path": "catalog/flats",
+        "amount": 12
+      }
+    ]
+  },
+  {
+    "title": "Коттеджи и усадьбы",
+    "list": [
+      {
+        "id": 0,
+        "value": "Агроусадьбы",
+        "type": "Агроусадьба",
+        "path": "catalog/cottages",
+        "amount": 15
+      },
+      {
+        "id": 1,
+        "value": "Коттеджы",
+        "type": "Коттедж на сутки",
+        "path": "catalog/cottages",
+        "amount": 8
+      },
+      {
+        "id": 2,
+        "value": "Загородный комплекс",
+        "type": "Загородный комплекс",
+        "path": "catalog/cottages",
+        "amount": 13
+      },
+
+      {
+        "id": 3,
+        "value": "Базы отдыха",
+        "type": "База отдыха",
+        "path": "catalog/cottages",
+        "amount": 25
+      }
+    ]
+  },
+  {
+    "title": "Бани и cауны",
+    "list": [
+      {
+        "id": 0,
+        "value": "Бани и сауны в Минске",
+        "city": "Минск",
+        "path": "catalog/baths",
+        "amount": 13
+      },
+      {
+        "id": 1,
+        "value": "Бани и сауны в Гомеле",
+        "city": "Гомель",
+        "path": "catalog/baths",
+        "amount": 8
+      },
+      {
+        "id": 2,
+        "value": "Бани и сауны в Бресте",
+        "city": "Брест",
+        "path": "catalog/baths",
+        "amount": 11
+      },
+      {
+        "id": 3,
+        "value": "Бани и сауны в Витебске",
+        "city": "Витебск",
+        "path": "catalog/baths",
+        "amount": 8
+      },
+      {
+        "id": 4,
+        "value": "Бани и сауны в Гродно",
+        "city": "Гродно",
+        "path": "catalog/baths",
+        "amount": 9
+      },
+      {
+        "id": 5,
+        "value": "Бани и сауны в Могилеве",
+        "city": "Могилев",
+        "path": "catalog/baths",
+        "amount": 12
+      }
+    ]
+  },
+  {
+    "title": "Авто на прокат",
+    "list": [
+      {
+        "id": 0,
+        "value": "Авто на прокат в Минске",
+        "city": "Минск",
+        "path": "catalog/cars",
+        "amount": 13
+      },
+      {
+        "id": 1,
+        "value": "Авто на прокат в Гомеле",
+        "city": "Гомель",
+        "path": "catalog/cars",
+        "amount": 8
+      },
+      {
+        "id": 2,
+        "value": "Авто на прокат в Бресте",
+        "city": "Брест",
+        "path": "catalog/cars",
+        "amount": 11
+      },
+      {
+        "id": 3,
+        "value": "Авто на прокат в Витебске",
+        "city": "Витебск",
+        "path": "catalog/cars",
+        "amount": 8
+      },
+      {
+        "id": 4,
+        "value": "Авто на прокат в Гродно",
+        "city": "Гродно",
+        "path": "catalog/cars",
+        "amount": 9
+      },
+      {
+        "id": 5,
+        "value": "Авто на прокат в Могилеве",
+        "city": "Могилев",
+        "path": "catalog/cars",
+        "amount": 12
+      }
+    ]
+  },
+  {
+    "title": "Популярные направления",
+    "list": [
+      {
+        "value": "Коттеджи и усадьбы на о. Брасласких",
+        "path": "catalog/cottages"
+      },
+      {
+        "value": "Коттеджи и усадьбы (жилье) на Нарочи",
+        "path": "catalog/cottages"
+      },
+      {
+        "value": "Коттеджи и усадьбы (жилье) у воды,на берегу, на озере",
+        "path": "catalog/cottages"
+      }
+    ]
+  }
+]

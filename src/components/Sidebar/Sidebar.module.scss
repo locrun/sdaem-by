@@ -1,0 +1,38 @@
+@import "../../styles/variables/variables.scss";
+
+.aside {
+  max-width: 317px;
+  height: 570px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.scroll::-webkit-scrollbar {
+  visibility: hidden;
+}
+.openMoreContent {
+  position: relative;
+  padding: 0;
+  width: 43px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #f5bc03;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: $choice-yellow;
+}
+
+.openMoreContent:after {
+  display: block;
+  position: absolute;
+  content: "";
+  border: solid $choice-yellow;
+  border-width: 0 1px 1px 0;
+  padding: 3px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  position: absolute;
+  right: 0;
+}

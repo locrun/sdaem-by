@@ -1,0 +1,47 @@
+.wrapper {
+  text-align: center;
+  padding-top: 75px;
+  padding-bottom: 86px;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(0deg, #7e6af3 0.06%, #6540cd 100.06%);
+  position: relative;
+  z-index: 1;
+  &:after {
+    display: block;
+    content: "";
+    position: absolute;
+    background-image: url("../../../assets/images/decor.svg");
+    background-repeat: no-repeat;
+    background-position: top -75px right 10px;
+    background-size: cover;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    opacity: 0.4;
+    z-index: -1;
+  }
+}
+
+.title {
+  display: inline-block;
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 30px;
+  text-align: center;
+  color: #ffffff;
+}
+.subtitle {
+  margin-bottom: 23px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: #ffffff;
+
+  & > p {
+    margin: 0;
+  }
+}

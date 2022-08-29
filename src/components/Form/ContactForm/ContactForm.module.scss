@@ -1,0 +1,71 @@
+@import "../../../styles/variables/variables.scss";
+
+.form {
+  width: 625px;
+  margin-right: 65px;
+  padding: 40px 35px 45px 35px;
+  background: #fffefe;
+  box-shadow: 0px 20px 40px rgba(39, 95, 158, 0.2);
+  border-radius: 10px;
+}
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.textAreaWrapper {
+  margin-top: 30px;
+  .textarea {
+    width: 100%;
+    height: 200px;
+    background: #f8f8f8;
+    border-radius: 30px;
+    border: none;
+    padding: 20px;
+    resize: none;
+    outline: none;
+    border: 2px solid #f8f8f8;
+    transition: $transition;
+    &:focus {
+      border: 2px solid rgba(102, 78, 249, 0.8);
+    }
+  }
+  .error {
+    border: 2px solid rgba(235, 87, 87, 1);
+  }
+}
+.textAreaTitle {
+  display: inline-block;
+  margin-bottom: 15px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: $dull-gray;
+}
+
+.button {
+  margin: 0 auto;
+  width: 200px;
+  height: 48px;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 20px;
+
+  background: #664ef9;
+  border-radius: 33px;
+
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  color: #ffffff;
+}
+
+.error {
+  border: 2px solid rgba(235, 87, 87, 1);
+
+  input:focus {
+    border: 2px solid rgba(235, 87, 87, 1);
+  }
+}
