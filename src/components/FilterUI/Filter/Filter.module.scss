@@ -3,7 +3,10 @@
   box-shadow: 0px 20px 40px rgba(39, 95, 158, 0.08);
   border-radius: 0 10px 10px 10px;
 }
-
+.container {
+  max-width: 1315px;
+  margin: 0 auto;
+}
 .wrapper {
   height: 100px;
   background: #fff;
