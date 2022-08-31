@@ -17,7 +17,12 @@ export const Dropdown: FC = () => {
   return (
     <div className={classes.flex}>
       {menu.map((menu) => {
-        return <DropdownList key={menu.title} menu={menu} />
+        return (
+          <DropdownList
+            key={menu.title}
+            menu={menu}
+          />
+        )
       })}
     </div >
   )

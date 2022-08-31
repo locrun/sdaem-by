@@ -50,12 +50,10 @@ const filterSlice = createSlice({
   initialState,
   reducers: {
     setSelectedData(state, action) {
-      console.log(action.payload);
       state.stateData = action.payload;
     },
 
     setFilteredData(state, action) {
-      console.log(action.payload);
       state.filteredData = action.payload;
     },
     setDublicateData(state, action) {
@@ -69,7 +67,6 @@ const filterSlice = createSlice({
     },
 
     resetFilter(state) {
-      console.log("update");
       state.stateData.city = "";
       state.stateData.room = "";
       state.stateData.area = "";

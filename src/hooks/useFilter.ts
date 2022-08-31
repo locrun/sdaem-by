@@ -91,7 +91,6 @@ export const useFilter = () => {
           ? item.capacity.split(" ")[0] === stateData.capacity
           : true
       );
-
     if (location.pathname === path.HOME)
       dispatch(setFilteredData(filteredData));
   }, [

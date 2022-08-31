@@ -54,6 +54,7 @@ export const ButtonGroup: FC<IPropsButtons> = ({ onHandleClick }) => {
         :
         <>
           <Button
+            type="submit"
             className={classes.clearBtn}
             onClick={onResetFilter}
           >

@@ -8,6 +8,7 @@ import { useFilter } from "../../../hooks/useFilter"
 import cn from "classnames"
 import classes from "./Filter.module.scss"
 
+
 const tabs = [
   { id: 0, label: "Квартиры на сутки" },
   { id: 1, label: "Коттеджы и усадьбы" },
@@ -59,6 +60,4 @@ export const Filter: FC = () => {
     </section >
   )
 }
-
-
 
