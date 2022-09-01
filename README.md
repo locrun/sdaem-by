@@ -2,5 +2,7 @@
 
 ### [Online demo](https://sdaem-by-one.vercel.app/)
 
-## Available Scripts
-.
+## Используемые технологии
+* React Js
+* Redux Toolkit
+* Scss modules
