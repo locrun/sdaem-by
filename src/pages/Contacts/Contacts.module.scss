@@ -30,15 +30,16 @@
   margin-right: 30px;
   color: #ffffff;
 
-  & > .title {
+  .title {
     display: inline-block;
+    margin-top: 0;
     margin-bottom: 13px;
     font-weight: 700;
     font-size: 30px;
     line-height: 100%;
     color: #ffffff;
   }
-  & > .subtitle {
+  .subtitle {
     font-weight: 500;
     font-size: 16px;
     line-height: 150%;
