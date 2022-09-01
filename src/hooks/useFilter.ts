@@ -8,10 +8,6 @@ import {
 import { useLocation } from "react-router";
 import { path } from "../constants/pages";
 import { IResponseData } from "../Interfaces/IResponseData";
-import { fetchFlats } from "../store/thunks/flatThunk";
-import { fetchCottages } from "../store/thunks/cottagesThunk";
-import { fetchBaths } from "../store/thunks/bathsThunk";
-import { fetchCars } from "../store/thunks/carsThunk";
 
 export const useFilter = () => {
   const location = useLocation();
@@ -27,24 +23,6 @@ export const useFilter = () => {
 
   useEffect(() => {
     switch (location.pathname) {
-      case path.APARTMENTS:
-        dispatch(fetchFlats());
-        break;
-      case path.COTTAGES:
-        dispatch(fetchCottages());
-        break;
-      case path.BATHS:
-        dispatch(fetchBaths());
-        break;
-      case path.CARS:
-        dispatch(fetchCars());
-        break;
-      default:
-    }
-  }, [dispatch, location.pathname]);
-
-  useEffect(() => {
-    switch (location.pathname) {
       case path.HOME:
         return setCurrentFetchData(flats);
       case path.APARTMENTS:
@@ -56,7 +34,7 @@ export const useFilter = () => {
       case path.CARS:
         return setCurrentFetchData(cars);
     }
-  }, [baths, cars, cottages, flats, location.pathname]);
+  }, [baths, cars, cottages, currentFetchData, flats, location.pathname]);
 
   useEffect(() => {
     submitFilteringFunction();
@@ -157,6 +135,5 @@ export const useFilter = () => {
 
   return {
     submitFilteringFunction,
-    filteredData,
   };
 };

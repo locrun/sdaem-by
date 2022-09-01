@@ -26,7 +26,7 @@
     outline: none;
     border: 2px solid #f8f8f8;
     transition: $transition;
-    &:focus {
+    &:hover {
       border: 2px solid rgba(102, 78, 249, 0.8);
     }
   }
@@ -64,8 +64,4 @@
 
 .error {
   border: 2px solid rgba(235, 87, 87, 1);
-
-  input:focus {
-    border: 2px solid rgba(235, 87, 87, 1);
-  }
 }

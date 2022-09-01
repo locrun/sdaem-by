@@ -67,6 +67,7 @@ const filterSlice = createSlice({
     },
 
     resetFilter(state) {
+      state.sortValue = { value: "По умолчанию", label: "По умолчанию" };
       state.stateData.city = "";
       state.stateData.room = "";
       state.stateData.area = "";

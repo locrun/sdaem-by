@@ -27,17 +27,25 @@ const promocards = [
 export const GalleryAdsCards: FC = () => {
   const navigate = useNavigate()
 
+  const onClickHandler = (path: string) => {
+    navigate(path)
+  }
+
   return (
     <div className={classes.cards}>
       {promocards.map((card) => {
         return (
-          <div key={card.id} className={card.classes} style={card.mr ? { marginRight: "30px" } : {}}>
+          <div
+            key={card.id}
+            className={card.classes}
+            style={card.mr ? { marginRight: "30px" } : {}}
+          >
             <p className={classes.subtitle}>{card.subtitle}</p>
             <h3 className={classes.title}>{card.title}</h3>
             {card.isButtons && <Badges />}
             <img src={card.image} className={classes.image} alt="аренда бань и саун" />
             {!card.isButtons &&
-              <Button className={classes.jumpButton} onClick={() => navigate(card.path)}>
+              <Button className={classes.jumpButton} onClick={() => onClickHandler(card.path)}>
                 <IconSvg id={"#arrow"} className={classes.arrow} />
               </Button>
             }

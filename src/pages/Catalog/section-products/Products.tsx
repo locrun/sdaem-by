@@ -13,14 +13,13 @@ import { TiledCards } from "../../../components/Cards/TiledCards/TiledCards";
 import { ListCards } from "../../../components/Cards/ListCards/ListCards";
 import { Pagination } from "../../../components/Pagination/Pagination";
 import { ShareButtons } from "../../../components/ShareButtons/ShareButtons";
-import { ErrorMessage } from "../../../components/Notification/ErrorMessage/ErrorMessage"
-import { Spinner } from "../../../Spinner/Spinner"
+
+import { NothingFound } from "../../../components/Notification/NothingFound/NothingFound";
+
 
 import { ISelectOption } from "../../../Interfaces/ISelectOption";
 import { IResponseData } from "../../../Interfaces/IResponseData";
 import classes from "./Products.module.scss"
-
-
 
 
 export const Products: FC = () => {
@@ -54,10 +53,11 @@ export const Products: FC = () => {
             {filteredData && <span> Найдено {filteredData?.length} результата</span>}
           </h3>
 
-          {slicedArray.length <= 0 ?
+          {slicedArray.length === 0 ?
             <div className={classes.spinwrap}>
-              <Spinner />
-            </div> :
+              <NothingFound />
+            </div>
+            :
             active === "tiles" &&
             <div className={classes.tilesCardWrapper}>
               {slicedArray?.map((items: IResponseData) =>
@@ -65,7 +65,7 @@ export const Products: FC = () => {
               )}
             </div>
           }
-           
+
           {active === "list" &&
             <div className={classes.listCardWrapper}>
               {slicedArray?.map((items: IResponseData) =>

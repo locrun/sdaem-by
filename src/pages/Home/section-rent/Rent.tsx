@@ -31,7 +31,7 @@ export const Rent: FC = () => {
     dispatch(fetchFlats())
   }, [dispatch])
 
-  const { loading, error, flats } = useAppSelector(state => state.flats)
+  const { loading, error } = useAppSelector(state => state.flats)
   const { stateData, filteredData } = useAppSelector(state => state.filter)
   const { rentTitle, totalOffersTitle } = usePageTitle()
 

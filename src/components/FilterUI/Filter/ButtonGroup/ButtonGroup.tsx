@@ -63,7 +63,6 @@ export const ButtonGroup: FC<IPropsButtons> = ({ onHandleClick }) => {
           <Button
             type="submit"
             className={classes.showSelectedBtn}
-
           >
             Показать объекты
           </Button>

@@ -32,10 +32,10 @@
   outline: transparent;
   transition: $transition;
 
-  &:focus {
+  &:hover {
     border: 2px solid rgba(102, 78, 249, 0.8);
   }
-  &:focus + svg {
+  &:hover + svg {
     fill: $moderate-blue;
     opacity: 1;
   }
