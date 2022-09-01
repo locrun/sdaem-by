@@ -21,8 +21,6 @@ import classes from "./Rent.module.scss"
 import { Button } from "../../../components/ui-kit/Button/Button";
 
 
-
-
 export const Rent: FC = () => {
   const navigate = useNavigate()
   const dispatch = useAppDispatch()

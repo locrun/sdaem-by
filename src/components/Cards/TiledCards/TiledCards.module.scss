@@ -140,20 +140,6 @@
     align-items: center;
     margin-bottom: 10px;
     margin-top: 0;
-
-    svg {
-      width: 20px;
-      height: 20px;
-      fill: #bdbdbd;
-      margin-right: 4px;
-      background: "#BDBDBD";
-      &:nth-child(1) {
-        width: 15px;
-        height: 15px;
-        margin-right: 9px;
-        fill: #bdbdbd;
-      }
-    }
   }
 }
 .metroName {
@@ -168,6 +154,24 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.markIcon {
+  width: 15px;
+  height: 15px;
+  fill: #bdbdbd;
+  margin-right: 9px;
+}
+.metroIcon {
+  width: 20px;
+  height: 20px;
+  fill: #bdbdbd;
+  margin-right: 4px;
+}
+.dotIcon {
+  width: 8px;
+  height: 8px;
+  fill: #bdbdbd;
+  margin-right: 5px;
 }
 .phoneIcon {
   width: 17px;

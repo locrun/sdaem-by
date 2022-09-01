@@ -14,7 +14,7 @@ interface IProps {
 export const ListCards: FC<IProps> = ({ data:
   { city, address, metro,
     area, image, price,
-    capacity, room, square, description, ownerContacts, type } }) => {
+    capacity, room, description, ownerContacts, type } }) => {
 
   const [isFavorite, setIsFavorite] = useState(false)
 
@@ -59,7 +59,6 @@ export const ListCards: FC<IProps> = ({ data:
             <IconSvg id={"#user"} className={classes.userIcon} />
           </li>
           <li className={classes.rooms}>{room} комн.</li>
-          <li className={classes.square}>{square} м²</li>
           <li className={classes.metro}>
             <IconSvg id={"#metro"} className={classes.metroIcon} />
             {metro}

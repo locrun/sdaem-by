@@ -61,14 +61,14 @@ export const TiledCards: FC<IProps> = ({ data: {
         </ul>
         <div className={classes.location}>
           <p className={classes.locationItem}>
-            <IconSvg id={"#mark"} />
+            <IconSvg id={"#mark"} className={classes.markIcon} />
             {city}, {address}
           </p>
           <p className={classes.locationItem}>
-            <IconSvg id={"#metro"} />
+            <IconSvg id={"#metro"} className={classes.metroIcon} />
             <span className={classes.metroName}>{metro}</span>
             <span className={classes.right}>
-              <IconSvg className={classes.dot} id={"#dot"} />
+              <IconSvg id={"#dot"} className={classes.dotIcon} />
               {area}
             </span>
           </p>
