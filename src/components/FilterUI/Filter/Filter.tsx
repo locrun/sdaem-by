@@ -54,7 +54,9 @@ export const Filter: FC<IPropsFilter> = ({ onSubmitForm }) => {
 
   return (
     <div className={classes.filterWrapper}>
-      <div className={classes.container}>
+      <div className={cn(classes.container, {
+        [classes.containerTransform]: !homePath
+      })}>
         <form onSubmit={onHandleSubmit}>
           <div className={cn(classes.wrapper, {
             [classes._radiusNone]: openOptions,
