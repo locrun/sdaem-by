@@ -12,11 +12,12 @@ import { path } from "../../../constants/pages"
 import classes from "./Recommended.module.scss"
 
 type IProps = {
+  id?: number,
   name?: string,
   key?: string
   room?: string,
   area?: string,
-  [index: string]: string | undefined
+  [index: string]: string | number | undefined
 }
 
 export const Recommended: FC<IProps> = () => {
@@ -64,9 +65,10 @@ export const Recommended: FC<IProps> = () => {
       ...stateData,
       [key]: item[key]
     }))
+
+
   }
   return (
-
     <section className={classes.wrapper}>
       <div className="container">
         <Breadcrumbs breadCrumbsItems={breadCrumbsItems} />
@@ -76,15 +78,16 @@ export const Recommended: FC<IProps> = () => {
         <div className={classes.recommend}>
           <span className={classes.label}>Рекомендуем посмотреть</span>
           <ul className={classes.list}>
-            {recommend?.map((item, index) => {
+            {recommend?.map((item) => {
+              const { id, key } = item
               return (
                 <li
-                  key={item.name}
-                  onClick={() => { clickHandler(item, item.key); setIsActive(index) }}
+                  key={id}
+                  onClick={() => { clickHandler(item, key); setIsActive(id); console.log(id) }}
                   className={classes.listItem}
                 >
                   {item.name}
-                  {isActive === index && <IconSvg id="#cross" className={classes.cross} />}
+                  {isActive === id && <IconSvg id="#cross" className={classes.cross} />}
                 </li>
               )
             })}

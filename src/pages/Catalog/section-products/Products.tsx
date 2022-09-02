@@ -83,6 +83,7 @@ export const Products: FC = () => {
             <ShareButtons
               title={title}
               url={"https://sdaem.by/"}
+              catalogPage
             />
           </div>
         </div>

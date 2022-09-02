@@ -1,5 +1,4 @@
 import { FC } from "react"
-
 import {
   VKShareButton,
   FacebookShareButton,
@@ -9,20 +8,19 @@ import {
 
 } from "react-share";
 
-
 import { IconSvg } from "../IconSvg/IconSvg";
+import cn from "classnames"
 import classes from "./ShareButtons.module.scss"
 
 interface IPropsShareButtons {
   title?: string
   url: string
-  image?: string
+  image?: string,
+  newsDetailPage?: boolean,
+  catalogPage?: boolean
 }
-
 export const ShareButtons: FC<IPropsShareButtons> = ({
-  url,
-  title,
-  image
+  url, title, image, catalogPage, newsDetailPage
 }) => {
 
   return (
@@ -33,7 +31,10 @@ export const ShareButtons: FC<IPropsShareButtons> = ({
           url={url}
           title={title}
           image={image}
-          className={classes.socialMediaButton}
+          className={cn({
+            [classes.catalogPage]: catalogPage,
+            [classes.newsDetailPage]: newsDetailPage,
+          })}
         >
           <IconSvg id={"#vk"} className={classes.icon} />
         </VKShareButton>
@@ -41,27 +42,40 @@ export const ShareButtons: FC<IPropsShareButtons> = ({
           url={url}
           title={title}
           hashtag="#daily rent..."
-          className={classes.socialMediaButton}
+          className={cn({
+            [classes.catalogPage]: catalogPage,
+            [classes.newsDetailPage]: newsDetailPage,
+          })}
         >
           <IconSvg id={"#fb"} className={classes.icon} />
         </FacebookShareButton>
         <ViberShareButton
           url={url}
           title={title}
-          className={classes.socialMediaButton}>
+          className={cn({
+            [classes.catalogPage]: catalogPage,
+            [classes.newsDetailPage]: newsDetailPage,
+          })}
+        >
           <IconSvg id={"#viber"} className={classes.icon} />
         </ViberShareButton>
         <TelegramShareButton
           url={url}
           title={title}
-          className={classes.socialMediaButton}
+          className={cn({
+            [classes.catalogPage]: catalogPage,
+            [classes.newsDetailPage]: newsDetailPage,
+          })}
         >
           <IconSvg id={"#telegram"} className={classes.icon} />
         </TelegramShareButton>
         <WhatsappShareButton
           url={url}
           title={title}
-          className={classes.socialMediaButton}
+          className={cn({
+            [classes.catalogPage]: catalogPage,
+            [classes.newsDetailPage]: newsDetailPage,
+          })}
         >
           <IconSvg id={"#whatsapp"} className={classes.icon} />
         </WhatsappShareButton>

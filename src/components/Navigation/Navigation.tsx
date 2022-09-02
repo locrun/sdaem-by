@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC } from "react";
 
 import { NavLink } from "react-router-dom";
 import { IconSvg } from "../IconSvg/IconSvg"
@@ -12,34 +12,37 @@ type Data = {
   isIcon?: boolean,
 }[]
 
-interface IPropsNav {
+interface IPropsNavigation {
   className: string[]
   noHomePage?: boolean
+  data?: Data
 }
 
-export const Navigation: FC<IPropsNav> = ({ noHomePage, className: [navList, navListItem] }) => {
-  const [data, setData] = useState<Data>([])
-  const slice = noHomePage ? data.slice(1) : data
-  useEffect(() => {
-    fetch("/api/navigation")
-      .then(response => response.json())
-      .then(data => setData(data))
-  }, [])
+export const Navigation: FC<IPropsNavigation> = ({ noHomePage, data, className: [navList, navListItem] }) => {
+
+  const slice = noHomePage ? data?.slice(1) : data
 
   const setActive = ({ isActive }: { isActive: boolean }) => (isActive ? classes.active : "");
   return (
     <nav>
       <ul className={navList}>
-        {slice.map(({ id, item, path, isIcon }) =>
-          <li key={id} className={navListItem} >
-            <NavLink
-              to={path}
-              className={setActive}
-            >
-              {isIcon && <IconSvg id={"#mark"} className={classes.icon} />}
-              {item}
-            </NavLink>
-          </li>)}
+        {
+          slice?.map(({ id, item, path, isIcon }) =>
+            <li key={id} className={navListItem} >
+              <NavLink
+                to={path}
+                className={setActive}
+              >
+                {isIcon && <IconSvg id={"#mark"} className={classes.icon} />}
+                {item}
+              </NavLink>
+            </li>
+          )
+        }
+
+
+
+
       </ul>
     </nav>
   )

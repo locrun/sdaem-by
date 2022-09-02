@@ -68,6 +68,7 @@ export const Detail: FC = () => {
                 url={"https://sdaem.by/novosti"}
                 title={detailNews?.title}
                 image={detailNews?.image}
+                newsDetailPage
               />
             </div>
             <>
