@@ -1,32 +1,16 @@
-import { FC, useEffect, useState } from 'react'
+import { FC } from 'react'
 import { Link } from 'react-router-dom'
 import { Logo } from '../../Logo/Logo'
 import { Dropdown } from '../../Dropdown/Dropdown'
+import { MyLoader } from '../../../Spinner/preloader'
+import { useRequest } from '../../../hooks/useRequest'
 
 import classes from './HeaderMenu.module.scss'
-import { IList } from '../../Dropdown/DropdownList/DropdownList'
-import { MyLoader } from '../../../Spinner/preloader'
+import { DROPDOWN } from '../../../constants/query'
 
 export const HeaderMenu: FC = () => {
 
-  const [data, setData] = useState<IList[]>([])
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
-  useEffect(() => {
-    const requestHandler = async () => {
-      try {
-        const request = await fetch('/api/menu');
-        const response = await request.json();
-        setLoading(false);
-        setData(response);
-      } catch (error) {
-        console.log(error)
-        setError(true);
-        setLoading(false);
-      }
-    };
-    requestHandler();
-  }, []);
+  const { data, loading, error } = useRequest(DROPDOWN)
 
   return (
     <div className={classes.wrapper}>

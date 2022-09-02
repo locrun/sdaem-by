@@ -33,7 +33,7 @@ interface IContacts {
   href: string,
   workTime: string,
   employer: string,
-  data: string
+  ip: string
 }
 export const Footer = () => {
   const dispatch = useAppDispatch()
@@ -57,7 +57,7 @@ export const Footer = () => {
             </Logo >
             <div className={classes.contacts}>
               <span>{cont?.employer}</span>
-              <span>{cont?.data}</span>
+              <span>{cont?.ip}</span>
               <span>{cont?.address}</span>
               <span>{cont?.tel + ","}</span>
               <span>{cont?.mail}</span>

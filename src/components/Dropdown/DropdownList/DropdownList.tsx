@@ -1,4 +1,4 @@
-import { FC, useState, useEffect, useRef } from "react"
+import { FC, useState, useEffect, useRef, ReactNode } from "react"
 import { Link } from "react-router-dom"
 import { useAppDispatch, useAppSelector } from "../../../hooks/redux/redux-hooks"
 import { setSelectedData } from "../../../store/reducers/filterReducer"
@@ -6,7 +6,9 @@ import { setSelectedData } from "../../../store/reducers/filterReducer"
 import { IconSvg } from "../../IconSvg/IconSvg"
 import classes from "./DropdownList.module.scss"
 
-export interface IList {
+export interface IListDropdown {
+  address: ReactNode
+  data: ReactNode
   title: string,
   isIcon?: boolean,
   list: {
@@ -18,11 +20,11 @@ export interface IList {
   }[]
 }
 
-export interface IPropsDropdownList {
-  menu: IList,
+export interface IPropsDropdown {
+  menu: IListDropdown,
 }
 
-export const DropdownList: FC<IPropsDropdownList> = ({ menu }) => {
+export const DropdownList: FC<IPropsDropdown> = ({ menu }) => {
   const dispatch = useAppDispatch()
   const { stateData } = useAppSelector(state => state.filter)
   const [isOpen, setIsOpen] = useState(false)

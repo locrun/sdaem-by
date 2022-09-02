@@ -13,7 +13,7 @@ interface IContacts {
   href: string,
   workTime: string,
   employer: string,
-  data: string
+  ip: string
 }
 const messenger = [
   { id: "#viber", href: "https://www.viber.com/ru/" },
@@ -58,7 +58,7 @@ export const Contacts: FC = () => {
                   <div className={classes.iconWrap}>
                     <IconSvg id="#mark" className={classes.icons} />
                   </div>
-                  {cont?.address}
+                  {cont?.ip}
                 </li>
                 <li className={classes.listItem}>
                   <div className={classes.iconWrap}>
@@ -107,7 +107,7 @@ export const Contacts: FC = () => {
                 </li>
               </ul>
               <span className={classes.ownerData}>{cont?.employer}</span>
-              <span className={classes.ownerData}>{cont?.data}</span>
+              <span className={classes.ownerData}>{cont?.ip}</span>
               <div className={classes.disclaimer}>
                 <IconSvg id="#alert" className={classes.alertIcon} />
                 <span>

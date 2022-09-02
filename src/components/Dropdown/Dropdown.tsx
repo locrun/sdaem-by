@@ -1,12 +1,12 @@
 import { FC } from "react"
 import { DropdownList } from "./DropdownList/DropdownList";
 
-import { IList } from "./DropdownList/DropdownList";
+import { IListDropdown } from "./DropdownList/DropdownList";
 
 import classes from "./Dropdown.module.scss"
 
 interface IPropsDropdown {
-  data: IList[]
+  data: IListDropdown[]
 }
 export const Dropdown: FC<IPropsDropdown> = ({ data }) => {
 
