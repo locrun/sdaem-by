@@ -24,7 +24,6 @@ export const Header: FC = () => {
     <header className={classes.header}>
       <div className={classes.container}>
         {loading && <MyLoader />}
-
         {error ? <span className={classes.error}>Ошибка сервера, попробуйте обновить страницу</span>
           :
           <Navigation

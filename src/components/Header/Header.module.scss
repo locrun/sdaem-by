@@ -6,6 +6,7 @@
 }
 .container {
   max-width: 1315px;
+  height: 40px;
   margin: 0 auto;
   padding: 0 15px;
   display: flex;
@@ -25,7 +26,7 @@
   align-items: center;
   a {
     color: $light-gray;
-    padding: 16px 0;
+    padding: 10px 0;
     border-bottom: 3px solid #f8f8f8;
   }
 
@@ -40,7 +41,7 @@
   width: 275px;
 }
 .bookmark {
-  padding: 16px 0px;
+  padding: 10px 0px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -59,7 +60,7 @@
 
 .login {
   color: $moderate-blue;
-  padding: 16px 0px;
+  padding: 10px 0px;
   font-weight: 500;
   font-size: 14px;
   line-height: 17px;

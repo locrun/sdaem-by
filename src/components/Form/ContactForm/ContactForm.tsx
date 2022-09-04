@@ -13,7 +13,7 @@ import { name, email, message } from "../patterns"
 import cn from "classnames"
 import classes from "./ContactForm.module.scss"
 
-export const ContactFrom: FC = () => {
+export const ContactForm: FC = () => {
 
   const dispatch = useAppDispatch()
   const { register, formState: { errors }, reset, handleSubmit }

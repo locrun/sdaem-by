@@ -14,13 +14,13 @@ type Data = {
 
 interface IPropsNavigation {
   className: string[]
-  noHomePage?: boolean
+  isHomePage?: boolean
   data?: Data
 }
 
-export const Navigation: FC<IPropsNavigation> = ({ noHomePage, data, className: [navList, navListItem] }) => {
+export const Navigation: FC<IPropsNavigation> = ({ isHomePage, data, className: [navList, navListItem] }) => {
 
-  const slice = noHomePage ? data?.slice(1) : data
+  const slice = isHomePage ? data?.slice(1) : data
 
   const setActive = ({ isActive }: { isActive: boolean }) => (isActive ? classes.active : "");
   return (
@@ -39,10 +39,6 @@ export const Navigation: FC<IPropsNavigation> = ({ noHomePage, data, className: 
             </li>
           )
         }
-
-
-
-
       </ul>
     </nav>
   )

@@ -1,3 +1,18 @@
+@import "../../styles/variables/variables.scss";
+
 .logo {
-  margin-right: 69px;
+  max-width: 134px;
+  display: flex;
+  flex-direction: column;
+}
+.image {
+  display: flex;
+}
+.logoText {
+  margin-top: 10px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  color: $light-gray;
+  text-transform: uppercase;
 }

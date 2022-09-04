@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import { IListDropdown } from "../components/Dropdown/DropdownList/DropdownList";
 import { IHeaderNavData } from "../components/Header/Header";
+import { IContacts } from "../Interfaces/IContacts";
 
 export const useRequest = (apiUrl: string) => {
-  const [data, setData] = useState<IListDropdown[] & IHeaderNavData[]>([]);
+  const [data, setData] = useState<
+    IListDropdown[] & IHeaderNavData[] & IContacts[]
+  >([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 

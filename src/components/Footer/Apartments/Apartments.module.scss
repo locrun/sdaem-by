@@ -1,0 +1,28 @@
+@import "../../../styles/variables/variables.scss";
+.menu {
+  width: 360px;
+  margin-left: 67px;
+  margin-right: 78px;
+  ul {
+    column-count: 2;
+  }
+}
+.menuTitle {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  color: #1e2123;
+  display: block;
+}
+
+.menuItem {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  margin: 10px 0;
+  margin-bottom: 0;
+  display: inline-block;
+}
+.link {
+  color: $light-gray;
+}

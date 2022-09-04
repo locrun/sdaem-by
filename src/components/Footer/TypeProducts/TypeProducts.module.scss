@@ -1,0 +1,13 @@
+@import "../../../styles/variables/variables.scss";
+
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+.link {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  margin-bottom: 21px;
+  color: $black-gray;
+}
