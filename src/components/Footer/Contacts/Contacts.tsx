@@ -6,7 +6,7 @@ import classes from "./Contacts.module.scss"
 
 export const Contacts: FC = () => {
   const { data, loading, error } = useRequest("/api/contacts")
-  console.log(data)
+
   return (
     <div className={classes.contacts}>
       {error ?

@@ -37,10 +37,10 @@ export const Catalog: FC = () => {
     }
   }, [dispatch, location.pathname]);
 
-  const { submitFilteringFunction } = useFilter()
+  const { filterFunction } = useFilter()
 
   const onHandleSubmit = () => {
-    submitFilteringFunction()
+    filterFunction()
   }
   return (
     <>

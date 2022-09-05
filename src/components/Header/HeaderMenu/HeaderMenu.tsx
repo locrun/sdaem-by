@@ -16,7 +16,7 @@ export const HeaderMenu: FC = () => {
     <div className={classes.wrapper}>
       <div className={classes.container}>
         <Logo />
-        {loading && <MyLoader />}
+        {loading && <MyLoader count={4} />}
         {error ?
           <span className={classes.error}>Ошибка сервера, попробуйте обновить страницу</span>
           :

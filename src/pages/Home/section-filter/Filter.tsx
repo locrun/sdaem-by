@@ -23,10 +23,10 @@ const tabPanel = [
 ]
 export const Filter: FC = () => {
   const [tabIndex, setTabIndex] = useState(0);
-  const { submitFilteringFunction } = useFilter()
+  const { filterFunction } = useFilter()
 
   const onHandleSubmit = () => {
-    submitFilteringFunction()
+    filterFunction()
   }
   return (
     <section className={cn(classes.inner, classes.container)}>

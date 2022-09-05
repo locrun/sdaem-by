@@ -4,6 +4,7 @@ import { useAppDispatch, useAppSelector } from "./redux/redux-hooks";
 import {
   setFilteredData,
   setDublicateData,
+  setFlag,
 } from "../store/reducers/filterReducer";
 import { useLocation } from "react-router";
 import { path } from "../constants/pages";
@@ -16,9 +17,8 @@ export const useFilter = () => {
   const { cottages } = useAppSelector((state) => state.cottages);
   const { baths } = useAppSelector((state) => state.baths);
   const { cars } = useAppSelector((state) => state.cars);
-  const { filteredData, duplicateData, stateData, sortValue } = useAppSelector(
-    (state) => state.filter
-  );
+  const { filteredData, duplicateData, stateData, sortValue, flag } =
+    useAppSelector((state) => state.filter);
   const [currentFetchData, setCurrentFetchData] = useState<IResponseData[]>();
 
   useEffect(() => {
@@ -37,40 +37,37 @@ export const useFilter = () => {
   }, [baths, cars, cottages, currentFetchData, flats, location.pathname]);
 
   useEffect(() => {
-    submitFilteringFunction();
-  }, [currentFetchData, dispatch, stateData.city]);
+    filterFunction();
+  }, [currentFetchData, dispatch]);
 
-  //Фильтрация для слайдера
   useEffect(() => {
     let filteredData = currentFetchData
       ?.filter((item: { city: string }) =>
         stateData.city ? item.city === stateData.city : true
       )
-      .filter((item: { room: string }) =>
+      ?.filter((item: { room: string }) =>
         stateData.room ? parseInt(item.room) === parseInt(stateData.room) : true
-      )
-      .filter((item: { price: string }) =>
-        stateData.priceMin && stateData?.priceMax
-          ? parseInt(item.price) >= parseInt(stateData.priceMin) &&
-            parseInt(item.price) <= parseInt(stateData.priceMax)
-          : true
-      )
-      .filter((item: { metro: string }) =>
-        stateData.metro ? item.metro === stateData.metro : true
       )
       .filter((item: { area: string }) =>
         stateData.area ? item.area === stateData.area : true
-      )
-      .filter((item: { type: string }) =>
-        stateData.type ? item.type === stateData.type : true
-      )
-      .filter((item: { capacity: string }) =>
-        stateData.capacity
-          ? item.capacity.split(" ")[0] === stateData.capacity
-          : true
       );
-    if (location.pathname === path.HOME)
+
+    if (flag === "isFilter") {
       dispatch(setFilteredData(filteredData));
+      dispatch(setFlag(""));
+    }
+  }, [
+    currentFetchData,
+    dispatch,
+    flag,
+    stateData.area,
+    stateData.city,
+    stateData.room,
+  ]);
+
+  //Фильтрация на главной странице
+  useEffect(() => {
+    if (location.pathname === path.HOME) filterFunction();
   }, [
     currentFetchData,
     dispatch,
@@ -85,8 +82,8 @@ export const useFilter = () => {
     stateData.type,
   ]);
 
-  // Фильтрация
-  const submitFilteringFunction = () => {
+  // Функция фильтрация
+  const filterFunction = () => {
     let filtered = currentFetchData
       ?.filter((item: { city: string }) =>
         stateData.city ? item.city === stateData.city : true
@@ -134,6 +131,6 @@ export const useFilter = () => {
   }, [dispatch, sortValue]);
 
   return {
-    submitFilteringFunction,
+    filterFunction,
   };
 };
