@@ -4,7 +4,6 @@ import { useAppDispatch, useAppSelector } from "./redux/redux-hooks";
 import {
   setFilteredData,
   setDublicateData,
-  setFlag,
 } from "../store/reducers/filterReducer";
 import { useLocation } from "react-router";
 import { path } from "../constants/pages";
@@ -17,8 +16,9 @@ export const useFilter = () => {
   const { cottages } = useAppSelector((state) => state.cottages);
   const { baths } = useAppSelector((state) => state.baths);
   const { cars } = useAppSelector((state) => state.cars);
-  const { filteredData, duplicateData, stateData, sortValue, flag } =
-    useAppSelector((state) => state.filter);
+  const { filteredData, duplicateData, stateData, sortValue } = useAppSelector(
+    (state) => state.filter
+  );
   const [currentFetchData, setCurrentFetchData] = useState<IResponseData[]>();
 
   useEffect(() => {
@@ -38,32 +38,7 @@ export const useFilter = () => {
 
   useEffect(() => {
     filterFunction();
-  }, [currentFetchData, dispatch]);
-
-  useEffect(() => {
-    let filteredData = currentFetchData
-      ?.filter((item: { city: string }) =>
-        stateData.city ? item.city === stateData.city : true
-      )
-      ?.filter((item: { room: string }) =>
-        stateData.room ? parseInt(item.room) === parseInt(stateData.room) : true
-      )
-      .filter((item: { area: string }) =>
-        stateData.area ? item.area === stateData.area : true
-      );
-
-    if (flag === "isFilter") {
-      dispatch(setFilteredData(filteredData));
-      dispatch(setFlag(""));
-    }
-  }, [
-    currentFetchData,
-    dispatch,
-    flag,
-    stateData.area,
-    stateData.city,
-    stateData.room,
-  ]);
+  }, [currentFetchData, dispatch, stateData.city]);
 
   //Фильтрация на главной странице
   useEffect(() => {

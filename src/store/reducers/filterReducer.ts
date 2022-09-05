@@ -14,8 +14,6 @@ type IFilterState = {
     capacity: string;
   };
 
-  flag: string;
-
   sortValue: {
     value: string;
     label: string;
@@ -37,8 +35,6 @@ const initialState: IFilterState = {
     priceMax: "",
     capacity: "",
   },
-
-  flag: "",
 
   sortValue: {
     value: "По умолчанию",
@@ -68,10 +64,6 @@ const filterSlice = createSlice({
     selectedValueForSort(state, action) {
       state.sortValue = action.payload;
     },
-    setFlag(state, action) {
-      console.log(action.payload);
-      state.flag = action.payload;
-    },
 
     resetFilter(state) {
       state.sortValue = { value: "По умолчанию", label: "По умолчанию" };
@@ -94,6 +86,5 @@ export const {
   setDublicateData,
   toggleProductsCards,
   selectedValueForSort,
-  setFlag,
 } = filterSlice.actions;
 export default filterSlice.reducer;

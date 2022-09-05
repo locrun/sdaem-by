@@ -1,7 +1,7 @@
 import { FC, useEffect, useMemo, useState } from "react"
 import { useLocation } from "react-router-dom"
 import { useAppDispatch, useAppSelector } from "../../../hooks/redux/redux-hooks"
-import { setSelectedData, setFlag, resetFilter } from "../../../store/reducers/filterReducer"
+import { setSelectedData } from "../../../store/reducers/filterReducer"
 
 import { recommend } from "../../../data/recommendate"
 import { Breadcrumbs } from "../../../components/Breadcrumbs/Breadcrumbs"
@@ -26,7 +26,7 @@ export const Recommended: FC = () => {
   const location = useLocation()
   const { stateData } = useAppSelector(state => state.filter)
 
-  const [copy, setCopy] = useState<IPropsRecommended[]>([])
+  const [current, setCurrent] = useState<IPropsRecommended[]>([])
   const [isActive, setIsActive] = useState<number>()
   const [isClicked, setIsClicked] = useState(false)
 
@@ -50,7 +50,7 @@ export const Recommended: FC = () => {
         break;
       default:
     }
-    setCopy(recommend)
+    setCurrent(recommend)
   }, [location.pathname]);
 
   const breadCrumbsItems = useMemo(() => [
@@ -67,29 +67,25 @@ export const Recommended: FC = () => {
   ], [crumbsTitle])
 
   const clickHandler = (item: IPropsRecommended, key: string) => {
-
     dispatch(setSelectedData({
       ...stateData,
       [key]: item[key]
     }))
-    dispatch(setFlag("isFilter"))
     setIsActive(item.id)
     fn(item.id)
   }
 
   const fn = (id: number) => {
     if (!isClicked) {
-      const newArr = copy.filter((item) => item.id === id)
-      setCopy(newArr)
+      const selected = recommend.filter((item) => item.id === id)
+      setCurrent(selected)
       setIsClicked(true)
     }
 
     if (isClicked) {
-      setCopy(recommend)
+      setCurrent(recommend)
       setIsClicked(false)
-      dispatch(resetFilter())
     }
-
   }
 
   return (
@@ -102,7 +98,7 @@ export const Recommended: FC = () => {
         <div className={classes.recommend}>
           <span className={classes.label}>Рекомендуем посмотреть</span>
           <ul className={classes.list}>
-            {copy?.map((item: IPropsRecommended) => {
+            {current?.map((item: IPropsRecommended) => {
               const { id, key } = item
               return (
                 <li
@@ -111,7 +107,10 @@ export const Recommended: FC = () => {
                   className={classes.listItem}
                 >
                   {item.name}
-                  {isActive === id && isClicked && <IconSvg id="#cross" className={classes.cross} />}
+                  {isActive === id &&
+                    isClicked &&
+                    <IconSvg id="#cross" className={classes.cross} />
+                  }
                 </li>
               )
             })}

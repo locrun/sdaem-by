@@ -1,7 +1,7 @@
 import { FC, useState, useEffect, useRef } from "react"
 import { Link } from "react-router-dom"
 import { useAppDispatch, useAppSelector } from "../../../hooks/redux/redux-hooks"
-import { setFlag, setSelectedData } from "../../../store/reducers/filterReducer"
+import { setSelectedData } from "../../../store/reducers/filterReducer"
 
 import { IconSvg } from "../../IconSvg/IconSvg"
 import classes from "./DropdownList.module.scss"
@@ -45,7 +45,7 @@ export const DropdownList: FC<IPropsDropdown> = ({ menu }) => {
       city: city
     }))
 
-    dispatch(setFlag("isFilter"))
+
   }
   return (
     <button
