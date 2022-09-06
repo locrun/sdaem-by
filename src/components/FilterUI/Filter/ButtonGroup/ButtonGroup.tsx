@@ -10,6 +10,7 @@ import { path } from "../../../../constants/pages";
 
 import cn from "classnames"
 import classes from "./ButtonGroup.module.scss"
+import { setIsClicked } from "../../../../store/reducers/recommendReducer";
 
 
 
@@ -23,6 +24,7 @@ export const ButtonGroup: FC<IPropsButtons> = ({ onHandleClick }) => {
   const [openOptions, setOpenOptions] = useState(false)
 
   const onResetFilter = () => {
+    dispatch(setIsClicked(false))
     dispatch(resetFilter())
   }
 
