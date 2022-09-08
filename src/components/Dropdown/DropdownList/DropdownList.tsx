@@ -45,7 +45,6 @@ export const DropdownList: FC<IPropsDropdown> = ({ menu }) => {
       city: city
     }))
 
-
   }
   return (
     <button

@@ -2,15 +2,13 @@ import { FC, useEffect, useMemo, useState } from "react"
 import { useLocation } from "react-router-dom"
 import { useAppDispatch, useAppSelector } from "../../../hooks/redux/redux-hooks"
 import { setSelectedData } from "../../../store/reducers/filterReducer"
-import { setIsClicked } from "../../../store/reducers/recommendReducer"
-import { recommend } from "../../../data/recommendate"
+import { setCurrentData } from "../../../store/reducers/recommendReducer"
 import { Breadcrumbs } from "../../../components/Breadcrumbs/Breadcrumbs"
 import { usePageTitle } from "../../../hooks/usePageTitle"
 import { IconSvg } from "../../../components/IconSvg/IconSvg"
 
 import { path } from "../../../constants/pages"
 import classes from "./Recommended.module.scss"
-
 
 export interface IPropsRecommended {
   id: number,
@@ -24,15 +22,12 @@ export interface IPropsRecommended {
 export const Recommended: FC = () => {
   const dispatch = useAppDispatch()
   const location = useLocation()
+
   const { stateData } = useAppSelector(state => state.filter)
-  const { isClicked } = useAppSelector(state => state.recommend)
+  const { active } = useAppSelector(state => state.recommend)
 
-  const [current, setCurrent] = useState<IPropsRecommended[]>([])
-  const [isActive, setIsActive] = useState<number>()
-
+  const [isActive, setIsActive] = useState(true)
   const [crumbsTitle, setCrumbsTitle] = useState<string>()
-  const { title } = usePageTitle()
-
   useEffect(() => {
     switch (location.pathname) {
       case path.APARTMENTS:
@@ -49,7 +44,6 @@ export const Recommended: FC = () => {
         break;
       default:
     }
-    setCurrent(recommend)
   }, [location.pathname]);
 
   const breadCrumbsItems = useMemo(() => [
@@ -65,37 +59,31 @@ export const Recommended: FC = () => {
 
   ], [crumbsTitle])
 
+  const { title } = usePageTitle()
+
+  useEffect(() => {
+    if (active.isClicked) {
+      setIsActive(false)
+    }
+    if (!active.isClicked) {
+      dispatch(setSelectedData({
+        ...stateData,
+        room: ""
+      }))
+      setIsActive(true)
+    }
+  }, [active.isClicked, dispatch])
+
+
   const clickHandler = (item: IPropsRecommended, key: string) => {
     dispatch(setSelectedData({
       ...stateData,
       [key]: item[key]
     }))
-    setIsActive(item.id)
-    fn(item.id)
+    setIsActive(prevState => !prevState)
+    dispatch(setCurrentData({ isClicked: isActive, id: item.id }))
   }
 
-  const fn = (id: number) => {
-    if (!isClicked) {
-      const selected = recommend.filter((item) => item.id === id)
-      setCurrent(selected)
-      dispatch(setIsClicked(true))
-    }
-
-    if (isClicked) {
-      setCurrent(recommend)
-      dispatch(setIsClicked(false))
-      dispatch(setSelectedData({
-        ...stateData,
-        room: ""
-      }))
-    }
-  }
-
-  useEffect(() => {
-    if (!isClicked) {
-      setCurrent(recommend)
-    }
-  }, [isClicked])
 
   return (
     <section className={classes.wrapper}>
@@ -107,7 +95,7 @@ export const Recommended: FC = () => {
         <div className={classes.recommend}>
           <span className={classes.label}>Рекомендуем посмотреть</span>
           <ul className={classes.list}>
-            {current?.map((item: IPropsRecommended) => {
+            {active.data?.map((item: IPropsRecommended) => {
               const { id, key } = item
               return (
                 <li
@@ -116,8 +104,8 @@ export const Recommended: FC = () => {
                   className={classes.listItem}
                 >
                   {item.name}
-                  {isActive === id &&
-                    isClicked &&
+                  {active.id === id &&
+                    active.isClicked &&
                     <IconSvg id="#cross" className={classes.cross} />
                   }
                 </li>

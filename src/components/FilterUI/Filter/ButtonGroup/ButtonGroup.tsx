@@ -1,6 +1,6 @@
 import { FC, useState } from "react"
 import { useLocation } from "react-router";
-import { useAppDispatch } from "../../../../hooks/redux/redux-hooks";
+import { useAppDispatch, useAppSelector } from "../../../../hooks/redux/redux-hooks";
 import { resetFilter } from "../../../../store/reducers/filterReducer";
 
 
@@ -10,7 +10,7 @@ import { path } from "../../../../constants/pages";
 
 import cn from "classnames"
 import classes from "./ButtonGroup.module.scss"
-import { setIsClicked } from "../../../../store/reducers/recommendReducer";
+import { setCurrentData } from "../../../../store/reducers/recommendReducer";
 
 
 
@@ -20,11 +20,12 @@ export interface IPropsButtons {
 export const ButtonGroup: FC<IPropsButtons> = ({ onHandleClick }) => {
   const location = useLocation()
   const dispatch = useAppDispatch()
+  const { active } = useAppSelector(state => state.recommend)
   const homePath = location.pathname === path.HOME ? true : false
   const [openOptions, setOpenOptions] = useState(false)
 
   const onResetFilter = () => {
-    dispatch(setIsClicked(false))
+    dispatch(setCurrentData({ ...active, isClicked: false }))
     dispatch(resetFilter())
   }
 
