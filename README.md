@@ -4,6 +4,6 @@
 
 ## Используемые технологии
 * #### React Js
-* #### Mirage JS is an API mocking library
 * #### Redux Toolkit
+* #### Mirage JS is an API mocking library
 * #### Scss modules
