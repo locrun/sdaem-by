@@ -19,6 +19,7 @@ export const useFilter = () => {
   const { filteredData, duplicateData, stateData, sortValue } = useAppSelector(
     (state) => state.filter
   );
+  const { flag } = useAppSelector((state) => state.recommend);
   const [currentFetchData, setCurrentFetchData] = useState<IResponseData[]>();
 
   useEffect(() => {
@@ -40,9 +41,20 @@ export const useFilter = () => {
     filterFunction();
   }, [currentFetchData, dispatch, stateData.city]);
 
+  useEffect(() => {
+    if (flag === "recommendActive") {
+      filterFunction();
+    }
+    if (flag === "reset") {
+      filterFunction();
+    }
+  }, [flag]);
+
   //Фильтрация на главной странице
   useEffect(() => {
-    if (location.pathname === path.HOME) filterFunction();
+    if (location.pathname === path.HOME) {
+      filterFunction();
+    }
   }, [
     currentFetchData,
     dispatch,

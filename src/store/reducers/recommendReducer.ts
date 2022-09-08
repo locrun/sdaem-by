@@ -16,6 +16,8 @@ type IRecommendState = {
     id?: number;
     data: IPropsRecommended[];
   };
+
+  flag: string;
 };
 
 const initialState: IRecommendState = {
@@ -24,6 +26,7 @@ const initialState: IRecommendState = {
     id: 0,
     data: recommend,
   },
+  flag: "null",
 };
 
 const recommendSlice = createSlice({
@@ -42,8 +45,11 @@ const recommendSlice = createSlice({
         state.active.data = recommend;
       }
     },
+    setFlag(state, action) {
+      state.flag = action.payload;
+    },
   },
 });
 
-export const { setCurrentData } = recommendSlice.actions;
+export const { setCurrentData, setFlag } = recommendSlice.actions;
 export default recommendSlice.reducer;

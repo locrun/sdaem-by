@@ -52,18 +52,19 @@ export const Products: FC = () => {
           <h3 className={classes.title}>
             {filteredData && <span> Найдено {filteredData?.length} результата</span>}
           </h3>
+          {
 
-          {slicedArray.length === 0 ?
-            <div className={classes.spinwrap}>
-              <NothingFound />
-            </div>
-            :
-            active === "tiles" &&
-            <div className={classes.tilesCardWrapper}>
-              {slicedArray?.map((items: IResponseData) =>
-                <TiledCards key={items.id} data={items} className={classes.shadow} />
-              )}
-            </div>
+            slicedArray?.length === 0 ?
+              <div className={classes.spinwrap}>
+                <NothingFound />
+              </div>
+              :
+              active === "tiles" &&
+              <div className={classes.tilesCardWrapper}>
+                {slicedArray?.map((items: IResponseData) =>
+                  <TiledCards key={items.id} data={items} className={classes.shadow} />
+                )}
+              </div>
           }
 
           {active === "list" &&
@@ -73,6 +74,7 @@ export const Products: FC = () => {
               )}
             </div>
           }
+
 
           <div className={classes.bottom}>
             <Pagination

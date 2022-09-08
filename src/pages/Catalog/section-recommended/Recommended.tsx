@@ -2,13 +2,14 @@ import { FC, useEffect, useMemo, useState } from "react"
 import { useLocation } from "react-router-dom"
 import { useAppDispatch, useAppSelector } from "../../../hooks/redux/redux-hooks"
 import { setSelectedData } from "../../../store/reducers/filterReducer"
-import { setCurrentData } from "../../../store/reducers/recommendReducer"
+import { setCurrentData, setFlag } from "../../../store/reducers/recommendReducer"
 import { Breadcrumbs } from "../../../components/Breadcrumbs/Breadcrumbs"
 import { usePageTitle } from "../../../hooks/usePageTitle"
 import { IconSvg } from "../../../components/IconSvg/IconSvg"
 
 import { path } from "../../../constants/pages"
 import classes from "./Recommended.module.scss"
+
 
 export interface IPropsRecommended {
   id: number,
@@ -22,7 +23,6 @@ export interface IPropsRecommended {
 export const Recommended: FC = () => {
   const dispatch = useAppDispatch()
   const location = useLocation()
-
   const { stateData } = useAppSelector(state => state.filter)
   const { active } = useAppSelector(state => state.recommend)
 
@@ -66,10 +66,6 @@ export const Recommended: FC = () => {
       setIsActive(false)
     }
     if (!active.isClicked) {
-      dispatch(setSelectedData({
-        ...stateData,
-        room: ""
-      }))
       setIsActive(true)
     }
   }, [active.isClicked, dispatch])
@@ -82,8 +78,16 @@ export const Recommended: FC = () => {
     }))
     setIsActive(prevState => !prevState)
     dispatch(setCurrentData({ isClicked: isActive, id: item.id }))
-  }
+    dispatch(setFlag("recommendActive"))
 
+    if (active.isClicked) {
+      dispatch(setSelectedData({
+        ...stateData,
+        [key]: ''
+      }))
+      dispatch(setFlag("reset"))
+    }
+  }
 
   return (
     <section className={classes.wrapper}>

@@ -2,7 +2,7 @@ import { FC, useState } from "react"
 import { useLocation } from "react-router";
 import { useAppDispatch, useAppSelector } from "../../../../hooks/redux/redux-hooks";
 import { resetFilter } from "../../../../store/reducers/filterReducer";
-
+import { setCurrentData, setFlag } from "../../../../store/reducers/recommendReducer";
 
 import { Button } from "../../../ui-kit/Button/Button";
 import { IconSvg } from "../../../IconSvg/IconSvg";
@@ -10,9 +10,6 @@ import { path } from "../../../../constants/pages";
 
 import cn from "classnames"
 import classes from "./ButtonGroup.module.scss"
-import { setCurrentData } from "../../../../store/reducers/recommendReducer";
-
-
 
 export interface IPropsButtons {
   onHandleClick: () => void
@@ -27,6 +24,7 @@ export const ButtonGroup: FC<IPropsButtons> = ({ onHandleClick }) => {
   const onResetFilter = () => {
     dispatch(setCurrentData({ ...active, isClicked: false }))
     dispatch(resetFilter())
+    dispatch(setFlag("reset"))
   }
 
   return (
