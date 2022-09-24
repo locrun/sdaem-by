@@ -1,4 +1,4 @@
-import { COTTAGES } from "../../constants/query";
+import { api } from "../../constants/api";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { IResponseData } from "../../Interfaces/IResponseData";
 
@@ -7,7 +7,7 @@ export const fetchCottages = createAsyncThunk<
   undefined,
   { rejectValue: string }
 >("cottages/fetchCottages", async (_, { rejectWithValue }) => {
-  const response = await fetch(COTTAGES);
+  const response = await fetch(api.cottages);
   if (!response.ok) {
     return rejectWithValue("Server Error!");
   }

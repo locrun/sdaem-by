@@ -1,5 +1,5 @@
 import { ChangeEvent, FC, useEffect, useCallback, useState, FormEvent } from 'react'
-import { useAppDispatch, useAppSelector } from '../../../hooks/redux/redux-hooks'
+import { useAppDispatch, useAppSelector } from '../../../hooks/redux-hooks'
 import { setFilteredData } from '../../../store/reducers/newsReducer'
 import { createSearchParams, useSearchParams } from "react-router-dom"
 import { INews } from '../../../Interfaces/INews'

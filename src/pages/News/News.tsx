@@ -1,6 +1,6 @@
 import { FC, useMemo } from "react"
 
-import { useAppSelector } from "../../hooks/redux/redux-hooks"
+import { useAppSelector } from "../../hooks/redux-hooks"
 
 import { NewsForm } from "../../components/Form/NewsForm/NewsForm"
 import { usePagination } from "../../hooks/usePagination"

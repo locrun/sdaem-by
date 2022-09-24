@@ -1,5 +1,5 @@
 import { FC, useState } from "react"
-import { useAppSelector } from "../../../../hooks/redux/redux-hooks";
+import { useAppSelector } from "../../../../hooks/redux-hooks";
 import { useLocation } from "react-router";
 import { SingleValue } from "react-select";
 
@@ -22,7 +22,7 @@ export interface IPropsSelectGroup {
 
 export const SelectGroup: FC<IPropsSelectGroup> = ({ onChangeHandler }) => {
   const location = useLocation()
-  const homePath = location.pathname === path.HOME ? true : false
+  const homePath = location.pathname === path.home ? true : false
   const { stateData } = useAppSelector(state => state.filter)
 
   let [defaultValue] = useState({ value: "Выберите", label: "Выберите" })

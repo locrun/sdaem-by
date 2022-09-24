@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useAppSelector } from "./redux/redux-hooks";
+import { useAppSelector } from "./redux-hooks";
 
 export const usePagination = (displayPerPage: number, data: any) => {
   const { stateData } = useAppSelector((state) => state.filter);

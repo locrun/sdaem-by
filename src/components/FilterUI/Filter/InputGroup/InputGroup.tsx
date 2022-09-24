@@ -1,6 +1,6 @@
 import { FC } from "react"
 import { useLocation } from "react-router";
-import { useAppSelector } from "../../../../hooks/redux/redux-hooks";
+import { useAppSelector } from "../../../../hooks/redux-hooks";
 
 import { SingleValue } from "react-select";
 import { path } from "../../../../constants/pages";
@@ -15,7 +15,7 @@ export interface IPropsInput {
 }
 export const InputGroup: FC<IPropsInput> = ({ onChangeHandler }) => {
   const location = useLocation()
-  const homePath = location.pathname === path.HOME ? true : false
+  const homePath = location.pathname === path.home ? true : false
   const { stateData } = useAppSelector(state => state.filter)
 
   return (

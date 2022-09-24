@@ -4,9 +4,9 @@ import { path } from '../../../constants/pages'
 
 import classes from "./TypeProducts.module.scss"
 const typeProducts = [
-  { id: 0, name: "Коттеджы и усадьбы", path: path.COTTAGES },
-  { id: 1, name: "Бани и сауны", path: path.BATHS },
-  { id: 2, name: "Авто на прокат", path: path.CARS },
+  { id: 0, name: "Коттеджы и усадьбы", path: path.cottages },
+  { id: 1, name: "Бани и сауны", path: path.baths },
+  { id: 2, name: "Авто на прокат", path: path.cars },
 ]
 
 export const TypeProducts: FC = () => {

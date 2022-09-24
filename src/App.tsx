@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Router } from "./router/Router";
+import { Router } from "./Router";
 
 const App: FC = () => {
   return (

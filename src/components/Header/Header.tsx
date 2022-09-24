@@ -9,7 +9,7 @@ import { MyLoader } from '../../Spinner/preloader'
 import { useRequest } from '../../hooks/useRequest'
 
 import classes from './Header.module.scss'
-import { NAVIGATION } from '../../constants/query'
+import { api } from '../../constants/api'
 
 export interface IHeaderNavData {
   id: number
@@ -18,7 +18,7 @@ export interface IHeaderNavData {
   isIcon?: boolean,
 }
 export const Header: FC = () => {
-  const { data, loading, error } = useRequest(NAVIGATION)
+  const { data, loading, error } = useRequest(api.navigation)
 
   return (
     <header className={classes.header}>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { useAppDispatch, useAppSelector } from "./redux/redux-hooks";
+import { useAppDispatch, useAppSelector } from "./redux-hooks";
 import {
   setFilteredData,
   setDublicateData,
@@ -24,21 +24,22 @@ export const useFilter = () => {
 
   useEffect(() => {
     switch (location.pathname) {
-      case path.HOME:
+      case path.home:
         return setCurrentFetchData(flats);
-      case path.APARTMENTS:
+      case path.apartments:
         return setCurrentFetchData(flats);
-      case path.COTTAGES:
+      case path.cottages:
         return setCurrentFetchData(cottages);
-      case path.BATHS:
+      case path.baths:
         return setCurrentFetchData(baths);
-      case path.CARS:
+      case path.cars:
         return setCurrentFetchData(cars);
     }
   }, [baths, cars, cottages, currentFetchData, flats, location.pathname]);
 
   useEffect(() => {
     filterFunction();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentFetchData, dispatch, stateData.city]);
 
   useEffect(() => {
@@ -48,13 +49,15 @@ export const useFilter = () => {
     if (flag === "reset") {
       filterFunction();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [flag]);
 
   //Фильтрация на главной странице
   useEffect(() => {
-    if (location.pathname === path.HOME) {
+    if (location.pathname === path.home) {
       filterFunction();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     currentFetchData,
     dispatch,
@@ -115,6 +118,7 @@ export const useFilter = () => {
     } else {
       dispatch(setFilteredData(duplicateData));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch, sortValue]);
 
   return {

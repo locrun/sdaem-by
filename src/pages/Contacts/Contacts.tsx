@@ -1,5 +1,5 @@
 import { FC } from "react"
-import { useAppSelector } from "../../hooks/redux/redux-hooks"
+import { useAppSelector } from "../../hooks/redux-hooks"
 
 import { Modal } from "../../components/Modal/Modal";
 import { Contacts as ContactsComponent } from "../../components/ContactsPage/Contacts/Contacts";

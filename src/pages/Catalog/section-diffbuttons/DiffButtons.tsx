@@ -1,5 +1,5 @@
 import { FC } from "react"
-import { useAppSelector, useAppDispatch } from "../../../hooks/redux/redux-hooks"
+import { useAppSelector, useAppDispatch } from "../../../hooks/redux-hooks"
 
 import { Button } from "../../../components/ui-kit/Button/Button"
 import { IconSvg } from "../../../components/IconSvg/IconSvg"

@@ -1,6 +1,6 @@
 import { FC } from "react"
 import { useNavigate } from "react-router"
-import { useAppDispatch } from "../../hooks/redux/redux-hooks"
+import { useAppDispatch } from "../../hooks/redux-hooks"
 import { setIsActive } from "../../store/reducers/modalReducer"
 
 import { Button } from "../ui-kit/Button/Button"

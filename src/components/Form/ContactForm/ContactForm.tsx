@@ -1,5 +1,5 @@
 import { FC } from "react"
-import { useAppDispatch } from "../../../hooks/redux/redux-hooks"
+import { useAppDispatch } from "../../../hooks/redux-hooks"
 import { SubmitHandler, useForm } from "react-hook-form"
 
 import { setIsActive } from "../../../store/reducers/modalReducer"

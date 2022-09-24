@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 import { SingleValue } from "react-select";
-import { useAppSelector, useAppDispatch } from "../../../hooks/redux/redux-hooks";
+import { useAppSelector, useAppDispatch } from "../../../hooks/redux-hooks";
 import { selectedValueForSort } from "../../../store/reducers/filterReducer";
 
 import { usePagination } from "../../../hooks/usePagination";

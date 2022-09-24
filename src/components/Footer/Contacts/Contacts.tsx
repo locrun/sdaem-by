@@ -5,7 +5,7 @@ import { IContacts } from '../../../Interfaces/IContacts'
 import classes from "./Contacts.module.scss"
 
 export const Contacts: FC = () => {
-  const { data, loading, error } = useRequest("/api/contacts")
+  const { data, error } = useRequest("/api/contacts")
 
   return (
     <div className={classes.contacts}>

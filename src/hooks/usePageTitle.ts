@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import { useAppSelector } from "./redux/redux-hooks";
+import { useAppSelector } from "./redux-hooks";
 
 import { useLocation } from "react-router";
 
@@ -26,7 +26,7 @@ export const usePageTitle = () => {
 
   useEffect(() => {
     switch (location.pathname) {
-      case path.HOME:
+      case path.home:
         for (let i = 0; i < data.length; i++) {
           if (data[i].city === stateData.city) {
             setRentTitle(`Аренда квартир в ${data[i].name}`);
@@ -36,7 +36,7 @@ export const usePageTitle = () => {
           }
         }
         break;
-      case path.APARTMENTS:
+      case path.apartments:
         for (let i = 0; i < data.length; i++) {
           if (data[i].city === stateData.city) {
             setTitle(`Аренда квартир на сутки в ${data[i].name}`);
@@ -46,7 +46,7 @@ export const usePageTitle = () => {
         }
         break;
 
-      case path.COTTAGES:
+      case path.cottages:
         for (let i = 0; i < data.length; i++) {
           if (data[i].city === stateData.city) {
             setTitle(`Аренда коттеджей и усадьб  в ${data[i].name}`);
@@ -55,7 +55,7 @@ export const usePageTitle = () => {
           }
         }
         break;
-      case path.BATHS:
+      case path.baths:
         for (let i = 0; i < data.length; i++) {
           if (data[i].city === stateData.city) {
             setTitle(`Аренда бань и саун в ${data[i].name}`);
@@ -64,7 +64,7 @@ export const usePageTitle = () => {
           }
         }
         break;
-      case path.CARS:
+      case path.cars:
         for (let i = 0; i < data.length; i++) {
           if (data[i].city === stateData.city) {
             setTitle(`Авто на прокат в ${data[i].name}`);

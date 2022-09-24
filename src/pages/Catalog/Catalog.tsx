@@ -1,6 +1,6 @@
 import { FC, useEffect } from "react"
 import { useLocation } from "react-router-dom"
-import { useAppDispatch } from "../../hooks/redux/redux-hooks"
+import { useAppDispatch } from "../../hooks/redux-hooks"
 import { useFilter } from "../../hooks/useFilter"
 
 import { Recommended } from "./section-recommended/Recommended"
@@ -21,16 +21,16 @@ export const Catalog: FC = () => {
 
   useEffect(() => {
     switch (location.pathname) {
-      case path.APARTMENTS:
+      case path.apartments:
         dispatch(fetchFlats());
         break;
-      case path.COTTAGES:
+      case path.cottages:
         dispatch(fetchCottages());
         break;
-      case path.BATHS:
+      case path.baths:
         dispatch(fetchBaths());
         break;
-      case path.CARS:
+      case path.cars:
         dispatch(fetchCars());
         break;
       default:

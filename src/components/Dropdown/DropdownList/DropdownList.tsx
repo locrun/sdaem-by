@@ -1,6 +1,6 @@
 import { FC, useState, useEffect, useRef } from "react"
 import { Link } from "react-router-dom"
-import { useAppDispatch, useAppSelector } from "../../../hooks/redux/redux-hooks"
+import { useAppDispatch, useAppSelector } from "../../../hooks/redux-hooks"
 import { setSelectedData } from "../../../store/reducers/filterReducer"
 
 import { IconSvg } from "../../IconSvg/IconSvg"

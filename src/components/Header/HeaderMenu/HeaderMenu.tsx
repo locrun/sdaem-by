@@ -6,11 +6,11 @@ import { MyLoader } from '../../../Spinner/preloader'
 import { useRequest } from '../../../hooks/useRequest'
 
 import classes from './HeaderMenu.module.scss'
-import { DROPDOWN } from '../../../constants/query'
+import { api } from '../../../constants/api'
 
 export const HeaderMenu: FC = () => {
 
-  const { data, loading, error } = useRequest(DROPDOWN)
+  const { data, loading, error } = useRequest(api.dropdown)
 
   return (
     <div className={classes.wrapper}>

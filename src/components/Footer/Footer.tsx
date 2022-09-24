@@ -9,13 +9,13 @@ import { TypeProducts } from "./TypeProducts/TypeProducts"
 import { Apartments } from "./Apartments/Apartments"
 
 import { useRequest } from "../../hooks/useRequest"
-import { NAVIGATION } from "../../constants/query"
+import { api } from "../../constants/api"
 
 import classes from "./Footer.module.scss"
 
 export const Footer: FC = () => {
 
-  const { data, loading, error } = useRequest(NAVIGATION)
+  const { data } = useRequest(api.navigation)
 
   return (
     <footer className={classes.footer}>

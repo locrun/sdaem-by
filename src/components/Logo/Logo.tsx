@@ -11,7 +11,7 @@ export const Logo: FC<IPropsLogo> = ({ isText }) => {
   const { pathname } = useLocation()
 
   return (
-    pathname !== path.HOME ?
+    pathname !== path.home ?
       <Link to="/" className={classes.logo}>
         <div className={classes.image}>
           <img src={require("../../assets/images/logo.png")} alt="Логотип" />

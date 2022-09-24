@@ -3,7 +3,7 @@ import { LoginForm } from "../../components/Form/LoginForm/LoginForm"
 import cn from "classnames"
 import classes from "./LogIn.module.scss"
 import { Modal } from "../../components/Modal/Modal"
-import { useAppSelector } from "../../hooks/redux/redux-hooks"
+import { useAppSelector } from "../../hooks/redux-hooks"
 
 const modalContent = {
   title: "Поздравляем!",

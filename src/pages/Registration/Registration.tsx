@@ -1,5 +1,5 @@
 import { FC } from "react"
-import { useAppSelector } from "../../hooks/redux/redux-hooks";
+import { useAppSelector } from "../../hooks/redux-hooks";
 import { Link } from "react-router-dom"
 import { RegistrationForm } from "../../components/Form/RegistrationForm/RegistrationForm";
 import { Modal } from "../../components/Modal/Modal";

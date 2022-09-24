@@ -1,6 +1,6 @@
 import { FC, useState } from "react"
 import { useLocation } from "react-router";
-import { useAppDispatch, useAppSelector } from "../../../../hooks/redux/redux-hooks";
+import { useAppDispatch, useAppSelector } from "../../../../hooks/redux-hooks";
 import { resetFilter } from "../../../../store/reducers/filterReducer";
 import { setCurrentData, setFlag } from "../../../../store/reducers/recommendReducer";
 
@@ -18,7 +18,7 @@ export const ButtonGroup: FC<IPropsButtons> = ({ onHandleClick }) => {
   const location = useLocation()
   const dispatch = useAppDispatch()
   const { active } = useAppSelector(state => state.recommend)
-  const homePath = location.pathname === path.HOME ? true : false
+  const homePath = location.pathname === path.home ? true : false
   const [openOptions, setOpenOptions] = useState(false)
 
   const onResetFilter = () => {

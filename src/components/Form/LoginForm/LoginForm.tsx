@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from "react-router-dom"
-import { useAppDispatch } from "../../../hooks/redux/redux-hooks";
+import { useAppDispatch } from "../../../hooks/redux-hooks";
 import { SubmitHandler, useForm } from "react-hook-form"
 import { setIsActive } from "../../../store/reducers/modalReducer"
 import { Input } from "../../ui-kit/Input/Input"

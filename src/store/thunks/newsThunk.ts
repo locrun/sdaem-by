@@ -1,4 +1,4 @@
-import { NEWS } from "../../constants/query";
+import { api } from "../../constants/api";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 type News = {
@@ -16,7 +16,7 @@ export const fetchNews = createAsyncThunk<
   undefined,
   { rejectValue: string }
 >("news/fetchNews", async (_, { rejectWithValue }) => {
-  const response = await fetch(NEWS);
+  const response = await fetch(api.news);
   if (!response.ok) {
     return rejectWithValue("Server Error!");
   }

@@ -1,6 +1,6 @@
 import { FC, useEffect, useMemo, useState } from "react"
 import { useLocation } from "react-router-dom"
-import { useAppDispatch, useAppSelector } from "../../../hooks/redux/redux-hooks"
+import { useAppDispatch, useAppSelector } from "../../../hooks/redux-hooks"
 import { setSelectedData } from "../../../store/reducers/filterReducer"
 import { setCurrentData, setFlag } from "../../../store/reducers/recommendReducer"
 import { Breadcrumbs } from "../../../components/Breadcrumbs/Breadcrumbs"
@@ -30,16 +30,16 @@ export const Recommended: FC = () => {
   const [crumbsTitle, setCrumbsTitle] = useState<string>()
   useEffect(() => {
     switch (location.pathname) {
-      case path.APARTMENTS:
+      case path.apartments:
         setCrumbsTitle('Квартиры')
         break;
-      case path.COTTAGES:
+      case path.cottages:
         setCrumbsTitle('Коттеджи и усадьбы')
         break;
-      case path.BATHS:
+      case path.baths:
         setCrumbsTitle('Бани и Сауны')
         break;
-      case path.CARS:
+      case path.cars:
         setCrumbsTitle('Авто на прокат')
         break;
       default:
