@@ -14,15 +14,16 @@ import React from "react";
 interface IProps {
   data: IResponseData;
   className?: string
+  hiddenField?: string
 }
 
 export const TiledCards: FC<IProps> = ({ data: {
   id, city, address, metro,
   area, image, price,
   capacity, room, square,
-  description, ownerContacts }, className }) => {
-  const location = useLocation()
+  description, ownerContacts }, className, hiddenField }) => {
 
+  const location = useLocation()
   const [isFavorite, setIsFavorite] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
   const [ref, setRef] = React.useState<React.MutableRefObject<HTMLButtonElement>>()
@@ -57,7 +58,10 @@ export const TiledCards: FC<IProps> = ({ data: {
             <IconSvg id={"#user"} className={classes.user} />
           </li>
           <li className={classes.rooms}>{room} комн.</li>
-          <li className={classes.square}>{square} м²</li>
+          {hiddenField !== "hidden" ?
+            <li className={classes.square}>{square} м²</li>
+            : ""
+          }
         </ul>
         <div className={classes.location}>
           <p className={classes.locationItem}>
@@ -73,9 +77,12 @@ export const TiledCards: FC<IProps> = ({ data: {
             </span>
           </p>
         </div>
-        <p className={classes.desc}>
-          {description}
-        </p>
+        {hiddenField !== "hidden" ?
+          <p className={classes.desc}>
+            {description}
+          </p>
+          : ""
+        }
         <div className={classes.buttons}>
           {location.pathname !== "/" ?
             <Button className={classes.bookmarksBtn}

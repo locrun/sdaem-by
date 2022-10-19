@@ -1,14 +1,13 @@
 @import "../../../styles/variables/variables.scss";
 
 .card {
-  width: 406px;
+  max-width: 406px;
   background: #fffefe;
   margin-bottom: 30px;
   position: relative;
   border-radius: 10px;
 
   .image {
-    width: 406px;
     height: 228px;
     display: flex;
     justify-content: center;

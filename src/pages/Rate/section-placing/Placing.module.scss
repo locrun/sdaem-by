@@ -1,0 +1,48 @@
+.wrapper {
+  position: relative;
+  text-align: center;
+  background: linear-gradient(0deg, #7e6af3 -2.23%, #6540cd 100.04%);
+  z-index: 1;
+
+  &:after {
+    display: block;
+    content: "";
+    position: absolute;
+    background-image: url("../../../assets/images/decor.svg");
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    opacity: 0.4;
+    z-index: -1;
+  }
+}
+.container {
+  padding-top: 46px;
+  padding-bottom: 400px;
+}
+
+.title {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 100%;
+  color: #ffffff;
+}
+.fill {
+  fill: white;
+}
+.color {
+  color: rgba(255, 255, 255, 0.5);
+}
+.flex {
+  display: flex;
+  justify-content: center;
+}
+.image {
+  margin-bottom: -700px;
+}
