@@ -10,7 +10,7 @@ import { IResponseData } from '../../Interfaces/IResponseData';
 
 
 interface IPropsCarousel {
-  data: IResponseData[]
+  data: IResponseData[],
   slidesPerView?: number
   className?: string
 }

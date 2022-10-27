@@ -4,7 +4,7 @@ import { IconSvg } from "../../IconSvg/IconSvg"
 
 import { IOwnerContacts } from "../../../Interfaces/IResponseData"
 
-import cn from "classnames"
+
 import classes from "./OwnerCard.module.scss"
 
 interface IPropsOwnerCard {
@@ -13,12 +13,9 @@ interface IPropsOwnerCard {
 }
 
 export const OwnerCard: FC<IPropsOwnerCard> = (props) => {
-
-  console.log(props)
   return (
     props.contacts &&
-    <div className={cn(classes.owner, {
-    })}>
+    <div className={classes.owner}>
       <img src={props.contacts.avatar} className={classes.image} alt="" />
       <span className={classes.title}>{props.contacts.title}</span>
       <span className={classes.name}>{props.contacts.name}</span>

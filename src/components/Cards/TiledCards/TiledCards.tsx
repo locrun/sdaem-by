@@ -1,5 +1,6 @@
 import { FC, useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "../../../hooks/redux-hooks";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import { OwnerCard } from "../OwnerCard/OwnerCard";
 import { Button } from "../../ui-kit/Button/Button";
@@ -10,6 +11,7 @@ import { IResponseData } from "../../../Interfaces/IResponseData";
 import cn from "classnames"
 import classes from "./TiledCards.module.scss";
 import React from "react";
+import { setIsFavorite } from "../../../store/reducers/bookmarksReducer";
 
 interface IProps {
   data: IResponseData;
@@ -23,6 +25,11 @@ export const TiledCards: FC<IProps> = ({ data: {
   capacity, room, square,
   description, ownerContacts }, className, hiddenField }) => {
 
+
+
+  const navigate = useNavigate()
+  const dispatch = useAppDispatch()
+  const { isActive } = useAppSelector(state => state.bookmarks)
   const location = useLocation()
   const [isFavorite, setIsFavorite] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
@@ -41,6 +48,11 @@ export const TiledCards: FC<IProps> = ({ data: {
     }
 
   }, [ref, setIsOpen])
+
+  const onClickHandler = () => {
+    //dispatch(setIsFavorite(id))
+    setIsFavorite(setState => !setState)
+  }
 
   return (
     <div className={cn(classes.card, className)}>
@@ -86,7 +98,8 @@ export const TiledCards: FC<IProps> = ({ data: {
         <div className={classes.buttons}>
           {location.pathname !== "/" ?
             <Button className={classes.bookmarksBtn}
-              onClick={() => setIsFavorite(isActive => !isActive)}>
+
+              onClick={onClickHandler}>
               {isFavorite ?
                 <IconSvg id={"#heartActive"} className={classes.heartIcon} />
                 :
@@ -102,7 +115,7 @@ export const TiledCards: FC<IProps> = ({ data: {
             Контакты
             <IconSvg id={"#phone"} className={classes.phoneIcon} />
           </Button>
-          < Button className={classes.moreBtn} >
+          < Button onClick={() => navigate(`/catalog/product/${id}`)} className={classes.moreBtn} >
             Подробнее
           </Button>
         </div>

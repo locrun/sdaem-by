@@ -46,6 +46,7 @@ export const DropdownList: FC<IPropsDropdown> = ({ menu }) => {
     }))
 
   }
+
   return (
     <button
       className={classes.button}
@@ -60,7 +61,6 @@ export const DropdownList: FC<IPropsDropdown> = ({ menu }) => {
         isOpen &&
         <ul className={classes.list}>
           {menu?.list.map((item) =>
-
             <li
               key={item.city}
               className={classes.listItem}

@@ -12,6 +12,8 @@ import { Catalog } from "./pages/Catalog/Catalog";
 import { Layout } from "./layout/Layout";
 
 import { path } from "./constants/pages"
+import { Bookmarks } from "./pages/Bookmarks/Bookmarks";
+import { ProductDetail } from "./pages/ProductDetail/ProductDetail";
 
 export const Router = () => {
   return (
@@ -23,8 +25,10 @@ export const Router = () => {
           <Route path={path.detail} element={<NewsDetail />} />
           <Route path={path.advert} element={<Advert />} />
           <Route path={path.rate} element={<Rate />} />
+          <Route path={path.bookmarks} element={<Bookmarks />} />
           <Route path={path.contacts} element={<Contacts />} />
           <Route path={path.catalog} element={<Catalog />} />
+          <Route path={path.productDetail} element={<ProductDetail />} />
           <Route path={path.notfound} element={<NotFound />} />
         </Route>
         <Route path={path.login} element={<LogIn />} />

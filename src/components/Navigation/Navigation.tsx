@@ -10,6 +10,7 @@ type Data = {
   item: string,
   path: string,
   isIcon?: boolean,
+  icon?: string
 }[]
 
 interface IPropsNavigation {

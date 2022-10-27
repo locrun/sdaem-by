@@ -1,0 +1,52 @@
+.scroll::-webkit-scrollbar {
+  visibility: hidden;
+  width: 4px;
+}
+.scroll::-webkit-scrollbar-track {
+  width: 4px;
+  height: 453px;
+  background: #f8f8f8;
+  border-radius: 16px;
+}
+.scroll::-webkit-scrollbar-thumb {
+  width: 4px;
+  height: 240px;
+  background: #664ef9;
+  border-radius: 16px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  height: 453px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  direction: rtl;
+}
+
+.listItem {
+  margin-bottom: 15px;
+  margin-left: 14px;
+  width: 168px;
+  height: 108px;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) -0.31%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.image {
+  width: 168px;
+  height: 108px;
+  cursor: pointer;
+}
+
+.title {
+  margin-top: 0;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 90%;
+  color: #1e2123;
+}

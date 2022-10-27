@@ -19,6 +19,9 @@ import { NothingFound } from "../../../components/Notification/NothingFound/Noth
 
 import { ISelectOption } from "../../../Interfaces/ISelectOption";
 import { IResponseData } from "../../../Interfaces/IResponseData";
+
+
+import cn from "classnames"
 import classes from "./Products.module.scss"
 
 
@@ -62,7 +65,7 @@ export const Products: FC = () => {
               active === "tiles" &&
               <div className={classes.tilesCardWrapper}>
                 {slicedArray?.map((items: IResponseData) =>
-                  <TiledCards key={items.id} data={items} className={classes.shadow} />
+                  <TiledCards key={items.id} data={items} className={cn(classes.shadow, classes.mb)} />
                 )}
               </div>
           }
@@ -74,8 +77,6 @@ export const Products: FC = () => {
               )}
             </div>
           }
-
-
           <div className={classes.bottom}>
             <Pagination
               forcePage={forcePage - 1}

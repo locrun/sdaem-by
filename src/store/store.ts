@@ -7,6 +7,7 @@ import carsReducer from "./reducers/carsReducer";
 import modalReducer from "./reducers/modalReducer";
 import filterReducer from "./reducers/filterReducer";
 import recommendReducer from "./reducers/recommendReducer";
+import bookmarksReducer from "./reducers/bookmarksReducer";
 
 const store = configureStore({
   reducer: {
@@ -18,6 +19,7 @@ const store = configureStore({
     modal: modalReducer,
     filter: filterReducer,
     recommend: recommendReducer,
+    bookmarks: bookmarksReducer,
   },
 });
 export default store;
