@@ -22,7 +22,7 @@ export const Modal: FC<IPropsModal> = ({ modalContent: { title, subtitle, button
 
   const clickHandler = () => {
     dispatch(setIsActive(false))
-    navigate("/")
+    navigate("/personal")
   }
   return (
     <div className={classes.window}>

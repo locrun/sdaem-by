@@ -10,8 +10,12 @@
 .active {
   border-color: #ffd54f !important;
   color: $black-gray !important;
+
   .icon {
     fill: $black-gray;
   }
 }
-
+.grid {
+  margin-right: 15px;
+  float: left;
+}

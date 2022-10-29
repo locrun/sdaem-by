@@ -97,8 +97,8 @@ export const TiledCards: FC<IProps> = ({ data: {
         }
         <div className={classes.buttons}>
           {location.pathname !== "/" ?
-            <Button className={classes.bookmarksBtn}
-
+            <Button
+              className={classes.bookmarksBtn}
               onClick={onClickHandler}>
               {isFavorite ?
                 <IconSvg id={"#heartActive"} className={classes.heartIcon} />
@@ -115,7 +115,12 @@ export const TiledCards: FC<IProps> = ({ data: {
             Контакты
             <IconSvg id={"#phone"} className={classes.phoneIcon} />
           </Button>
-          < Button onClick={() => navigate(`/catalog/product/${id}`)} className={classes.moreBtn} >
+          < Button onClick={() => {
+            navigate(`/catalog/product/${id}`);
+            window.scrollTo(0, 0)
+          }}
+            className={classes.moreBtn}
+          >
             Подробнее
           </Button>
         </div>

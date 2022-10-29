@@ -4,9 +4,12 @@
   width: 100%;
   background: #f8f8f8;
 }
+.wrapper {
+  background: #ffffff;
+  margin-top: 20px;
+}
 .container {
   max-width: 1315px;
-  height: 40px;
   margin: 0 auto;
   padding: 0 15px;
   display: flex;
@@ -28,6 +31,29 @@
     color: $light-gray;
     padding: 10px 0;
     border-bottom: 3px solid #f8f8f8;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+.userAccountMenuList {
+  height: 48px;
+  display: flex;
+  background: #ffffff;
+}
+.userAccountMenuListItem {
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  margin-right: 57px;
+  display: flex;
+  align-items: center;
+  color: #686868;
+  a {
+    color: #686868;
+    padding: 13px 0;
+    border-bottom: 3px solid #fdfdfe;
   }
 
   &:last-child {

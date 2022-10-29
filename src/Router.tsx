@@ -11,9 +11,17 @@ import { Registration } from "./pages/Registration/Registration";
 import { Catalog } from "./pages/Catalog/Catalog";
 import { Layout } from "./layout/Layout";
 
-import { path } from "./constants/pages"
 import { Bookmarks } from "./pages/Bookmarks/Bookmarks";
 import { ProductDetail } from "./pages/ProductDetail/ProductDetail";
+import { UserAccount } from "./pages/UserAccount/UserAccount/UserAccount";
+
+import { path } from "./constants/pages"
+import { PrivateRouter } from "./constants/pages";
+import { AddAdvert } from "./pages/UserAccount/AddAdvert/AddAdvert";
+import { UserManual } from "./pages/UserAccount/UserManual/UserManual";
+import { RaiseAds } from "./pages/UserAccount/RaiseAds/RaiseAds";
+import { EditAccount } from "./pages/UserAccount/EditAccount/EditAccount";
+
 
 export const Router = () => {
   return (
@@ -29,11 +37,21 @@ export const Router = () => {
           <Route path={path.contacts} element={<Contacts />} />
           <Route path={path.catalog} element={<Catalog />} />
           <Route path={path.productDetail} element={<ProductDetail />} />
+          
+          <Route path={PrivateRouter.personal} element={<UserAccount />} />
+          <Route path={PrivateRouter.addAdvert} element={<AddAdvert />} />
+          <Route path={PrivateRouter.userManual} element={<UserManual />} />
+          <Route path={PrivateRouter.raiseAds} element={<RaiseAds />} />
+          <Route path={PrivateRouter.editAccount} element={<EditAccount />} />
+
           <Route path={path.notfound} element={<NotFound />} />
         </Route>
         <Route path={path.login} element={<LogIn />} />
         <Route path={path.registration} element={<Registration />} />
+
       </Routes>
     </BrowserRouter>
   )
 }
+
+

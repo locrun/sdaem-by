@@ -6,4 +6,5 @@ export enum api {
   navigation = "/api/navigation",
   dropdown = "/api/menu",
   news = "/api/news",
+  userAccountNav = "/api/userAccountNav",
 }

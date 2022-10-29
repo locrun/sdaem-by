@@ -16,3 +16,11 @@ export enum path {
   login = "login",
   registration = "registration",
 }
+
+export enum PrivateRouter {
+  personal = "personal",
+  addAdvert = "put",
+  userManual = "manual",
+  raiseAds = "raise",
+  editAccount = "edit-account",
+}
