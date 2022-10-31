@@ -21,6 +21,6 @@ export enum PrivateRouter {
   personal = "personal",
   addAdvert = "put",
   userManual = "manual",
-  raiseAds = "raise",
+  raiseAdvert = "raise",
   editAccount = "edit-account",
 }

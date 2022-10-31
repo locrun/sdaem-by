@@ -1,0 +1,42 @@
+.filter {
+  margin-top: 27px;
+  margin-bottom: 27px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  margin-bottom: 13px;
+}
+.listItem {
+  margin-right: 40px;
+  font-family: "Inter";
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #7a7f86;
+  cursor: pointer;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+.active {
+  font-family: "Inter";
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #1e2123;
+  position: relative;
+}
+.active:after {
+  display: block;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background: #664ef9;
+
+  bottom: -14px;
+}

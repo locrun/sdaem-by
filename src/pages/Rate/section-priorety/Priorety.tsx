@@ -1,11 +1,9 @@
 import { FC } from 'react'
 
-
-import town from "../../../assets/images/town.svg"
-import cottage from "../../../assets/images/cottageIcon.svg"
-
 import cn from "classnames"
 import classes from "./Priorety.module.scss"
+import { IconSvg } from '../../../components/IconSvg/IconSvg'
+
 
 export const Priorety: FC = () => {
   return (
@@ -20,7 +18,7 @@ export const Priorety: FC = () => {
               <div className={classes.col}>
                 <div className={classes.titleWrapper}>
                   <div className={classes.icon}>
-                    <img src={town} alt="town" />
+                    <IconSvg id="#town" className={classes.iconTown} />
                   </div>
                   <h4 className={classes.cardTitle}>Квартиры на сутки</h4>
                 </div>
@@ -54,7 +52,7 @@ export const Priorety: FC = () => {
               <div className={classes.col}>
                 <div className={classes.titleWrapper}>
                   <div className={classes.icon}>
-                    <img src={cottage} alt="cottage" />
+                    <IconSvg id="#cottage" className={classes.iconCottage} />
                   </div>
                   <h4 className={classes.cardTitle}>Коттеджи, агроусадьбы, дома на сутки</h4>
                 </div>

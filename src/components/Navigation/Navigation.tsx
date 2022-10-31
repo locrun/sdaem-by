@@ -19,7 +19,8 @@ type IPropsNavigation = {
   data?: Data
 }
 
-export const Navigation: FC<IPropsNavigation> = ({ isHomePage, data, className: [navList, navListItem] }) => {
+export const Navigation: FC<IPropsNavigation> = ({ isHomePage, data,
+  className: [navList, navListItem] }) => {
 
   const slice = isHomePage ? data?.slice(1) : data
 

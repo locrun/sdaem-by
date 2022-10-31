@@ -19,7 +19,7 @@ import { path } from "./constants/pages"
 import { PrivateRouter } from "./constants/pages";
 import { AddAdvert } from "./pages/UserAccount/AddAdvert/AddAdvert";
 import { UserManual } from "./pages/UserAccount/UserManual/UserManual";
-import { RaiseAds } from "./pages/UserAccount/RaiseAds/RaiseAds";
+import { RaiseAdvert } from "./pages/UserAccount/RaiseAdvert/RaiseAdvert";
 import { EditAccount } from "./pages/UserAccount/EditAccount/EditAccount";
 
 
@@ -37,11 +37,11 @@ export const Router = () => {
           <Route path={path.contacts} element={<Contacts />} />
           <Route path={path.catalog} element={<Catalog />} />
           <Route path={path.productDetail} element={<ProductDetail />} />
-          
+
           <Route path={PrivateRouter.personal} element={<UserAccount />} />
           <Route path={PrivateRouter.addAdvert} element={<AddAdvert />} />
           <Route path={PrivateRouter.userManual} element={<UserManual />} />
-          <Route path={PrivateRouter.raiseAds} element={<RaiseAds />} />
+          <Route path={PrivateRouter.raiseAdvert} element={<RaiseAdvert />} />
           <Route path={PrivateRouter.editAccount} element={<EditAccount />} />
 
           <Route path={path.notfound} element={<NotFound />} />
