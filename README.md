@@ -14,7 +14,7 @@
 Скопируйте проект на компьютер: 
 
 ```
-https://github.com/locrun/sdaem-by
+https://github.com/locrun/sdaem-by.git
 ```
 Установите зависимости:
 
