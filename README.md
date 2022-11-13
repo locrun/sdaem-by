@@ -14,7 +14,7 @@
 Скопируйте проект на компьютер: 
 
 ```
-https://github.com/locrun/frontend-junior-test-task.git
+https://github.com/locrun/sdaem-by
 ```
 Установите зависимости:
 
