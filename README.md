@@ -1,4 +1,4 @@
-# Проект Sdaem-by
+# Проект Sdaem-by (Сайт по арендам квартир)
 
 ### [Online demo](https://sdaem-by-one.vercel.app/)
 
