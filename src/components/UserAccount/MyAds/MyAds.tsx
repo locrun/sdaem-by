@@ -13,7 +13,6 @@ export const MyAds: FC = () => {
       />
       <label htmlFor="all">Выбрать все</label>
       <button className={classes.button}>Оплатить выбранные</button>
-
     </div>
   )
 }

@@ -8,6 +8,8 @@ import { RaiseAds } from '../../../components/UserAccount/RaiseAds/RaiseAds'
 import { AddAds } from '../../../components/UserAccount/AddAds/AddAds'
 
 import classes from "./UserAccount.module.scss"
+import { PaymentGuide } from '../../../components/UserAccount/PaymentGuide/PaymentGuide'
+import { Card } from '../../../components/UserAccount/Card/Card'
 
 const data1 = [
   { id: 0, name: "Все" },
@@ -38,11 +40,13 @@ export const UserAccount: FC = () => {
               <CategoryFilter data={data1} />
               <StatusFilter data={data2} />
               <MyAds />
+              <Card />
             </div>
           </div>
           <div>
             <RaiseAds />
             <AddAds />
+            <PaymentGuide />
           </div>
         </div>
       </div>
