@@ -1,7 +1,18 @@
 import { FC } from 'react'
+import { useAppDispatch } from '../../../hooks/redux-hooks'
+import { setFlag, setIsActive } from '../../../store/reducers/modalReducer'
+import { Button } from '../../ui-kit/Button/Button'
 
 import classes from "./RaiseAds.module.scss"
 export const RaiseAds: FC = () => {
+  const dispatch = useAppDispatch()
+
+  const onClickHandler = () => {
+    dispatch(setIsActive(true))
+    document.body.classList.add("hidden")
+    dispatch(setFlag("buy"))
+  }
+
   return (
     <div className={classes.raiseAds}>
       <div className={classes.flex}>
@@ -15,8 +26,13 @@ export const RaiseAds: FC = () => {
         </div>
       </div>
       <div className={classes.buttons}>
-        <button className={classes.buyBtn}>+ Купить поднятия</button>
-        <button className={classes.moreBtn}>Подробнее</button>
+        <Button
+          className={classes.buyBtn}
+          onClick={onClickHandler}
+        >
+          + Купить поднятия
+        </Button>
+        <Button className={classes.moreBtn}>Подробнее</Button>
       </div>
     </div>
   )

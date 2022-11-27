@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react'
+import { FC } from 'react'
 import { Link } from 'react-router-dom'
 
 import { Navigation } from '../Navigation/Navigation'
@@ -17,20 +17,22 @@ export interface IHeaderNavData {
   path: string,
   isIcon?: boolean,
 }
+
+
+const accountMenu = [
+  { "id": 0, "item": "Личный кабинет", "path": "personal", "icon": "grid" },
+  { "id": 1, "item": "+ Добавить объявление", "path": "put" },
+  { "id": 2, "item": "Инструкция пользователя", "path": "manual" },
+  {
+    "id": 3,
+    "item": "Поднятия объявлений",
+    "path": "raise"
+  },
+  { "id": 4, "item": "Редактировать профиль", "path": "edit-account" }
+]
+
 export const Header: FC = () => {
   const { data, loading, error } = useRequest(api.navigation)
-  const [accountMenu, setAccountMenu] = useState([])
-  let l = 1
-
-  useEffect(() => {
-    const request = async () => {
-      const response = await fetch("api/userAccountNav")
-      const res = await response.json()
-      setAccountMenu(res)
-    }
-    request()
-  }, [])
-
 
   return (
     <header className={classes.header}>
@@ -57,20 +59,17 @@ export const Header: FC = () => {
         </div>
       </div>
       <HeaderMenu />
-      {
-        l === 1 &&
-        <div className={classes.wrapper}>
-          <div className="container">
-            <Navigation
-              data={accountMenu}
-              className={[
-                classes.userAccountMenuList,
-                classes.userAccountMenuListItem
-              ]}
-            />
-          </div>
+      <div className={classes.wrapper}>
+        <div className="container">
+          <Navigation
+            data={accountMenu}
+            className={[
+              classes.userAccountMenuList,
+              classes.userAccountMenuListItem
+            ]}
+          />
         </div>
-      }
+      </div>
     </header>
   )
 }

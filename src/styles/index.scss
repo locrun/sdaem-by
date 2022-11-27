@@ -12,3 +12,7 @@ body {
   overflow-y: scroll;
   position: relative;
 }
+body.hidden {
+  overflow: hidden;
+  margin-right: 15px;
+}

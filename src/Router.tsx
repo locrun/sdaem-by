@@ -14,6 +14,7 @@ import { Layout } from "./layout/Layout";
 import { Bookmarks } from "./pages/Bookmarks/Bookmarks";
 import { ProductDetail } from "./pages/ProductDetail/ProductDetail";
 import { UserAccount } from "./pages/UserAccount/UserAccount/UserAccount";
+import { Check } from "./pages/UserAccount/Check/Check";
 
 import { path } from "./constants/pages"
 import { PrivateRouter } from "./constants/pages";
@@ -39,6 +40,7 @@ export const Router = () => {
           <Route path={path.productDetail} element={<ProductDetail />} />
 
           <Route path={PrivateRouter.personal} element={<UserAccount />} />
+          <Route path={PrivateRouter.check} element={<Check />} />
           <Route path={PrivateRouter.addAdvert} element={<AddAdvert />} />
           <Route path={PrivateRouter.userManual} element={<UserManual />} />
           <Route path={PrivateRouter.raiseAdvert} element={<RaiseAdvert />} />

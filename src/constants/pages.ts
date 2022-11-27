@@ -19,6 +19,7 @@ export enum path {
 
 export enum PrivateRouter {
   personal = "personal",
+  check = "/personal/check",
   addAdvert = "put",
   userManual = "manual",
   raiseAdvert = "raise",

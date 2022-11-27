@@ -7,6 +7,7 @@ import { Social } from "../../components/ContactsPage/Social/Social"
 import { ContactForm } from "../../components/Form/ContactForm/ContactForm";
 
 import classes from './Contacts.module.scss'
+import { ModalContent } from "../../components/Modal/ModalContent";
 
 const modalContent = {
   title: "Ваше письмо отправлено!",
@@ -18,7 +19,11 @@ export const Contacts: FC = () => {
 
   return (
     <>
-      {isActive && <Modal modalContent={modalContent} />}
+      {isActive &&
+        <Modal>
+          <ModalContent content={modalContent} />
+        </Modal>
+      }
       <section className={classes.wrapper}>
         <div className="container">
           <div className={classes.content}>

@@ -1,46 +1,16 @@
-import { FC } from "react"
-import { useNavigate } from "react-router"
-import { useAppDispatch } from "../../hooks/redux-hooks"
-import { setIsActive } from "../../store/reducers/modalReducer"
-
-import { Button } from "../ui-kit/Button/Button"
+import { FC, ReactNode } from "react"
 import classes from "./Modal.module.scss"
 
 interface IContentModal {
-  title: string,
-  subtitle: string,
-  buttonText: string
+  children: ReactNode
 }
 
-interface IPropsModal {
-  modalContent: IContentModal,
-}
+export const Modal: FC<IContentModal> = ({ children }) => {
 
-export const Modal: FC<IPropsModal> = ({ modalContent: { title, subtitle, buttonText } }) => {
-  const dispatch = useAppDispatch()
-  const navigate = useNavigate()
-
-  const clickHandler = () => {
-    dispatch(setIsActive(false))
-    navigate("/personal")
-  }
   return (
     <div className={classes.window}>
       <div className={classes.flex}>
-        <div className={classes.content}>
-          <h3 className={classes.title}>
-            {title}
-          </h3>
-          <p className={classes.subtitle}>
-            {subtitle}
-          </p>
-          <Button
-            className={classes.button}
-            onClick={clickHandler}
-          >
-            {buttonText}
-          </Button>
-        </div>
+        {children}
       </div>
     </div>
   )

@@ -10,6 +10,10 @@ import { AddAds } from '../../../components/UserAccount/AddAds/AddAds'
 import classes from "./UserAccount.module.scss"
 import { PaymentGuide } from '../../../components/UserAccount/PaymentGuide/PaymentGuide'
 import { Card } from '../../../components/UserAccount/Card/Card'
+import { useAppSelector } from '../../../hooks/redux-hooks'
+import { Modal } from '../../../components/Modal/Modal'
+import { InvoicePayment } from '../../../components/UserAccount/ModalContent/InvoicePayment/InvoicePayment'
+import { BuyLifts } from '../../../components/UserAccount/ModalContent/BuyLifts/BuyLifts'
 
 const data1 = [
   { id: 0, name: "Все" },
@@ -29,27 +33,37 @@ const data2 = [
 
 export const UserAccount: FC = () => {
 
+  const { isActive, flag } = useAppSelector(state => state.modal)
+
   return (
-    <section className={classes.wrapper}>
-      <div className="container">
-        <div className={classes.content}>
-          <div>
-            <ProfileInfo />
-            <div className={classes.mt}>
-              <h3 className={classes.title}>Мои объявления</h3>
-              <CategoryFilter data={data1} />
-              <StatusFilter data={data2} />
-              <MyAds />
-              <Card />
+    <>
+
+      {isActive &&
+        <Modal>
+          {flag === 'buy' && <BuyLifts />}
+          {flag === 'invoice' && <InvoicePayment />}
+        </Modal>}
+      <section className={classes.wrapper} >
+        <div className="container">
+          <div className={classes.content}>
+            <div>
+              <ProfileInfo />
+              <div className={classes.mt}>
+                <h3 className={classes.title}>Мои объявления</h3>
+                <CategoryFilter data={data1} />
+                <StatusFilter data={data2} />
+                <MyAds />
+                <Card />
+              </div>
+            </div>
+            <div>
+              <RaiseAds />
+              <AddAds />
+              <PaymentGuide />
             </div>
           </div>
-          <div>
-            <RaiseAds />
-            <AddAds />
-            <PaymentGuide />
-          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   )
 }
