@@ -31,7 +31,9 @@ export const PriceAddForm: FC = () => {
       />
       <div className={classes.flex}>
         <div className={classes.inputWrapper}>
-          <span className={classes.label}>Цена&nbsp;<span className={classes.byn}>BYN</span></span>
+          <span className={classes.price}>Цена&nbsp;
+            <span className={classes.byn}>BYN</span>
+          </span>
           <input
             type="text"
             className={classes.inputPrice}
@@ -39,18 +41,17 @@ export const PriceAddForm: FC = () => {
           />
         </div>
         <div>
-          <span className={classes.priceLabel}>Тип цены</span>
-          <div className={classes.priceTypeWrapper}>
+          <span className={classes.typePrice}>Тип цены</span>
+          <div className={classes.radioWrapper}>
             {
               data.map(({ id, label, type }) => {
                 return (
-
                   <label
                     key={id}
-                    className={cn(classes.typePrice, {
+                    className={cn(classes.label, {
                       [classes.active]: id === active
                     })}>
-                    {label}
+                    <span className={classes.text}>{label}</span>
                     <input
                       type="radio"
                       name={type}
@@ -66,7 +67,6 @@ export const PriceAddForm: FC = () => {
                 )
               })
             }
-
           </div>
         </div>
       </div>
