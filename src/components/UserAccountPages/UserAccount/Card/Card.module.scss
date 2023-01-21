@@ -1,4 +1,4 @@
-@import "../../../styles/variables/variables.scss";
+@import "../../../../styles/variables/variables.scss";
 
 .card {
   margin-top: 23px;
@@ -144,7 +144,7 @@
 }
 
 .checkbox:checked + label::after {
-  content: url(../../../assets/images/check2.svg);
+  content: url(../../../../assets/images/check2.svg);
   position: absolute;
   width: 18px;
   height: 18px;

@@ -1,7 +1,7 @@
 import { FC } from 'react'
-import { IconSvg } from '../../IconSvg/IconSvg'
+import { IconSvg } from '../../../IconSvg/IconSvg'
 
-import plus from "../../../assets/images/plus.svg"
+import plus from "../../../../assets/images/plus.svg"
 import classes from "./AddAds.module.scss"
 
 export const AddAds: FC = () => {

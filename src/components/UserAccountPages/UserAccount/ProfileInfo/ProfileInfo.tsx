@@ -1,10 +1,10 @@
 import { FC } from 'react'
 
-import avatar from "../../../assets/images/avatar.png"
-import camera from "../../../assets/images/camera.svg"
-import dog from "../../../assets/images/dog.svg"
-import email from "../../../assets/images/mail.svg"
-import { IconSvg } from '../../IconSvg/IconSvg'
+import avatar from "../../../../assets/images/avatar.png"
+import camera from "../../../../assets/images/camera.svg"
+import dog from "../../../../assets/images/dog.svg"
+import email from "../../../../assets/images/mail.svg"
+import { IconSvg } from '../../../IconSvg/IconSvg'
 
 import classes from "./ProfileInfo.module.scss"
 

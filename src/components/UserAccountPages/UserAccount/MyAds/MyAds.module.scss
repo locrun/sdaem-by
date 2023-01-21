@@ -1,4 +1,4 @@
-@import "../../../styles/variables/variables.scss";
+@import "../../../../styles/variables/variables.scss";
 
 .content {
   max-width: 843px;
@@ -54,7 +54,7 @@
 }
 
 .checkbox:checked + label::after {
-  content: url(../../../assets/images/check2.svg);
+  content: url(../../../../assets/images/check2.svg);
   position: absolute;
   width: 18px;
   height: 18px;

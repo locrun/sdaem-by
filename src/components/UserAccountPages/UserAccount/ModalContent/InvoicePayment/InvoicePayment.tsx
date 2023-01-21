@@ -1,12 +1,12 @@
 import { FC, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useAppDispatch } from '../../../../hooks/redux-hooks'
-import { Autocomplete } from '../../../Autocomplete/Autocomplete'
+import { useAppDispatch } from '../../../../../hooks/redux-hooks'
+import { Autocomplete } from '../../../../Autocomplete/Autocomplete'
 import { SingleValue } from 'react-select'
-import { ISelectOption } from '../../../../Interfaces/ISelectOption'
+import { ISelectOption } from '../../../../../Interfaces/ISelectOption'
 
-import { setFlag, setIsActive } from '../../../../store/reducers/modalReducer'
-import { Button } from '../../../ui-kit/Button/Button'
+import { setFlag, setIsActive } from '../../../../../store/reducers/modalReducer'
+import { Button } from '../../../../ui-kit/Button/Button'
 
 import cn from "classnames"
 import classes from "./InvoicePayment.module.scss"

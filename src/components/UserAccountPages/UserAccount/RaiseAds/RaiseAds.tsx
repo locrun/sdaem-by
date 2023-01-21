@@ -1,7 +1,7 @@
 import { FC } from 'react'
-import { useAppDispatch } from '../../../hooks/redux-hooks'
-import { setFlag, setIsActive } from '../../../store/reducers/modalReducer'
-import { Button } from '../../ui-kit/Button/Button'
+import { useAppDispatch } from '../../../../hooks/redux-hooks'
+import { setFlag, setIsActive } from '../../../../store/reducers/modalReducer'
+import { Button } from '../../../ui-kit/Button/Button'
 
 import classes from "./RaiseAds.module.scss"
 export const RaiseAds: FC = () => {

@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { Link } from 'react-router-dom'
-import file from "../../../assets/images/file.svg"
+import file from "../../../../assets/images/file.svg"
 import classes from "./PaymentGuide.module.scss"
 
 export const PaymentGuide: FC = () => {

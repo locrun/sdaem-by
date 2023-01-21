@@ -1,9 +1,9 @@
 import { FC, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useAppDispatch } from '../../../../hooks/redux-hooks'
-import { setIsActive } from '../../../../store/reducers/modalReducer'
+import { useAppDispatch } from '../../../../../hooks/redux-hooks'
+import { setIsActive } from '../../../../../store/reducers/modalReducer'
 
-import { Button } from '../../../ui-kit/Button/Button'
+import { Button } from '../../../../ui-kit/Button/Button'
 
 import cn from "classnames"
 import classes from "./ByLifts.module.scss"

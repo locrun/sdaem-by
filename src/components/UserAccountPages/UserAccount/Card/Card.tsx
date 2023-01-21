@@ -1,6 +1,6 @@
 import { FC } from 'react'
-import orchid from "../../../assets/images/orchid.jpg"
-import { IconSvg } from '../../IconSvg/IconSvg'
+import orchid from "../../../../assets/images/orchid.jpg"
+import { IconSvg } from '../../../IconSvg/IconSvg'
 
 import classes from "./Card.module.scss"
 

@@ -16,7 +16,6 @@ export const LogIn: FC = () => {
         <LoginForm />
       </div>
     </section>
-
   )
 }
 

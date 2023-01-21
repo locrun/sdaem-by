@@ -1,6 +1,6 @@
 import { FC } from 'react'
-import { useAppDispatch } from '../../../hooks/redux-hooks'
-import { setFlag, setIsActive } from '../../../store/reducers/modalReducer'
+import { useAppDispatch } from '../../../../hooks/redux-hooks'
+import { setFlag, setIsActive } from '../../../../store/reducers/modalReducer'
 import classes from "./MyAds.module.scss"
 
 export const MyAds: FC = () => {
@@ -13,7 +13,8 @@ export const MyAds: FC = () => {
   }
   return (
     <div className={classes.content}>
-      <h3 className={classes.paymentTitle}>Оплатите несколько объектов сразу, чтобы получить скидку</h3>
+      <h3 className={classes.paymentTitle}>
+        Оплатите несколько объектов сразу, чтобы получить скидку</h3>
       <input
         type="checkbox"
         id="all"
