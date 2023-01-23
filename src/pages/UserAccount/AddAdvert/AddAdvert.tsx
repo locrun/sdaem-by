@@ -7,6 +7,7 @@ import cn from "classnames"
 import { AddressFillForm } from '../../../components/UserAccountPages/AddAdvert/AddressFillForm/AddressFillForm'
 import { DescriptionAddFrom } from '../../../components/UserAccountPages/AddAdvert/DescriptionAddForm/DescriptionAddFrom'
 import { PriceAddForm } from '../../../components/UserAccountPages/AddAdvert/PriceAddForm/PriceAddForm'
+import { RoomSelectionFrom } from '../../../components/UserAccountPages/AddAdvert/RoomSelectionFrom/RoomSelectionFrom'
 
 const category = [
   { id: 0, name: "Квартиры на сутки" },
@@ -29,6 +30,7 @@ export const AddAdvert: FC = () => {
             <AddressFillForm />
             <DescriptionAddFrom />
             <PriceAddForm />
+            <RoomSelectionFrom />
           </div>
           <h1>Map</h1>
         </div>
