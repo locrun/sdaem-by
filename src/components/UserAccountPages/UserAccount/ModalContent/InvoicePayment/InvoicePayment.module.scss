@@ -1,0 +1,161 @@
+.scroll::-webkit-scrollbar {
+  visibility: hidden;
+  width: 4px;
+}
+.scroll::-webkit-scrollbar-track {
+  width: 4px;
+  //height: 418px;
+  background: rgba(102, 78, 249, 0.1);
+  border-radius: 16px;
+}
+.scroll::-webkit-scrollbar-thumb {
+  width: 5px;
+  height: 266px;
+  border-radius: 16px;
+  background: rgba(102, 78, 249, 0.6);
+}
+.pay {
+  width: 306px;
+}
+.content {
+  width: 842px;
+  height: 571px;
+  padding: 45px 44px 45px 25px;
+  background: #ffffff;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.objTitle {
+  margin-top: 0;
+  margin-bottom: 40px;
+  padding-left: 15px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  color: #1e2123;
+}
+.payTitle {
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 30px;
+  color: #1e2123;
+  margin-top: 0;
+}
+.cardList {
+  width: 400px;
+  height: 418px;
+  padding: 0px 0px 20px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.cardListItem {
+  width: 369px;
+  padding: 18px 20px;
+  margin-right: 10px;
+  margin-bottom: 8px;
+  background: #ffffff;
+  box-shadow: 0px 7px 20px rgba(39, 95, 158, 0.15);
+  border-radius: 10px;
+}
+.apartment {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 150%;
+  color: #1e2123;
+}
+.address {
+  display: block;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #1e2123;
+}
+
+.label {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 26px;
+  color: #1e2123;
+}
+.select {
+  width: 100%;
+  margin-bottom: 30px;
+
+  [class*="-control"] {
+    min-height: 48px;
+    margin-right: 0;
+  }
+  [class*="-ValueContainer"] {
+    color: black;
+    padding: 0 20px 0;
+  }
+  [class*="-indicatorContainer"] {
+    display: flex;
+    padding: 12px 14px 10px 14px;
+  }
+}
+.priceList {
+  padding-top: 25px;
+  border-top: 1px solid rgba(102, 78, 249, 0.1);
+}
+.bold {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 20px;
+  color: #1e2123;
+}
+.priceListItem {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #1e2123;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+.price {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: #1e2123;
+}
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+.createBtn {
+  display: flex;
+  align-items: center;
+  padding: 12px 21px;
+
+  background: #ffd54f;
+  border-radius: 33px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  color: #000000;
+}
+.cancelBtn {
+  display: flex;
+  align-items: center;
+  padding: 12px 25px;
+
+  background: rgba(78, 100, 249, 0.1);
+  border-radius: 33px;
+
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  color: #664ef9;
+}

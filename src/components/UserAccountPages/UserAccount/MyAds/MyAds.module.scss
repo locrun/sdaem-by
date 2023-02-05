@@ -1,0 +1,66 @@
+@import "../../../../styles/variables/variables.scss";
+
+.content {
+  max-width: 843px;
+}
+
+.paymentTitle {
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  color: #1e2123;
+}
+
+.button {
+  margin-left: 46px;
+  padding: 10px 15px;
+
+  background: #664ef9;
+  border-radius: 17px;
+
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  color: #ffffff;
+}
+
+.checkbox {
+  display: none;
+}
+.checkbox + label {
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+  position: relative;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  color: #1e2123;
+}
+.checkbox + label::before {
+  content: url("");
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  margin-right: 18px;
+  background: #f8f8f8;
+  border: 1px solid #f0f0f0;
+  transition: $transition;
+
+  background: #ffffff;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+}
+
+.checkbox:checked + label::after {
+  content: url(../../../../assets/images/check2.svg);
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  background: #ffffff;
+}

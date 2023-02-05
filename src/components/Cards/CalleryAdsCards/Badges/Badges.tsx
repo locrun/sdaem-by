@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import { useAppDispatch, useAppSelector } from '../../../../hooks/redux/redux-hooks'
+import { useAppDispatch, useAppSelector } from '../../../../hooks/redux-hooks'
 import { setSelectedData } from '../../../../store/reducers/filterReducer'
 
 import { Button } from '../../../ui-kit/Button/Button'
@@ -32,7 +32,7 @@ export const Badges: FC<IBadges> = () => {
       ...stateData,
       city: item.city
     }))
-    navigate(path.APARTMENTS);
+    navigate(path.apartments);
   }
 
   return (

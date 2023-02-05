@@ -1,0 +1,118 @@
+.head {
+  width: 407px;
+  padding-top: 25px;
+  padding-bottom: 21px;
+  background: linear-gradient(270deg, #6540cd 0%, #7e6af3 100%);
+  border-radius: 10px 10px 0px 0px;
+
+  .title {
+    margin: 0 0 0 25px;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 20px;
+    color: #ffffff;
+  }
+}
+
+.list {
+  .listItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 25px;
+    height: 70px;
+    margin-bottom: 2px;
+    background: #ffffff;
+
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: #686868;
+    .text {
+      width: 190px;
+    }
+  }
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  padding: 4px;
+
+  box-shadow: 0px 9px 12px rgba(78, 100, 249, 0.25),
+    inset 0px 3px 4px rgba(230, 233, 252, 0.36),
+    inset 0px -1px 4px rgba(102, 78, 249, 0.4);
+  border-radius: 8px;
+  background: rgba(102, 78, 249, 0.3);
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.townWrapper {
+  margin-right: 22px;
+  width: 50px;
+  height: 50px;
+  background: rgba(78, 100, 249, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.iconTown {
+  width: 21px;
+  height: 21px;
+  fill: #664ef9;
+}
+
+.cottageWrapper {
+  margin-right: 22px;
+  width: 50px;
+  height: 50px;
+  background: rgba(13, 187, 65, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.iconCottage {
+  width: 21px;
+  height: 21px;
+  fill: #0dbb41;
+}
+
+.saunaWrapper {
+  margin-right: 22px;
+  width: 50px;
+  height: 50px;
+  background: rgba(235, 87, 87, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconSauna {
+  width: 21px;
+  height: 21px;
+  fill: #eb5757;
+}
+
+.carWrapper {
+  margin-right: 22px;
+  width: 50px;
+  height: 50px;
+
+  background: rgba(42, 132, 236, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.iconCar {
+  width: 21px;
+  height: 21px;
+  fill: #2a84ec;
+}

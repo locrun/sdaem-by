@@ -1,0 +1,31 @@
+.wrapper {
+  padding: 90px 0;
+  position: relative;
+  text-align: center;
+  background: linear-gradient(0deg, #7e6af3 -2.23%, #6540cd 100.04%);
+  z-index: 1;
+}
+
+.wrapper:after {
+  display: block;
+  content: "";
+  position: absolute;
+  background-image: url("../../../assets/images/decor.svg");
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  opacity: 0.4;
+  z-index: -1;
+}
+
+.title {
+  font-family: "Inter";
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 30px;
+  color: #ffffff;
+}

@@ -1,0 +1,33 @@
+.statusFilter {
+  margin-bottom: 33px;
+}
+
+.list {
+  display: flex;
+}
+
+.listItem {
+  padding: 10px 15px;
+  height: 37px;
+  display: flex;
+  align-items: center;
+
+  background: #ffffff;
+  border-radius: 18px;
+  cursor: pointer;
+
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  color: rgba(122, 127, 134, 0.8);
+
+  margin-right: 20px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.active {
+  color: #1e2123;
+}

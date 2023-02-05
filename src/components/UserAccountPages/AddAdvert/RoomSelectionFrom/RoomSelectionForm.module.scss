@@ -1,0 +1,149 @@
+@import "../../../../styles/variables/variables.scss";
+
+.form {
+  width: 625px;
+  margin: 60px 0;
+  padding: 35px 80px 61px 31px;
+  background: #ffffff;
+  box-shadow: 0px 15px 40px rgba(102, 78, 249, 0.05);
+  border-radius: 10px;
+}
+@import "../../../../styles/variables/variables.scss";
+
+.roomsQuantity {
+  margin-top: 27px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.text {
+  display: inline-block;
+  margin-bottom: 15px;
+  font-family: "Inter";
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: $black-gray;
+}
+.step {
+  display: inline-block;
+  font-family: "Inter";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: $black-gray;
+}
+.heading {
+  display: inline-block;
+  font-family: "Inter";
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: $moderate-blue;
+}
+
+.radioButtons {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 550px;
+  max-width: 100%;
+}
+
+.label {
+  padding: 10px 15px;
+  margin-bottom: 15px;
+  margin-right: 15px;
+  height: 40px;
+
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+
+  border: 1px solid rgba(102, 78, 249, 0.1);
+  border-radius: 30px;
+}
+.active {
+  border: 1px solid $moderate-blue;
+  transition: $transition;
+  color: $moderate-blue;
+}
+
+.capacity {
+  margin-top: 18px;
+}
+
+.select {
+  width: 260px;
+  height: 40px;
+}
+
+.sleepPlaces {
+  display: flex;
+  flex-direction: column;
+  margin-top: 35px;
+}
+
+.input {
+  padding: 10px 15px;
+  margin-right: 25px;
+  width: 80px;
+  height: 37px;
+  left: 860px;
+  background: #f8f8f8;
+  border-radius: 30px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #686868;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+//Style Radio Button
+.inputRadio {
+  display: none;
+}
+.customRadio {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  position: relative;
+  border: 1px solid rgba(102, 78, 249, 0.1);
+  transition: $transition;
+}
+.customRadio::before {
+  display: block;
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  transition: $transition;
+}
+.inputRadio:checked + .customRadio {
+  border: 1px solid$moderate-blue;
+  transition: $transition;
+}
+.inputRadio:checked + .customRadio::before {
+  background: $moderate-blue;
+}
+
+.inputRadio:hover + .customRadio {
+  border: 1px solid rgba(102, 78, 249, 0.3);
+  box-shadow: 0px 5px 40px rgba(135, 124, 202, 0.15);
+  transition: $transition;
+}
+.inputRadio:hover + .customRadio:before {
+  box-shadow: 0px 5px 40px rgba(135, 124, 202, 0.15);
+  transition: $transition;
+}

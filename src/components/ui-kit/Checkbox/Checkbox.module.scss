@@ -26,7 +26,7 @@
   }
 }
 .customCheckbox + label::before {
-  content: "";
+  content: url("");
   width: 18px;
   height: 18px;
   border-radius: 5px;
@@ -34,7 +34,6 @@
   background: #f8f8f8;
   border: 1px solid #f0f0f0;
   transition: $transition;
-  content: url("");
 }
 .customCheckbox + label:hover::before {
   background: rgba(102, 78, 249, 0.1);

@@ -1,0 +1,156 @@
+@import "../../../../styles/variables/variables.scss";
+
+.card {
+  margin-top: 23px;
+  display: flex;
+  box-shadow: 0px 10px 40px rgba(39, 95, 158, 0.1);
+}
+
+.imageWrapper {
+  width: 220px;
+  height: 193px;
+  min-width: 220px;
+  overflow: hidden;
+  background: #e4e2e2;
+  border-radius: 10px 0 0 10px;
+  position: relative;
+}
+.image {
+  position: absolute;
+}
+.info {
+  width: 623px;
+  padding: 18px 28px 20px 23px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #ffffff;
+  border-radius: 0 10px 10px 0;
+}
+.title {
+  margin: 0;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 150%;
+  color: #1e2123;
+  margin-bottom: 8px;
+}
+.id {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  color: #7a7f86;
+}
+.descr {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #1e2123;
+  margin-bottom: 17px;
+}
+.icon {
+  width: 13px;
+  height: 13px;
+  margin-right: 13px;
+}
+.deleteBtn {
+  width: 35px;
+  height: 35px;
+  margin-right: 14px;
+  background: #f8f8f8;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pencilBtn {
+  width: 35px;
+  height: 35px;
+  background: #f8f8f8;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.rate {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  color: #664ef9;
+}
+.raiseBtn {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  margin-right: 20px;
+  background: rgba(102, 78, 249, 0.1);
+  border-radius: 17px;
+
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  color: #664ef9;
+}
+.iconPencil {
+  width: 12px;
+  height: 12px;
+  fill: #7a7f86;
+}
+.iconDelete {
+  width: 10px;
+  height: 13px;
+  fill: #7a7f86;
+}
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.flexEnd {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.checkbox {
+  display: none;
+}
+.checkbox + label {
+  position: absolute;
+  top: 15px;
+  left: 12px;
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+  position: relative;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  color: #1e2123;
+}
+.checkbox + label::before {
+  content: url("");
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  background: #f8f8f8;
+  border: 1px solid #f0f0f0;
+  transition: $transition;
+  background: #ffffff;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+}
+
+.checkbox:checked + label::after {
+  content: url(../../../../assets/images/check2.svg);
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  background: #ffffff;
+}

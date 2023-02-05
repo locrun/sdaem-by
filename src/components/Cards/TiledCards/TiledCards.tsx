@@ -1,5 +1,6 @@
 import { FC, useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "../../../hooks/redux-hooks";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import { OwnerCard } from "../OwnerCard/OwnerCard";
 import { Button } from "../../ui-kit/Button/Button";
@@ -10,19 +11,26 @@ import { IResponseData } from "../../../Interfaces/IResponseData";
 import cn from "classnames"
 import classes from "./TiledCards.module.scss";
 import React from "react";
+import { setIsFavorite } from "../../../store/reducers/bookmarksReducer";
 
 interface IProps {
   data: IResponseData;
   className?: string
+  hiddenField?: string
 }
 
 export const TiledCards: FC<IProps> = ({ data: {
   id, city, address, metro,
   area, image, price,
   capacity, room, square,
-  description, ownerContacts }, className }) => {
-  const location = useLocation()
+  description, ownerContacts }, className, hiddenField }) => {
 
+
+
+  const navigate = useNavigate()
+  const dispatch = useAppDispatch()
+  const { isActive } = useAppSelector(state => state.bookmarks)
+  const location = useLocation()
   const [isFavorite, setIsFavorite] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
   const [ref, setRef] = React.useState<React.MutableRefObject<HTMLButtonElement>>()
@@ -41,6 +49,11 @@ export const TiledCards: FC<IProps> = ({ data: {
 
   }, [ref, setIsOpen])
 
+  const onClickHandler = () => {
+    //dispatch(setIsFavorite(id))
+    setIsFavorite(setState => !setState)
+  }
+
   return (
     <div className={cn(classes.card, className)}>
       <div className={classes.image}>
@@ -57,29 +70,36 @@ export const TiledCards: FC<IProps> = ({ data: {
             <IconSvg id={"#user"} className={classes.user} />
           </li>
           <li className={classes.rooms}>{room} комн.</li>
-          <li className={classes.square}>{square} м²</li>
+          {hiddenField !== "hidden" ?
+            <li className={classes.square}>{square} м²</li>
+            : ""
+          }
         </ul>
         <div className={classes.location}>
           <p className={classes.locationItem}>
-            <IconSvg id={"#mark"} />
+            <IconSvg id={"#mark"} className={classes.markIcon} />
             {city}, {address}
           </p>
           <p className={classes.locationItem}>
-            <IconSvg id={"#metro"} />
+            <IconSvg id={"#metro"} className={classes.metroIcon} />
             <span className={classes.metroName}>{metro}</span>
             <span className={classes.right}>
-              <IconSvg className={classes.dot} id={"#dot"} />
+              <IconSvg id={"#dot"} className={classes.dotIcon} />
               {area}
             </span>
           </p>
         </div>
-        <p className={classes.desc}>
-          {description}
-        </p>
+        {hiddenField !== "hidden" ?
+          <p className={classes.desc}>
+            {description}
+          </p>
+          : ""
+        }
         <div className={classes.buttons}>
           {location.pathname !== "/" ?
-            <Button className={classes.bookmarksBtn}
-              onClick={() => setIsFavorite(isActive => !isActive)}>
+            <Button
+              className={classes.bookmarksBtn}
+              onClick={onClickHandler}>
               {isFavorite ?
                 <IconSvg id={"#heartActive"} className={classes.heartIcon} />
                 :
@@ -95,7 +115,12 @@ export const TiledCards: FC<IProps> = ({ data: {
             Контакты
             <IconSvg id={"#phone"} className={classes.phoneIcon} />
           </Button>
-          < Button className={classes.moreBtn} >
+          < Button onClick={() => {
+            navigate(`/catalog/product/${id}`);
+            window.scrollTo(0, 0)
+          }}
+            className={classes.moreBtn}
+          >
             Подробнее
           </Button>
         </div>

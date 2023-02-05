@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import classes from "./NewsList.module.scss"
 import { INews } from "../../Interfaces/INews"
 
+
 interface IPropsNewsList {
   newsList: INews[],
   mb?: string,
@@ -20,7 +21,7 @@ export const NewsList: FC<IPropsNewsList> = ({ newsList, mb }) => {
   }
   return (
     <div className={classes.newsCardList}>
-      {newsList?.map((news) => {
+      {newsList?.map((news: INews) => {
         return (
           <div
             key={news.id}

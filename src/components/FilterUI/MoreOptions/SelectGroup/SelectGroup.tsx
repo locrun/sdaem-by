@@ -1,5 +1,5 @@
 import { FC, useState } from 'react'
-import { useAppSelector } from '../../../../hooks/redux/redux-hooks'
+import { useAppSelector } from '../../../../hooks/redux-hooks'
 import { Autocomplete } from '../../../Autocomplete/Autocomplete'
 import { IPropsSelectGroup } from '../../Filter/SelectGroup/SelectGroup'
 import { capacityOptions, areaOptions, metroOptions } from "../../../../data/dataOptions";

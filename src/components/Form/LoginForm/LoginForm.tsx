@@ -1,25 +1,27 @@
-import React, { useState } from 'react'
-import { Link } from "react-router-dom"
-import { useAppDispatch } from "../../../hooks/redux/redux-hooks";
+import { useState } from 'react'
+import { Link, useNavigate } from "react-router-dom"
+
 import { SubmitHandler, useForm } from "react-hook-form"
-import { setIsActive } from "../../../store/reducers/modalReducer"
+
 import { Input } from "../../ui-kit/Input/Input"
 import { Button } from "../../ui-kit/Button/Button"
 import { IFormFields } from "../../../Interfaces/IFormFields"
 
 import cn from "classnames"
 import classes from "./LoginForm.module.scss"
+import { PrivateRouter } from '../../../constants/pages';
 
 export const LoginForm = () => {
+  const navigate = useNavigate()
   const [active, setActive] = useState(false)
-  const dispatch = useAppDispatch()
+
 
   const { register, formState: { errors }, reset, handleSubmit }
     =
     useForm<IFormFields>({ mode: "onSubmit" })
 
   const onSubmit: SubmitHandler<IFormFields> = (data) => {
-    dispatch(setIsActive(true))
+    navigate(`/${PrivateRouter.personal}`)
     reset()
   }
   return (

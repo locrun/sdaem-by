@@ -1,0 +1,16 @@
+@import "../../../styles/variables/variables.scss";
+
+.contacts {
+  max-width: 280px;
+  margin-top: 40px;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 13px;
+  color: $light-gray;
+  span {
+    display: inline-block;
+  }
+}
+.error {
+  color: red;
+}

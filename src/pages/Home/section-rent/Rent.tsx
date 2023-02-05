@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAppDispatch, useAppSelector } from "../../../hooks/redux/redux-hooks";
+import { useAppDispatch, useAppSelector } from "../../../hooks/redux-hooks";
 import { setSelectedData } from "../../../store/reducers/filterReducer";
 import { fetchFlats } from "../../../store/thunks/flatThunk";
 
@@ -21,8 +21,6 @@ import classes from "./Rent.module.scss"
 import { Button } from "../../../components/ui-kit/Button/Button";
 
 
-
-
 export const Rent: FC = () => {
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
@@ -31,7 +29,7 @@ export const Rent: FC = () => {
     dispatch(fetchFlats())
   }, [dispatch])
 
-  const { loading, error, flats } = useAppSelector(state => state.flats)
+  const { loading, error } = useAppSelector(state => state.flats)
   const { stateData, filteredData } = useAppSelector(state => state.filter)
   const { rentTitle, totalOffersTitle } = usePageTitle()
 

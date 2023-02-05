@@ -4,6 +4,10 @@
   width: 100%;
   background: #f8f8f8;
 }
+.wrapper {
+  background: #ffffff;
+  margin-top: 20px;
+}
 .container {
   max-width: 1315px;
   margin: 0 auto;
@@ -25,8 +29,31 @@
   align-items: center;
   a {
     color: $light-gray;
-    padding: 16px 0;
+    padding: 10px 0;
     border-bottom: 3px solid #f8f8f8;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+.userAccountMenuList {
+  height: 48px;
+  display: flex;
+  background: #ffffff;
+}
+.userAccountMenuListItem {
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  margin-right: 67px;
+  display: flex;
+  align-items: center;
+  color: #686868;
+  a {
+    color: #686868;
+    padding: 13px 0;
+    border-bottom: 3px solid #fdfdfe;
   }
 
   &:last-child {
@@ -40,7 +67,7 @@
   width: 275px;
 }
 .bookmark {
-  padding: 16px 0px;
+  padding: 10px 0px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -59,9 +86,12 @@
 
 .login {
   color: $moderate-blue;
-  padding: 16px 0px;
+  padding: 10px 0px;
   font-weight: 500;
   font-size: 14px;
   line-height: 17px;
   border-bottom: 3px solid #f8f8f8;
+}
+.error {
+  color: red;
 }

@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 import { SingleValue } from "react-select";
-import { useAppSelector, useAppDispatch } from "../../../hooks/redux/redux-hooks";
+import { useAppSelector, useAppDispatch } from "../../../hooks/redux-hooks";
 import { selectedValueForSort } from "../../../store/reducers/filterReducer";
 
 import { usePagination } from "../../../hooks/usePagination";
@@ -13,14 +13,16 @@ import { TiledCards } from "../../../components/Cards/TiledCards/TiledCards";
 import { ListCards } from "../../../components/Cards/ListCards/ListCards";
 import { Pagination } from "../../../components/Pagination/Pagination";
 import { ShareButtons } from "../../../components/ShareButtons/ShareButtons";
-import { ErrorMessage } from "../../../components/Notification/ErrorMessage/ErrorMessage"
-import { Spinner } from "../../../Spinner/Spinner"
+
+import { NothingFound } from "../../../components/Notification/NothingFound/NothingFound";
+
 
 import { ISelectOption } from "../../../Interfaces/ISelectOption";
 import { IResponseData } from "../../../Interfaces/IResponseData";
+
+
+import cn from "classnames"
 import classes from "./Products.module.scss"
-
-
 
 
 export const Products: FC = () => {
@@ -53,19 +55,21 @@ export const Products: FC = () => {
           <h3 className={classes.title}>
             {filteredData && <span> Найдено {filteredData?.length} результата</span>}
           </h3>
+          {
 
-          {slicedArray.length <= 0 ?
-            <div className={classes.spinwrap}>
-              <Spinner />
-            </div> :
-            active === "tiles" &&
-            <div className={classes.tilesCardWrapper}>
-              {slicedArray?.map((items: IResponseData) =>
-                <TiledCards key={items.id} data={items} className={classes.shadow} />
-              )}
-            </div>
+            slicedArray?.length === 0 ?
+              <div className={classes.spinwrap}>
+                <NothingFound />
+              </div>
+              :
+              active === "tiles" &&
+              <div className={classes.tilesCardWrapper}>
+                {slicedArray?.map((items: IResponseData) =>
+                  <TiledCards key={items.id} data={items} className={cn(classes.shadow, classes.mb)} />
+                )}
+              </div>
           }
-           
+
           {active === "list" &&
             <div className={classes.listCardWrapper}>
               {slicedArray?.map((items: IResponseData) =>
@@ -73,7 +77,6 @@ export const Products: FC = () => {
               )}
             </div>
           }
-
           <div className={classes.bottom}>
             <Pagination
               forcePage={forcePage - 1}
@@ -83,6 +86,7 @@ export const Products: FC = () => {
             <ShareButtons
               title={title}
               url={"https://sdaem.by/"}
+              catalogPage
             />
           </div>
         </div>

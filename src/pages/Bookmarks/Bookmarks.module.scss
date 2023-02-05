@@ -1,0 +1,36 @@
+.bg {
+  padding: 42px 0 70px 0;
+  position: relative;
+  margin-bottom: 40px;
+}
+.bg:after {
+  display: block;
+  content: "";
+  position: absolute;
+  background: linear-gradient(90deg, #94afff 0%, #4e64f9 94.5%);
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0.1;
+  z-index: -1;
+}
+
+.title {
+  margin-top: 30px;
+  font-family: "Inter";
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 100%;
+  color: #1e2123;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 100px;
+  margin-top: 50px;
+  filter: drop-shadow(0px 20px 40px rgba(39, 95, 158, 0.1));
+}

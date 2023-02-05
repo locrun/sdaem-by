@@ -8,16 +8,20 @@ import "swiper/css/navigation";
 import "./swiper.scss"
 import { IResponseData } from '../../Interfaces/IResponseData';
 
+
 interface IPropsCarousel {
-  data: IResponseData[]
+  data: IResponseData[],
+  slidesPerView?: number
+  className?: string
 }
 
-export const Carousel: FC<IPropsCarousel> = ({ data }) => {
+export const Carousel: FC<IPropsCarousel> = ({ data, slidesPerView = 3, }) => {
+
   return (
     <Swiper
       modules={[Navigation]}
       simulateTouch={false}
-      slidesPerView={3}
+      slidesPerView={slidesPerView}
       spaceBetween={30}
       navigation
     >

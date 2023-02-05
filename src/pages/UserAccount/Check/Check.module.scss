@@ -1,0 +1,171 @@
+.wrapper {
+  padding: 62px 0 150px 0;
+  background: #f4f5fa;
+}
+
+.content {
+  padding: 0 111px;
+}
+.titleWrapper {
+  width: 506px;
+  height: 60px;
+  margin: 0 auto;
+  text-align: center;
+}
+.title {
+  margin: 0;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 30px;
+  color: #1e2123;
+}
+.table {
+  margin: 65px auto 40px auto;
+}
+.fieldNames {
+  display: flex;
+  background: linear-gradient(270deg, #7e6af3 0%, #6540cd 100%);
+  border-radius: 10px 10px 0px 0px;
+}
+.fieldValues {
+  display: flex;
+  height: 104px;
+  background: #ffffff;
+  border-bottom: 1px solid rgba(206, 218, 254, 0.6);
+}
+.totalPayable {
+  height: 124px;
+  padding: 35px 28px 35px 28px;
+  background: #ffffff;
+  box-shadow: 0px 15px 40px rgba(102, 78, 249, 0.1);
+  border-radius: 0px 0px 10px 10px;
+}
+.description {
+  display: inline-block;
+  padding: 25px 14px 21px 25px;
+  width: 312px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  color: #ffffff;
+  border-right: 1px solid rgba(206, 218, 254, 0.6);
+}
+.service {
+  display: inline-block;
+  padding: 25px 25px 21px 20px;
+  width: 185px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  color: #ffffff;
+  border-right: 1px solid rgba(206, 218, 254, 0.6);
+}
+.rate {
+  display: inline-block;
+  padding: 25px 25px 21px 20px;
+  width: 130px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  color: #ffffff;
+  border-right: 1px solid rgba(206, 218, 254, 0.6);
+}
+.price {
+  display: inline-block;
+  padding: 25px 23px 21px 20px;
+  width: 136px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  color: #ffffff;
+  border-right: 1px solid rgba(206, 218, 254, 0.6);
+}
+.quantity {
+  display: inline-block;
+  padding: 25px 25px 21px 20px;
+  width: 135px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  color: #ffffff;
+  border-right: 1px solid rgba(206, 218, 254, 0.6);
+}
+.total {
+  display: inline-block;
+  padding: 25px 25px 21px 20px;
+  width: 163px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  color: #ffffff;
+}
+.style {
+  padding-top: 21px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: #686868;
+}
+.id {
+  display: inline-block;
+  margin-bottom: 10px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: #686868;
+}
+.address {
+  display: inline-block;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: #686868;
+}
+.discount {
+  width: 256px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  color: #1e2123;
+}
+.totalPrice {
+  width: 277px;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 20px;
+  color: #664ef9;
+}
+.payLaterBtn {
+  padding: 9px 18px;
+  margin-right: 25px;
+  background: rgba(78, 100, 249, 0.1);
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  color: #664ef9;
+}
+.payCardBtn {
+  padding: 9px 18px;
+  margin-right: 25px;
+  background: #664ef9;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  color: #ffffff;
+}
+.payEripBtn {
+  padding: 9px 18px;
+  background: #ffd54f;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  color: #1e2123;
+}

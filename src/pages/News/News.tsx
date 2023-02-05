@@ -1,6 +1,6 @@
 import { FC, useMemo } from "react"
 
-import { useAppSelector } from "../../hooks/redux/redux-hooks"
+import { useAppSelector } from "../../hooks/redux-hooks"
 
 import { NewsForm } from "../../components/Form/NewsForm/NewsForm"
 import { usePagination } from "../../hooks/usePagination"
@@ -12,9 +12,11 @@ import { ErrorMessage } from "../../components/Notification/ErrorMessage/ErrorMe
 
 import cn from "classnames"
 import classes from "./News.module.scss"
+
 export const News: FC = () => {
   const { filteredData } = useAppSelector(state => state.news)
   const { loading, error } = useAppSelector((state) => state.news);
+
 
   const { handlePageChange, pageCount, slicedArray, forcePage } = usePagination(9, filteredData)
 
@@ -29,7 +31,6 @@ export const News: FC = () => {
         id: 1,
         title: "Новости",
       }
-
     ], []
   )
 

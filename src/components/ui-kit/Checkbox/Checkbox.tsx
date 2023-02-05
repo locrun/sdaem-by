@@ -2,7 +2,7 @@ import { FC } from "react"
 import classes from "./Checkbox.module.scss"
 
 export interface IPropsCheckbox {
-  data: string[]
+  data?: string[]
   onChange?: () => void
 }
 export const Checkbox: FC<IPropsCheckbox> = ({ data, onChange }) => {

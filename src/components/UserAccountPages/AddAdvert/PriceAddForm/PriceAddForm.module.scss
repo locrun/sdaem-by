@@ -1,0 +1,197 @@
+@import "../../../../styles/variables/variables.scss";
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form {
+  width: 625px;
+  margin: 60px 0;
+  padding: 33px 37px 40px 32px;
+  background: #ffffff;
+  box-shadow: 0px 15px 40px rgba(102, 78, 249, 0.05);
+  border-radius: 10px;
+}
+.step {
+  display: inline-block;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: $black-gray;
+}
+.heading {
+  display: inline-block;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: $moderate-blue;
+}
+.guide {
+  margin-top: 25px;
+  margin-bottom: 15px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: $dull-gray;
+}
+.price {
+  display: inline-block;
+  margin-bottom: 15px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: $black-gray;
+}
+.typePrice {
+  display: inline-block;
+  margin-bottom: 15px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: $black-gray;
+}
+.textarea {
+  width: 556px;
+  height: 220px;
+  margin-bottom: 30px;
+  max-width: 100%;
+
+  padding: 15px;
+  padding-left: 20px;
+
+  resize: none;
+
+  background: #f8f8f8;
+  border-radius: 10px;
+  outline: none;
+  border: 2px solid #fff;
+
+  transition: $transition;
+  &:hover {
+    border: 2px solid rgba(102, 78, 249, 0.8);
+  }
+}
+.textarea::placeholder {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: $dull-gray;
+}
+
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.radioWrapper {
+  width: 320px;
+  max-width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.text {
+  margin-left: 10px;
+}
+.label {
+  display: flex;
+  min-width: 146px;
+  max-width: 100%;
+  height: 40px;
+
+  justify-content: flex-end;
+  flex-direction: row-reverse;
+  padding: 10px 15px;
+  border: 1px solid rgba(102, 78, 249, 0.1);
+  border-radius: 30px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #686868;
+}
+.active {
+  border: 1px solid $moderate-blue;
+  transition: $transition;
+  color: $moderate-blue;
+}
+
+.inputPrice {
+  width: 200px;
+  height: 40px;
+  padding: 10px 15px;
+  background: #f8f8f8;
+  border-radius: 30px;
+  border: 1px solid #fff;
+  transition: $transition;
+  &:hover {
+    border: 1px solid $moderate-blue;
+  }
+}
+.inputPrice::placeholder {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: $dull-gray;
+}
+.byn {
+  color: #7a7f86;
+}
+//Style Radio Button
+.inputRadio {
+  display: none;
+}
+.customRadio {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  position: relative;
+  border: 1px solid rgba(102, 78, 249, 0.1);
+  transition: $transition;
+}
+.customRadio::before {
+  display: block;
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  transition: $transition;
+}
+.inputRadio:checked + .customRadio {
+  border: 1px solid$moderate-blue;
+  transition: $transition;
+}
+.inputRadio:checked + .customRadio::before {
+  background: $moderate-blue;
+}
+
+.inputRadio:hover + .customRadio {
+  border: 1px solid rgba(102, 78, 249, 0.3);
+  box-shadow: 0px 5px 40px rgba(135, 124, 202, 0.15);
+  transition: $transition;
+}
+.inputRadio:hover + .customRadio:before {
+  box-shadow: 0px 5px 40px rgba(135, 124, 202, 0.15);
+  transition: $transition;
+}

@@ -1,0 +1,132 @@
+.profile {
+  width: 843px;
+  height: 200px;
+  padding: 35px 38px 50px 53px;
+  background: linear-gradient(270deg, #7e6af3 0%, #6540cd 100%);
+  box-shadow: 0px 15px 40px rgba(102, 78, 249, 0.25);
+  border-radius: 10px;
+
+  display: flex;
+  justify-content: space-between;
+}
+.flex {
+  display: flex;
+  align-items: center;
+}
+.avatar {
+  width: 109px;
+  height: 109px;
+  margin-right: 42px;
+  border: 5px solid #ffffff;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
+  border-radius: 50%;
+  display: flex;
+  position: relative;
+}
+.uploadFoto {
+  display: block;
+  position: absolute;
+  right: 0;
+  bottom: -4px;
+
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #f2f5fa;
+  box-shadow: 0px 0px 12px rgba(5, 0, 95, 0.2);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.name {
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 20px;
+  margin: 10px 20px 10px 0;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+}
+.editProfileBtn {
+  width: 220px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 14px 6px 36px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 27px;
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: #ffffff;
+  opacity: 0.8;
+  position: relative;
+}
+
+.iconPencil {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  left: 14px;
+  top: 10px;
+  fill: white;
+}
+
+.list {
+  .listItem {
+    margin-bottom: 8px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+
+    img {
+      margin-top: 5px;
+      margin-right: 12px;
+    }
+
+    &:nth-of-type(3) {
+      &:before {
+        content: "ID";
+        margin-right: 12px;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+        opacity: 0.4;
+      }
+    }
+  }
+}
+.onWebsite {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  .date {
+    display: inline-block;
+    margin: 8px 0;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 20px;
+    color: #ffffff;
+  }
+
+  span {
+    display: block;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #ffffff;
+    opacity: 0.7;
+  }
+
+  .flexEnd {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+  }
+}

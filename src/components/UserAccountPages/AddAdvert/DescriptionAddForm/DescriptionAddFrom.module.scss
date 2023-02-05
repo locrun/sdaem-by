@@ -1,0 +1,79 @@
+@import "../../../../styles/variables/variables.scss";
+
+.form {
+  width: 625px;
+  margin: 60px 0;
+  padding: 33px 37px 40px 32px;
+  background: #ffffff;
+  box-shadow: 0px 15px 40px rgba(102, 78, 249, 0.05);
+  border-radius: 10px;
+}
+.step {
+  display: inline-block;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: $black-gray;
+}
+.heading {
+  display: inline-block;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: $moderate-blue;
+}
+.guide {
+  margin-top: 25px;
+  margin-bottom: 26px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: $dull-gray;
+}
+.label {
+  display: inline-block;
+  margin-bottom: 15px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: $black-gray;
+}
+.textarea {
+  resize: none;
+  padding: 15px;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
+  width: 556px;
+  height: 230px;
+  max-width: 100%;
+
+  background: #f8f8f8;
+  border-radius: 10px;
+  outline: none;
+  border: 2px solid #fff;
+
+  transition: $transition;
+  &:hover {
+    border: 2px solid rgba(102, 78, 249, 0.8);
+  }
+}
+.textarea::placeholder {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: $dull-gray;
+}

@@ -8,10 +8,12 @@ import contacts from "../data/contacts.json";
 import navigation from "../data/navigation.json";
 import menu from "../data/menuList.json";
 import sidebar from "../data/sidebar.json";
+import userAccountNav from "../data/userAccountNav.json";
 createServer({
   routes() {
     this.namespace = "api";
     this.get("/navigation", () => navigation);
+    this.get("/userAccountNav", () => userAccountNav);
     this.get("/menu", () => menu);
     this.get("/news", () => news);
     this.get("/flats", () => flats);

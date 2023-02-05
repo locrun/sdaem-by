@@ -1,6 +1,6 @@
 import { FC, useState } from "react"
 import { useLocation, useNavigate } from "react-router-dom"
-import { useAppDispatch, useAppSelector } from "../../../hooks/redux/redux-hooks"
+import { useAppDispatch, useAppSelector } from "../../../hooks/redux-hooks"
 
 import { MoreOptions } from "../MoreOptions/MoreOptions"
 import { ButtonGroup } from "./ButtonGroup/ButtonGroup"
@@ -44,7 +44,7 @@ export const Filter: FC<IPropsFilter> = ({ onSubmitForm }) => {
     e.preventDefault()
     if (onSubmitForm)
       onSubmitForm()
-    if (location.pathname === path.HOME)
+    if (location.pathname === path.home)
       navigate("/catalog/flats")
   }
 
@@ -54,7 +54,9 @@ export const Filter: FC<IPropsFilter> = ({ onSubmitForm }) => {
 
   return (
     <div className={classes.filterWrapper}>
-      <div className={"container"}>
+      <div className={cn(classes.container, {
+        [classes.containerTransform]: !homePath
+      })}>
         <form onSubmit={onHandleSubmit}>
           <div className={cn(classes.wrapper, {
             [classes._radiusNone]: openOptions,

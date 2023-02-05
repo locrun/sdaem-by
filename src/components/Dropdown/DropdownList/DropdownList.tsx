@@ -1,12 +1,12 @@
 import { FC, useState, useEffect, useRef } from "react"
 import { Link } from "react-router-dom"
-import { useAppDispatch, useAppSelector } from "../../../hooks/redux/redux-hooks"
+import { useAppDispatch, useAppSelector } from "../../../hooks/redux-hooks"
 import { setSelectedData } from "../../../store/reducers/filterReducer"
 
 import { IconSvg } from "../../IconSvg/IconSvg"
 import classes from "./DropdownList.module.scss"
 
-export interface IList {
+export interface IListDropdown {
   title: string,
   isIcon?: boolean,
   list: {
@@ -17,16 +17,15 @@ export interface IList {
     path: string
   }[]
 }
-
-export interface IPropsDropdownList {
-  menu: IList,
+export interface IPropsDropdown {
+  menu: IListDropdown,
 }
-
-export const DropdownList: FC<IPropsDropdownList> = ({ menu }) => {
+export const DropdownList: FC<IPropsDropdown> = ({ menu }) => {
   const dispatch = useAppDispatch()
   const { stateData } = useAppSelector(state => state.filter)
   const [isOpen, setIsOpen] = useState(false)
   const ref = useRef<HTMLButtonElement>(null)
+
 
   useEffect(() => {
     const handleClickOutsideDropdown = (e: MouseEvent) => {
@@ -40,6 +39,13 @@ export const DropdownList: FC<IPropsDropdownList> = ({ menu }) => {
       window.removeEventListener('click', handleClickOutsideDropdown)
     }
   })
+  const onClickHandler = (city: string) => {
+    dispatch(setSelectedData({
+      ...stateData,
+      city: city
+    }))
+
+  }
 
   return (
     <button
@@ -58,12 +64,7 @@ export const DropdownList: FC<IPropsDropdownList> = ({ menu }) => {
             <li
               key={item.city}
               className={classes.listItem}
-              onClick={() => {
-                dispatch(setSelectedData({
-                  ...stateData,
-                  city: item.city
-                }))
-              }}
+              onClick={() => onClickHandler(item.city)}
             >
               <Link to={item.path} className={classes.itemLink}>
                 {item.value}

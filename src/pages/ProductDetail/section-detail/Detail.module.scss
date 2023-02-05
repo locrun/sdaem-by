@@ -1,0 +1,277 @@
+@import "../../../styles/variables/variables.scss";
+
+.contentWrapper {
+  padding: 42px 0px 80px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+.mainContent {
+  max-width: 735px;
+}
+.margin {
+  margin-top: 43px;
+}
+
+.photoGallery {
+  margin-bottom: 30px;
+  position: relative;
+}
+.prev {
+  position: absolute;
+  z-index: 10;
+  left: 0;
+  top: 50%;
+}
+.next {
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+  right: 0;
+  width: 32px;
+  height: 30px;
+  background: rgba(209, 209, 209, 0.4);
+  border-radius: 23px;
+}
+.main {
+  background: #ffffff;
+  box-shadow: 0px 20px 40px rgba(135, 124, 202, 0.15);
+  border-radius: 10px;
+  width: 735px;
+  padding: 25px;
+  .title {
+    font-family: "Inter";
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 100%;
+    color: #1e2123;
+  }
+}
+.description {
+  margin: 40px 0;
+  font-family: "Inter";
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 150%;
+  color: #1e2123;
+
+  .heading {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 110%;
+    color: #000000;
+  }
+
+  .readFull {
+    font-family: "Inter";
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 150%;
+    text-decoration-line: underline;
+    color: #664ef9;
+  }
+}
+
+.list {
+  columns: 3;
+  .listItem {
+    margin-bottom: 10px;
+    &:before {
+      content: "•";
+      margin-right: 3px;
+    }
+  }
+}
+.date {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  color: #686868;
+}
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.owner {
+  position: absolute;
+  left: 35%;
+  top: -25%;
+}
+
+.title {
+  display: inline-block;
+  margin-top: 5px;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 100%;
+  color: $black-gray;
+}
+.listInfo {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.address {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: #000000;
+
+  .locationIcon {
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+    fill: #664ef9;
+  }
+}
+
+.capacity {
+  display: flex;
+  flex-flow: row-reverse;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 14px;
+  height: 34px;
+  background: #f8f8f8;
+  border-radius: 18px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: $dull-gray;
+  margin-right: 23px;
+
+  .userIcon {
+    width: 21px;
+    height: 21px;
+    fill: $moderate-blue;
+    margin-right: 6px;
+  }
+}
+.rooms {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px 14px;
+  gap: 6px;
+  height: 34px;
+  margin-right: 23px;
+
+  background: #f8f8f8;
+  border-radius: 18px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: $dull-gray;
+}
+
+.metro {
+  display: flex;
+  align-items: center;
+  padding: 8px 14px;
+  gap: 6px;
+  height: 34px;
+  margin-right: 23px;
+
+  background: #f8f8f8;
+  border-radius: 18px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: $dull-gray;
+
+  .metroIcon {
+    width: 22px;
+    height: 22px;
+    fill: $moderate-blue;
+    align-self: flex-start;
+  }
+}
+
+.area {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px 14px;
+  gap: 6px;
+  background: #f8f8f8;
+  border-radius: 18px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+
+  & > span {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: $moderate-blue;
+  }
+}
+
+.price {
+  display: flex;
+  flex-direction: column;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 30px;
+  color: $moderate-blue;
+
+  & > span {
+    display: flex;
+    justify-content: flex-end;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #7a7f86;
+  }
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bookmarksBtn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 9px 15px;
+  gap: 10px;
+  width: 133px;
+  height: 35px;
+  background: rgba(235, 87, 87, 0.1);
+  border-radius: 22px;
+
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  color: #eb5757;
+
+  & > .heartIcon {
+    fill: rgba(235, 87, 87, 1);
+  }
+}
+
+.heartIcon {
+  width: 15px;
+  height: 15px;
+  stroke-width: 1px solid #eb5757;
+  fill: rgba(235, 87, 87, 1);
+}
+
+.mapTitle {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 100%;
+
+  display: flex;
+  align-items: center;
+  color: #1e2123;
+}

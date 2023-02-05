@@ -1,4 +1,4 @@
-import { BATHS } from "../../constants/query";
+import { api } from "../../constants/api";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 import { IResponseData } from "../../Interfaces/IResponseData";
@@ -8,7 +8,7 @@ export const fetchBaths = createAsyncThunk<
   undefined,
   { rejectValue: string }
 >("baths/fetchBaths", async (_, { rejectWithValue }) => {
-  const response = await fetch(BATHS);
+  const response = await fetch(api.baths);
   if (!response.ok) {
     return rejectWithValue("Server Error!");
   }

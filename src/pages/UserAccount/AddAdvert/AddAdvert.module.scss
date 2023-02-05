@@ -1,0 +1,25 @@
+@import "../../../styles/variables/variables.scss";
+
+.wrapper {
+  background: #f4f5fa;
+}
+.flexColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 100vh;
+}
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  margin-bottom: 30px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: $black-gray;
+}

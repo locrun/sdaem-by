@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { SubmitHandler, useForm } from "react-hook-form"
 import Reaptcha from "reaptcha";
 
-import { useAppDispatch } from "../../../hooks/redux/redux-hooks";
+import { useAppDispatch } from "../../../hooks/redux-hooks";
 import { setIsActive } from "../../../store/reducers/modalReducer"
 
 import { Input } from "../../ui-kit/Input/Input"

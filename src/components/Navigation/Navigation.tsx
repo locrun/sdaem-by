@@ -1,45 +1,48 @@
-import { FC, useEffect, useState } from "react";
+import { FC } from "react";
 
 import { NavLink } from "react-router-dom";
 import { IconSvg } from "../IconSvg/IconSvg"
 
+import grid from "../../assets/images/grid.svg"
 import classes from "./Navigation.module.scss"
 
 type Data = {
   id: number
   item: string,
   path: string,
-  isIcon?: boolean,
+  icon?: string
 }[]
 
-interface IPropsNav {
+type IPropsNavigation = {
   className: string[]
-  noHomePage?: boolean
+  isHomePage?: boolean
+  data?: Data
 }
 
-export const Navigation: FC<IPropsNav> = ({ noHomePage, className: [navList, navListItem] }) => {
-  const [data, setData] = useState<Data>([])
-  const slice = noHomePage ? data.slice(1) : data
-  useEffect(() => {
-    fetch("/api/navigation")
-      .then(response => response.json())
-      .then(data => setData(data))
-  }, [])
+export const Navigation: FC<IPropsNavigation> = ({ isHomePage, data,
+  className: [navList, navListItem] }) => {
+
+  const slice = isHomePage ? data?.slice(1) : data
 
   const setActive = ({ isActive }: { isActive: boolean }) => (isActive ? classes.active : "");
+
   return (
     <nav>
       <ul className={navList}>
-        {slice.map(({ id, item, path, isIcon }) =>
-          <li key={id} className={navListItem} >
-            <NavLink
-              to={path}
-              className={setActive}
-            >
-              {isIcon && <IconSvg id={"#mark"} className={classes.icon} />}
-              {item}
-            </NavLink>
-          </li>)}
+        {
+          slice?.map(({ id, item, path, icon }) =>
+            <li key={id} className={navListItem} >
+              <NavLink
+                to={path}
+                className={setActive}
+              >
+                {icon === "mark" && <IconSvg id={"#mark"} className={classes.icon} />}
+                {icon === "grid" && <img src={grid} alt="grid" className={classes.grid} />}
+                {item}
+              </NavLink>
+            </li>
+          )
+        }
       </ul>
     </nav>
   )

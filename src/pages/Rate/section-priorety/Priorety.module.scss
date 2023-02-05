@@ -1,0 +1,171 @@
+.wrapper {
+  background: #edf0fe;
+  padding: 65px 0 92px 0;
+}
+.title {
+  font-family: "Inter";
+  text-align: center;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 150%;
+  color: #1e2123;
+}
+
+.content {
+  max-width: 992px;
+  margin: 0 auto;
+}
+
+.flexWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.flex {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.leftCol {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.rightCol {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.titleWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  padding: 0 50px;
+}
+.cardTown {
+  width: 440px;
+  height: 495px;
+  padding: 20px 0 30px 0;
+  background: linear-gradient(270deg, #7e6af3 0%, #6540cd 100%);
+  box-shadow: 0px 15px 35px rgba(88, 94, 229, 0.35);
+  border-radius: 10px;
+}
+.cardCottage {
+  width: 440px;
+  height: 495px;
+  padding: 20px 0 30px 0;
+  background: linear-gradient(270deg, #6540cd 0%, #7e6af3 100%);
+  box-shadow: 0px 15px 35px rgba(88, 94, 229, 0.35);
+  border-radius: 10px;
+}
+.cardTitle {
+  font-family: "Inter";
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  color: #ffffff;
+  margin: 0;
+}
+
+.icon {
+  padding: 12px;
+  margin-right: 29px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.city {
+  font-family: "Inter";
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: #ffffff;
+}
+.price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 13px 25px;
+  width: 150px;
+  height: 48px;
+  margin-top: 14px;
+  margin-bottom: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 28px;
+
+  font-family: "Inter";
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  color: #ffffff;
+}
+.days {
+  font-family: "Inter";
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #ffffff;
+  opacity: 0.6;
+}
+
+.gold {
+  position: relative;
+  padding: 70px 0 18px 0;
+  height: 200px;
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.gold:after {
+  display: block;
+  content: "Gold";
+  background: linear-gradient(106.06deg, #ffd54f 1.12%, #fec100 97.96%);
+  padding: 9px 13px;
+  position: absolute;
+  top: 10%;
+  left: 42%;
+  border-radius: 0px 12px 12px 12px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+  text-shadow: (0px 1px 4px rgba(147, 79, 0, 0.3));
+  box-shadow: (0px 20px 21px rgba(0, 0, 0, 0.15));
+}
+
+.top {
+  width: 440px;
+  padding: 70px 0 0 0;
+  position: relative;
+}
+.top:after {
+  display: block;
+  content: "Top";
+  background: #0dbb41;
+  padding: 9px 14px;
+  position: absolute;
+  top: 10%;
+  left: 43%;
+  border-radius: 12px 0px 12px 12px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+  text-shadow: (0px 1px 4px rgba(147, 79, 0, 0.3));
+  box-shadow: (0px 20px 21px rgba(0, 0, 0, 0.15));
+}
+.iconTown {
+  width: 25px;
+  height: 25px;
+  fill: white;
+}
+.iconCottage {
+  width: 25px;
+  height: 25px;
+  fill: white;
+}

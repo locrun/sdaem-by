@@ -1,4 +1,4 @@
-import { FLATS } from "../../constants/query";
+import { api } from "../../constants/api";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { IResponseData } from "../../Interfaces/IResponseData";
 
@@ -7,7 +7,7 @@ export const fetchFlats = createAsyncThunk<
   string | undefined,
   { rejectValue: string }
 >("flat/fetchFlats", async (city, { rejectWithValue }) => {
-  const response = await fetch(FLATS);
+  const response = await fetch(api.flats);
   if (!response.ok) {
     return rejectWithValue("Server Error!");
   }

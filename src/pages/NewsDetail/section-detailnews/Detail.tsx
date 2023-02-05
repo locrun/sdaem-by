@@ -1,7 +1,7 @@
 import { FC, useCallback, useEffect, useMemo } from "react"
 import { useParams } from "react-router"
 
-import { useAppDispatch, useAppSelector } from "../../../hooks/redux/redux-hooks"
+import { useAppDispatch, useAppSelector } from "../../../hooks/redux-hooks"
 import { fetchNews } from "../../../store/thunks/newsThunk"
 
 import { Spinner } from "../../../Spinner/Spinner"
@@ -68,6 +68,7 @@ export const Detail: FC = () => {
                 url={"https://sdaem.by/novosti"}
                 title={detailNews?.title}
                 image={detailNews?.image}
+                newsDetailPage
               />
             </div>
             <>

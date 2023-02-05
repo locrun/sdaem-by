@@ -1,0 +1,26 @@
+@import "../../../styles/variables/variables.scss";
+
+.messanger {
+  display: flex;
+  margin-left: 20px;
+  transition: $transition;
+  a:hover .icon {
+    fill: #ffd54f;
+    transition: $transition;
+  }
+}
+.link {
+  display: flex;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 7px;
+  border-radius: 50%;
+  margin-right: 10px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+.icon {
+  width: 15px;
+  height: 15px;
+  fill: #ffffff;
+}
