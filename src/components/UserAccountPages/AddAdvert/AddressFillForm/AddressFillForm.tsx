@@ -1,8 +1,7 @@
-import { FC } from 'react'
-import { Autocomplete } from '../../../Autocomplete/Autocomplete'
-import classes from "./AddressFillForm.module.scss"
-import cn from "classnames"
-
+import { FC } from "react";
+import { Autocomplete } from "../../../Autocomplete/Autocomplete";
+import classes from "./AddressFillForm.module.scss";
+import cn from "classnames";
 
 export const AddressFillForm: FC = () => {
   return (
@@ -10,7 +9,8 @@ export const AddressFillForm: FC = () => {
       <div className={classes.step}>1 шаг:&nbsp;</div>
       <div className={classes.heading}>Заполнение адреса</div>
       <div className={classes.guide}>
-        Начните вводить название населенного пункта. В случае, если не удалось найти необходимый адрес, то добавьте любой и отправьте верный на e-mail:
+        Начните вводить название населенного пункта. В случае, если не удалось
+        найти необходимый адрес, то добавьте любой и отправьте верный на e-mail:
         <a
           className={classes.email}
           href="mailto:sdaem@sdaem.by"
@@ -20,10 +20,7 @@ export const AddressFillForm: FC = () => {
           sdaem@sdaem.by&nbsp;
         </a>
         или&nbsp;
-        <a
-          href="tel:+375296214833"
-          target="_blank"
-          rel="noopener noreferrer">
+        <a href="tel:+375296214833" target="_blank" rel="noopener noreferrer">
           +375(29) 621-48-33&nbsp;
         </a>
         (смс, viber, telegram, whatsApp)
@@ -89,5 +86,5 @@ export const AddressFillForm: FC = () => {
         </div>
       </div>
     </form>
-  )
-}
+  );
+};

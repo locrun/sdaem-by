@@ -22,5 +22,5 @@ export const Rate: FC = () => {
       <PaymentByCheck />
       <CardPayment />
     </>
-  )
-}
+  );
+};

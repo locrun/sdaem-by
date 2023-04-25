@@ -1,21 +1,20 @@
-import { FC } from "react"
+import { FC } from "react";
 
-import { Logo } from "../Logo/Logo"
-import { Navigation } from "../Navigation/Navigation"
-import { Payment } from "./Payment/Payment"
-import { Social } from "./Social/Social"
-import { Contacts } from "./Contacts/Contacts"
-import { TypeProducts } from "./TypeProducts/TypeProducts"
-import { Apartments } from "./Apartments/Apartments"
+import { Logo } from "../Logo/Logo";
+import { Navigation } from "../Navigation/Navigation";
+import { Payment } from "./Payment/Payment";
+import { Social } from "./Social/Social";
+import { Contacts } from "./Contacts/Contacts";
+import { TypeProducts } from "./TypeProducts/TypeProducts";
+import { Apartments } from "./Apartments/Apartments";
 
-import { useRequest } from "../../hooks/useRequest"
-import { api } from "../../constants/api"
+import { useRequest } from "../../hooks/useRequest";
+import { api } from "../../constants/api";
 
-import classes from "./Footer.module.scss"
+import classes from "./Footer.module.scss";
 
 export const Footer: FC = () => {
-
-  const { data } = useRequest(api.navigation)
+  const { data } = useRequest(api.navigation);
 
   return (
     <footer className={classes.footer}>
@@ -42,6 +41,6 @@ export const Footer: FC = () => {
           </div>
         </div>
       </div>
-    </footer >
-  )
-}
+    </footer>
+  );
+};

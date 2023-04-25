@@ -3,20 +3,26 @@ import React, { FC, useEffect } from "react";
 interface IPropsButton {
   className?: string;
   disabled?: boolean;
-  onClick?: () => void,
+  onClick?: () => void;
   children?: React.ReactNode | boolean;
   type?: "button" | "submit" | "reset";
-  setRef?: (arg: React.MutableRefObject<HTMLButtonElement>) => void
+  setRef?: (arg: React.MutableRefObject<HTMLButtonElement>) => void;
 }
 
-export const Button: FC<IPropsButton> = ({ setRef, className, onClick, children, type = "button", disabled }) => {
-
-  const btnRef = React.useRef<any>(null)
+export const Button: FC<IPropsButton> = ({
+  setRef,
+  className,
+  onClick,
+  children,
+  type = "button",
+  disabled,
+}) => {
+  const btnRef = React.useRef<any>(null);
   useEffect(() => {
     if (setRef) {
-      setRef(btnRef)
+      setRef(btnRef);
     }
-  }, [btnRef, setRef])
+  }, [btnRef, setRef]);
 
   return (
     <button
@@ -28,5 +34,5 @@ export const Button: FC<IPropsButton> = ({ setRef, className, onClick, children,
     >
       {children}
     </button>
-  )
-}
+  );
+};

@@ -5,5 +5,5 @@ export const Advert: FC = () => {
     <section className="container">
       <h1>Ads on the map</h1>
     </section>
-  )
-}
+  );
+};

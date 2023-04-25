@@ -1,8 +1,6 @@
-
 import { FC } from "react";
 import { Circles } from "react-loader-spinner";
 import classes from "./Spinner.module.scss";
-
 
 interface IPropsSpinner {
   visible?: boolean;

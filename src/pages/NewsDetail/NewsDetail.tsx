@@ -1,6 +1,6 @@
-import { FC } from "react"
-import { Detail } from "./section-detailnews/Detail"
-import { ReadMore } from "./section-readmore/ReadMore"
+import { FC } from "react";
+import { Detail } from "./section-detailnews/Detail";
+import { ReadMore } from "./section-readmore/ReadMore";
 
 export const NewsDetail: FC = () => {
   return (
@@ -8,6 +8,5 @@ export const NewsDetail: FC = () => {
       <Detail />
       <ReadMore />
     </>
-  )
-}
-
+  );
+};

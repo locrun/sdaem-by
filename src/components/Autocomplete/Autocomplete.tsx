@@ -3,26 +3,28 @@ import Select, { ActionMeta, SingleValue } from "react-select";
 
 import { ISelectOption } from "../../Interfaces/ISelectOption";
 import classes from "./Autocomplete.module.scss";
-import cn from "classnames"
-
+import cn from "classnames";
 
 interface ISelectProps {
-  classNames?: string,
-  options: ISelectOption[]
-  value?: ISelectOption
-  placeholder?: string,
+  classNames?: string;
+  options: ISelectOption[];
+  value?: ISelectOption;
+  placeholder?: string;
 
-  onChange?: ((newValue: SingleValue<ISelectOption>, actionMeta: ActionMeta<ISelectOption>) => void) | undefined;
+  onChange?:
+    | ((
+        newValue: SingleValue<ISelectOption>,
+        actionMeta: ActionMeta<ISelectOption>
+      ) => void)
+    | undefined;
 }
-export const Autocomplete: FC<ISelectProps> = (
-  {
-    placeholder,
-    classNames,
-    onChange,
-    options,
-    value
-  }) => {
-
+export const Autocomplete: FC<ISelectProps> = ({
+  placeholder,
+  classNames,
+  onChange,
+  options,
+  value,
+}) => {
   return (
     <Select
       className={cn(classes.input, classNames)}
@@ -33,5 +35,5 @@ export const Autocomplete: FC<ISelectProps> = (
       isSearchable={false}
       placeholder={placeholder}
     />
-  )
-}
+  );
+};

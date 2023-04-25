@@ -1,16 +1,16 @@
-import { FC, useEffect } from 'react'
-import { useAppDispatch, useAppSelector } from '../../../hooks/redux-hooks'
+import { FC, useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "../../../hooks/redux-hooks";
 
-import { Carousel } from '../../../components/Carousel/Carousel'
-import classes from "./Nearby.module.scss"
-import { fetchFlats } from '../../../store/thunks/flatThunk'
+import { Carousel } from "../../../components/Carousel/Carousel";
+import classes from "./Nearby.module.scss";
+import { fetchFlats } from "../../../store/thunks/flatThunk";
 
 export const Nearby: FC = () => {
-  const dispatch = useAppDispatch()
-  const { flats } = useAppSelector(state => state.flats)
+  const dispatch = useAppDispatch();
+  const { flats } = useAppSelector((state) => state.flats);
   useEffect(() => {
-    dispatch(fetchFlats())
-  }, [dispatch])
+    dispatch(fetchFlats());
+  }, [dispatch]);
   return (
     <section className={classes.wrapper}>
       <div className="container">
@@ -21,5 +21,5 @@ export const Nearby: FC = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};

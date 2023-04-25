@@ -1,66 +1,63 @@
-import { FC, useState, useEffect, useRef } from "react"
-import { Link } from "react-router-dom"
-import { useAppDispatch, useAppSelector } from "../../../hooks/redux-hooks"
-import { setSelectedData } from "../../../store/reducers/filterReducer"
+import { FC, useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "../../../hooks/redux-hooks";
+import { setSelectedData } from "../../../store/reducers/filterReducer";
 
-import { IconSvg } from "../../IconSvg/IconSvg"
-import classes from "./DropdownList.module.scss"
+import { IconSvg } from "../../IconSvg/IconSvg";
+import classes from "./DropdownList.module.scss";
 
 export interface IListDropdown {
-  title: string,
-  isIcon?: boolean,
+  title: string;
+  isIcon?: boolean;
   list: {
-    id: number,
-    value: string,
-    label: string,
-    city: string,
-    path: string
-  }[]
+    id: number;
+    value: string;
+    label: string;
+    city: string;
+    path: string;
+  }[];
 }
 export interface IPropsDropdown {
-  menu: IListDropdown,
+  menu: IListDropdown;
 }
 export const DropdownList: FC<IPropsDropdown> = ({ menu }) => {
-  const dispatch = useAppDispatch()
-  const { stateData } = useAppSelector(state => state.filter)
-  const [isOpen, setIsOpen] = useState(false)
-  const ref = useRef<HTMLButtonElement>(null)
-
+  const dispatch = useAppDispatch();
+  const { stateData } = useAppSelector((state) => state.filter);
+  const [isOpen, setIsOpen] = useState(false);
+  const ref = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const handleClickOutsideDropdown = (e: MouseEvent) => {
-      const path = e.composedPath()
+      const path = e.composedPath();
       if (path[0] !== ref?.current) {
-        setIsOpen(false)
+        setIsOpen(false);
       }
-    }
-    window.addEventListener('click', handleClickOutsideDropdown)
+    };
+    window.addEventListener("click", handleClickOutsideDropdown);
     return () => {
-      window.removeEventListener('click', handleClickOutsideDropdown)
-    }
-  })
+      window.removeEventListener("click", handleClickOutsideDropdown);
+    };
+  });
   const onClickHandler = (city: string) => {
-    dispatch(setSelectedData({
-      ...stateData,
-      city: city
-    }))
-
-  }
+    dispatch(
+      setSelectedData({
+        ...stateData,
+        city: city,
+      })
+    );
+  };
 
   return (
     <button
       className={classes.button}
       ref={ref}
-      onClick={() => setIsOpen(prevState => !prevState)}
+      onClick={() => setIsOpen((prevState) => !prevState)}
     >
       {menu?.title}
-      {menu?.isIcon &&
-        <IconSvg id={"#mark"} className={classes.icon} />
-      }
-      {
-        isOpen &&
+      {menu?.isIcon && <IconSvg id={"#mark"} className={classes.icon} />}
+      {isOpen && (
         <ul className={classes.list}>
-          {menu?.list.map((item) =>
+          {menu?.list.map((item) => (
             <li
               key={item.city}
               className={classes.listItem}
@@ -70,9 +67,9 @@ export const DropdownList: FC<IPropsDropdown> = ({ menu }) => {
                 {item.value}
               </Link>
             </li>
-          )}
+          ))}
         </ul>
-      }
+      )}
     </button>
-  )
-}
+  );
+};

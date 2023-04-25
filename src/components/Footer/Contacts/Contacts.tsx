@@ -1,19 +1,17 @@
-import { FC } from 'react'
-import { useRequest } from '../../../hooks/useRequest'
-import { IContacts } from '../../../Interfaces/IContacts'
+import { FC } from "react";
+import { useRequest } from "../../../hooks/useRequest";
+import { IContacts } from "../../../Interfaces/IContacts";
 
-import classes from "./Contacts.module.scss"
+import classes from "./Contacts.module.scss";
 
 export const Contacts: FC = () => {
-  const { data, error } = useRequest("/api/contacts")
+  const { data, error } = useRequest("/api/contacts");
 
   return (
     <div className={classes.contacts}>
-      {error ?
-        <span className={classes.error}>
-          Произошла ошибка на сервере
-        </span>
-        :
+      {error ? (
+        <span className={classes.error}>Произошла ошибка на сервере</span>
+      ) : (
         data.map((item: IContacts, i) => {
           return (
             <div key={i}>
@@ -24,9 +22,9 @@ export const Contacts: FC = () => {
               <span>{item.mail}</span>
               <span>{item.workTime}</span>
             </div>
-          )
+          );
         })
-      }
+      )}
     </div>
-  )
-}
+  );
+};

@@ -57,6 +57,7 @@
   },
   "devDependencies": {
     "miragejs": "0.1.45",
+    "prettier": "^2.8.8",
     "react-paginate": "8.1.3",
     "react-share": "4.4.0"
   },

@@ -1,7 +1,7 @@
-import { FC } from 'react'
-import { IconSvg } from '../../../components/IconSvg/IconSvg'
+import { FC } from "react";
+import { IconSvg } from "../../../components/IconSvg/IconSvg";
 
-import classes from "./Contacts.module.scss"
+import classes from "./Contacts.module.scss";
 export const Contacts: FC = () => {
   return (
     <section className={classes.wrapper}>
@@ -9,8 +9,9 @@ export const Contacts: FC = () => {
         <div className={classes.content}>
           <div className={classes.text}>
             <h4 className={classes.title}>Контакты</h4>
-            <p >
-              Узнать о свободных местах и сделать заявку на платное размещение Вы можете:
+            <p>
+              Узнать о свободных местах и сделать заявку на платное размещение
+              Вы можете:
             </p>
           </div>
           <div className={classes.contacts}>
@@ -18,13 +19,13 @@ export const Contacts: FC = () => {
               <div className={classes.iconWrap}>
                 <IconSvg id="#phone" className={classes.iconTel} />
               </div>
-              <div className={classes.group} >
+              <div className={classes.group}>
                 <a href="tel:+375296214833" className={classes.telLink}>
-                  <span>
-                    +375(29) 621-48-33 (Андрей)
-                  </span>
+                  <span>+375(29) 621-48-33 (Андрей)</span>
                 </a>
-                <span className={classes.social}>(viber, whatsApp, telegram)</span>
+                <span className={classes.social}>
+                  (viber, whatsApp, telegram)
+                </span>
               </div>
             </div>
             <div className={classes.mail}>
@@ -39,5 +40,5 @@ export const Contacts: FC = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};

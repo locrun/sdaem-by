@@ -14,47 +14,48 @@ import { NothingFound } from "../../../components/Notification/NothingFound/Noth
 import { ISelectOption } from "../../../Interfaces/ISelectOption";
 import { SingleValue } from "react-select";
 
-import { metroOptions, areaOptions } from "../../../data/dataOptions"
+import { metroOptions, areaOptions } from "../../../data/dataOptions";
 
-import cn from "classnames"
-import classes from "./Rent.module.scss"
+import cn from "classnames";
+import classes from "./Rent.module.scss";
 import { Button } from "../../../components/ui-kit/Button/Button";
 
-
 export const Rent: FC = () => {
-  const navigate = useNavigate()
-  const dispatch = useAppDispatch()
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(fetchFlats())
-  }, [dispatch])
+    dispatch(fetchFlats());
+  }, [dispatch]);
 
-  const { loading, error } = useAppSelector(state => state.flats)
-  const { stateData, filteredData } = useAppSelector(state => state.filter)
-  const { rentTitle, totalOffersTitle } = usePageTitle()
+  const { loading, error } = useAppSelector((state) => state.flats);
+  const { stateData, filteredData } = useAppSelector((state) => state.filter);
+  const { rentTitle, totalOffersTitle } = usePageTitle();
 
-
-
-  let [defMetro] = useState({ value: "Метро", label: "Метро" })
-  let [defArea] = useState({ value: "Район", label: "Район" })
-  let metroValue = stateData.metro ? { value: stateData.metro, label: stateData.metro } : defMetro
-  let areaValue = stateData.area ? { value: stateData.area, label: stateData.area } : defArea
-
-
+  let [defMetro] = useState({ value: "Метро", label: "Метро" });
+  let [defArea] = useState({ value: "Район", label: "Район" });
+  let metroValue = stateData.metro
+    ? { value: stateData.metro, label: stateData.metro }
+    : defMetro;
+  let areaValue = stateData.area
+    ? { value: stateData.area, label: stateData.area }
+    : defArea;
 
   const onChangeHandler = (newValue: SingleValue<ISelectOption>) => {
     if (newValue) {
-      let key: string | number | symbol | undefined | any = newValue.key
-      dispatch(setSelectedData({
-        ...stateData,
-        [key]: newValue?.value,
-      }))
+      let key: string | number | symbol | undefined | any = newValue.key;
+      dispatch(
+        setSelectedData({
+          ...stateData,
+          [key]: newValue?.value,
+        })
+      );
     }
-  }
+  };
 
   const onClickHandler = () => {
-    navigate("/catalog/flats")
-  }
+    navigate("/catalog/flats");
+  };
 
   return (
     <section className={classes.wrapper}>
@@ -87,21 +88,20 @@ export const Rent: FC = () => {
             </div>
           </div>
           <div>
-            {!loading && !error ?
+            {!loading && !error ? (
               <>
-                {filteredData?.length > 0 ?
+                {filteredData?.length > 0 ? (
                   <Carousel data={filteredData} />
-                  :
+                ) : (
                   <NothingFound />
-                }
+                )}
               </>
-              :
+            ) : (
               <>
                 <Spinner visible={loading} />
                 <ErrorMessage error={error} />
               </>
-            }
-
+            )}
           </div>
           <div className={classes.offers}>
             <div className={classes.row}>
@@ -109,15 +109,12 @@ export const Rent: FC = () => {
               <span>+</span>
               <p>{totalOffersTitle}</p>
             </div>
-            <Button
-              className={classes.seeAllBtn}
-              onClick={onClickHandler}
-            >
+            <Button className={classes.seeAllBtn} onClick={onClickHandler}>
               Посмотреть все
             </Button>
           </div>
         </div>
       </div>
-    </section >
-  )
-}
+    </section>
+  );
+};

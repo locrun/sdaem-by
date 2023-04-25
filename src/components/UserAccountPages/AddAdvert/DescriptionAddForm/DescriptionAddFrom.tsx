@@ -1,5 +1,5 @@
-import { FC } from 'react'
-import classes from "./DescriptionAddFrom.module.scss"
+import { FC } from "react";
+import classes from "./DescriptionAddFrom.module.scss";
 
 export const DescriptionAddFrom: FC = () => {
   return (
@@ -21,5 +21,5 @@ export const DescriptionAddFrom: FC = () => {
         />
       </div>
     </form>
-  )
-}
+  );
+};

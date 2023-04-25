@@ -1,15 +1,14 @@
-import { FC } from 'react'
+import { FC } from "react";
 
-import avatar from "../../../../assets/images/avatar.png"
-import camera from "../../../../assets/images/camera.svg"
-import dog from "../../../../assets/images/dog.svg"
-import email from "../../../../assets/images/mail.svg"
-import { IconSvg } from '../../../IconSvg/IconSvg'
+import avatar from "../../../../assets/images/avatar.png";
+import camera from "../../../../assets/images/camera.svg";
+import dog from "../../../../assets/images/dog.svg";
+import email from "../../../../assets/images/mail.svg";
+import { IconSvg } from "../../../IconSvg/IconSvg";
 
-import classes from "./ProfileInfo.module.scss"
+import classes from "./ProfileInfo.module.scss";
 
 export const ProfileInfo: FC = () => {
-
   return (
     <div className={classes.profile}>
       <div className={classes.flex}>
@@ -30,7 +29,8 @@ export const ProfileInfo: FC = () => {
           <ul className={classes.list}>
             <li className={classes.listItem}>
               <img src={dog} alt="dog" />
-              sdaem</li>
+              sdaem
+            </li>
             <li className={classes.listItem}>
               <img src={email} alt="email" />
               sdaem@sdaem.by
@@ -44,8 +44,8 @@ export const ProfileInfo: FC = () => {
           <h3 className={classes.date}>17.09.2020</h3>
           <span>Последний визит</span>
         </div>
-        <span >На сайте с 11.07.2011</span>
+        <span>На сайте с 11.07.2011</span>
       </div>
     </div>
-  )
-}
+  );
+};

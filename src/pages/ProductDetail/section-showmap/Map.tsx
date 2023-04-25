@@ -1,7 +1,7 @@
-import { FC } from 'react'
-import { OpenMapButton } from '../../../components/OpenMapButton/OpenMapButton'
+import { FC } from "react";
+import { OpenMapButton } from "../../../components/OpenMapButton/OpenMapButton";
 
-import classes from "./Map.module.scss"
+import classes from "./Map.module.scss";
 
 export const Map: FC = () => {
   return (
@@ -13,5 +13,5 @@ export const Map: FC = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};

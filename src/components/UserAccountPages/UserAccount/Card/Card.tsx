@@ -1,19 +1,15 @@
-import { FC } from 'react'
-import orchid from "../../../../assets/images/orchid.jpg"
-import { IconSvg } from '../../../IconSvg/IconSvg'
+import { FC } from "react";
+import orchid from "../../../../assets/images/orchid.jpg";
+import { IconSvg } from "../../../IconSvg/IconSvg";
 
-import classes from "./Card.module.scss"
+import classes from "./Card.module.scss";
 
 export const Card: FC = () => {
   return (
     <div className={classes.card}>
       <div className={classes.imageWrapper}>
         <img className={classes.image} src={orchid} alt="orchid" />
-        <input
-          type="checkbox"
-          id="test"
-          className={classes.checkbox}
-        />
+        <input type="checkbox" id="test" className={classes.checkbox} />
         <label htmlFor="test"></label>
       </div>
       <div className={classes.info}>
@@ -24,7 +20,7 @@ export const Card: FC = () => {
           </div>
           <div className={classes.descr}>
             <IconSvg id="#mark" className={classes.icon} />
-            <div >Минск, б-р Мулявина, д. 10</div>
+            <div>Минск, б-р Мулявина, д. 10</div>
           </div>
         </div>
         <div className={classes.flex}>
@@ -41,7 +37,7 @@ export const Card: FC = () => {
             <div className={classes.rate}>Тариф</div>
           </div>
         </div>
-      </div >
-    </div >
-  )
-}
+      </div>
+    </div>
+  );
+};

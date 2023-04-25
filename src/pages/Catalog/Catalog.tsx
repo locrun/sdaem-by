@@ -1,17 +1,16 @@
-import { FC, useEffect } from "react"
-import { useLocation } from "react-router-dom"
-import { useAppDispatch } from "../../hooks/redux-hooks"
-import { useFilter } from "../../hooks/useFilter"
+import { FC, useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { useAppDispatch } from "../../hooks/redux-hooks";
+import { useFilter } from "../../hooks/useFilter";
 
-import { Recommended } from "./section-recommended/Recommended"
-import { Products } from "./section-products/Products"
-import { ShowMap } from "./section-showmap/ShowMap"
-import { Filter as FilterUI } from "../../components/FilterUI/Filter/Filter"
+import { Recommended } from "./section-recommended/Recommended";
+import { Products } from "./section-products/Products";
+import { ShowMap } from "./section-showmap/ShowMap";
+import { Filter as FilterUI } from "../../components/FilterUI/Filter/Filter";
 import { fetchFlats } from "../../store/thunks/flatThunk";
 import { fetchCottages } from "../../store/thunks/cottagesThunk";
 import { fetchBaths } from "../../store/thunks/bathsThunk";
 import { fetchCars } from "../../store/thunks/carsThunk";
-
 
 import { path } from "../../constants/pages";
 
@@ -37,11 +36,11 @@ export const Catalog: FC = () => {
     }
   }, [dispatch, location.pathname]);
 
-  const { filterFunction } = useFilter()
+  const { filterFunction } = useFilter();
 
   const onHandleSubmit = () => {
-    filterFunction()
-  }
+    filterFunction();
+  };
   return (
     <>
       <Recommended />
@@ -49,5 +48,5 @@ export const Catalog: FC = () => {
       <Products />
       <ShowMap />
     </>
-  )
-}
+  );
+};

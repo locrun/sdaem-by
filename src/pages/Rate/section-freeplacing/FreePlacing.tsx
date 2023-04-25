@@ -1,13 +1,11 @@
-import { FC } from 'react'
+import { FC } from "react";
 
-import imageGroup from "../../../assets/images/group.svg"
+import imageGroup from "../../../assets/images/group.svg";
 
-import cn from "classnames"
-import classes from "./FreePlacing.module.scss"
-
+import cn from "classnames";
+import classes from "./FreePlacing.module.scss";
 
 export const FreePlacing: FC = () => {
-
   return (
     <section className={classes.wrapper}>
       <div className={cn("container", classes.container)}>
@@ -17,10 +15,15 @@ export const FreePlacing: FC = () => {
             <p>Бесплатное размещение позволит вам:</p>
             <ul className={classes.list}>
               <li className={classes.item}>
-                <span className={classes.bold}>добавить</span> необходимое количество уникальных объявлений (запрещается их дублирование, при нарушении аккаунт и все объекты будут удалены);
+                <span className={classes.bold}>добавить</span> необходимое
+                количество уникальных объявлений (запрещается их дублирование,
+                при нарушении аккаунт и все объекты будут удалены);
               </li>
               <li className={classes.item}>
-                в любое время <span className={classes.bold}>поднимать</span> их вверх первой страницы каталога, воспользовавшись кнопкой ПОДНЯТЬ напротив объявления (размещаются сразу после платных объявлений до тех пор, пока другой пользователь не повторит процедуру);
+                в любое время <span className={classes.bold}>поднимать</span> их
+                вверх первой страницы каталога, воспользовавшись кнопкой ПОДНЯТЬ
+                напротив объявления (размещаются сразу после платных объявлений
+                до тех пор, пока другой пользователь не повторит процедуру);
               </li>
               <li className={classes.item}>
                 <span className={classes.bold}>редактировать</span> объекты.
@@ -33,5 +36,5 @@ export const FreePlacing: FC = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
