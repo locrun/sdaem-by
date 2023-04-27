@@ -40,10 +40,13 @@ export const Bookmarks: FC = () => {
     []
   );
 
-  const { pageCount, slicedArray, handlePageChange, forcePage } = usePagination(
-    6,
-    flats
-  );
+  const {
+    pageCount,
+    items: slicedArray,
+    handlePageChange,
+    page,
+  } = usePagination(flats, 6);
+
   return (
     <section>
       <div className={classes.bg}>
@@ -65,9 +68,9 @@ export const Bookmarks: FC = () => {
             />
           ))}
           <Pagination
-            forcePage={forcePage - 1}
-            pageCount={pageCount.length}
-            onChange={handlePageChange}
+            forcePage={page}
+            pageCount={pageCount}
+            onChange={({ selected }) => handlePageChange(selected)}
           />
         </div>
       </div>

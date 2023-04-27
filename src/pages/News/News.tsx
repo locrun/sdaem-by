@@ -17,10 +17,12 @@ export const News: FC = () => {
   const { filteredData } = useAppSelector((state) => state.news);
   const { loading, error } = useAppSelector((state) => state.news);
 
-  const { handlePageChange, pageCount, slicedArray, forcePage } = usePagination(
-    9,
-    filteredData
-  );
+  const {
+    handlePageChange,
+    pageCount,
+    items: slicedArray,
+    page,
+  } = usePagination(filteredData, 6);
 
   const breadCrumbsItems = useMemo(
     () => [
@@ -59,9 +61,9 @@ export const News: FC = () => {
         </div>
         <div className={classes.mt}>
           <Pagination
-            forcePage={forcePage - 1}
-            pageCount={pageCount.length}
-            onChange={handlePageChange}
+            forcePage={page}
+            pageCount={pageCount}
+            onChange={({ selected }) => handlePageChange(selected)}
           />
         </div>
       </div>

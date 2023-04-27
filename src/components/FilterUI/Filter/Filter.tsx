@@ -1,53 +1,51 @@
-import { FC, useState } from "react";
+import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useAppDispatch, useAppSelector } from "../../../hooks/redux-hooks";
+import { useAppDispatch } from "../../../hooks/redux-hooks";
 
 import { MoreOptions } from "../MoreOptions/MoreOptions";
 import { ButtonGroup } from "./ButtonGroup/ButtonGroup";
 import { InputGroup } from "./InputGroup/InputGroup";
 import { SelectGroup } from "./SelectGroup/SelectGroup";
 
-import { setSelectedData } from "../../../store/reducers/filterReducer";
-
-import { SingleValue } from "react-select";
-import { ISelectOption } from "../../../Interfaces/ISelectOption";
-
 import { path } from "../../../constants/pages";
 import cn from "classnames";
 import classes from "./Filter.module.scss";
+import {
+  IItemsStateFilters,
+  itemActions,
+} from "../../../store/reducers/itemsReducer";
+import { IFilterUpdatePayload } from "./types";
 
-interface IPropsFilter {
-  onSubmitForm?: () => void;
-}
-
-export const Filter: FC<IPropsFilter> = ({ onSubmitForm }) => {
+export const Filter = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
+  const [filters, setFilters] = useState<IItemsStateFilters>({});
+
   const homePath = location.pathname === "/" ? true : false;
-  const { stateData } = useAppSelector((state) => state.filter);
   const [openOptions, setOptions] = useState(false);
 
-  const onChangeHandler = (newValue: SingleValue<ISelectOption>) => {
-    if (newValue) {
-      let key: string | number | symbol | undefined | any = newValue.key;
-      dispatch(
-        setSelectedData({
-          ...stateData,
-          [key]: newValue?.value,
-        })
-      );
-    }
+  const onFilterChange = (filter: IFilterUpdatePayload) => {
+    setFilters((oldFilters) => ({
+      ...oldFilters,
+      [filter.key]: filter.value,
+    }));
   };
 
   const onHandleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (onSubmitForm) onSubmitForm();
+
+    dispatch(itemActions.setFilterData(filters));
+
     if (location.pathname === path.home) navigate("/catalog/flats");
   };
 
-  const onHandleClick = () => {
+  const onResetFilter = () => {
+    setFilters({});
+  };
+
+  const onToggleMoreOptions = () => {
     setOptions((prevState) => !prevState);
   };
 
@@ -66,12 +64,18 @@ export const Filter: FC<IPropsFilter> = ({ onSubmitForm }) => {
             })}
           >
             <div className={classes.content}>
-              <SelectGroup onChangeHandler={onChangeHandler} />
-              <InputGroup onChangeHandler={onChangeHandler} />
-              <ButtonGroup onHandleClick={onHandleClick} />
+              <SelectGroup filters={filters} onFilterChange={onFilterChange} />
+              <InputGroup filters={filters} onFilterChange={onFilterChange} />
+              <ButtonGroup
+                onResetFilters={onResetFilter}
+                moreOptionsOpened={openOptions}
+                onToggleMoreOptions={onToggleMoreOptions}
+              />
             </div>
           </div>
-          {openOptions && <MoreOptions />}
+          {openOptions && (
+            <MoreOptions filters={filters} onFilterChange={onFilterChange} />
+          )}
         </form>
       </div>
     </div>

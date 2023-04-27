@@ -31,9 +31,11 @@ export const ListCards: FC<IProps> = ({
   const [isOpen, setIsOpen] = useState(false);
   const [ref, setRef] = useState<React.MutableRefObject<HTMLButtonElement>>();
 
+  // TODO problem with contacts close
   useEffect(() => {
-    const handleClickOutsideCard = (e: any) => {
-      if (e.path[0] !== ref?.current) {
+    const handleClickOutsideCard = (e: MouseEvent) => {
+      const path = e.composedPath();
+      if (path[0] !== ref?.current) {
         setIsOpen(false);
       }
     };

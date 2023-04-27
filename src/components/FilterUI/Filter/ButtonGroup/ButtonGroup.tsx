@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import { useLocation } from "react-router";
 import { useAppDispatch, useAppSelector } from "../../../../hooks/redux-hooks";
-import { resetFilter } from "../../../../store/reducers/filterReducer";
+
 import {
   setCurrentData,
   setFlag,
@@ -15,19 +15,26 @@ import cn from "classnames";
 import classes from "./ButtonGroup.module.scss";
 
 export interface IPropsButtons {
-  onHandleClick: () => void;
+  onResetFilters: () => void;
+  moreOptionsOpened: boolean;
+  onToggleMoreOptions: () => void;
 }
-export const ButtonGroup: FC<IPropsButtons> = ({ onHandleClick }) => {
+
+export const ButtonGroup: FC<IPropsButtons> = ({
+  onResetFilters,
+  moreOptionsOpened,
+  onToggleMoreOptions,
+}) => {
   const location = useLocation();
   const dispatch = useAppDispatch();
   const { active } = useAppSelector((state) => state.recommend);
   const homePath = location.pathname === path.home ? true : false;
-  const [openOptions, setOpenOptions] = useState(false);
 
   const onResetFilter = () => {
+    // TODO ????
     dispatch(setCurrentData({ ...active, isClicked: false }));
-    dispatch(resetFilter());
     dispatch(setFlag("reset"));
+    onResetFilters();
   };
 
   return (
@@ -35,11 +42,10 @@ export const ButtonGroup: FC<IPropsButtons> = ({ onHandleClick }) => {
       <Button
         className={cn(classes.optionButton, classes.four, {
           [classes.btnTransform]: !homePath,
-          [classes.activeClass]: openOptions,
+          [classes.activeClass]: moreOptionsOpened,
         })}
         onClick={() => {
-          onHandleClick();
-          setOpenOptions((prevState) => !prevState);
+          onToggleMoreOptions();
         }}
       >
         <span>Больше опций</span>

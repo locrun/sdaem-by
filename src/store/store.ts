@@ -8,6 +8,7 @@ import modalReducer from "./reducers/modalReducer";
 import filterReducer from "./reducers/filterReducer";
 import recommendReducer from "./reducers/recommendReducer";
 import bookmarksReducer from "./reducers/bookmarksReducer";
+import { itemsReducer } from "./reducers/itemsReducer";
 
 const store = configureStore({
   reducer: {
@@ -20,6 +21,7 @@ const store = configureStore({
     filter: filterReducer,
     recommend: recommendReducer,
     bookmarks: bookmarksReducer,
+    items: itemsReducer,
   },
 });
 export default store;

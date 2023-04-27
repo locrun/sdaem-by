@@ -1,34 +1,36 @@
 import { FC, useState } from "react";
-import { useAppSelector } from "../../../../hooks/redux-hooks";
 import { useLocation } from "react-router";
-import { SingleValue } from "react-select";
 
 import { Autocomplete } from "../../../Autocomplete/Autocomplete";
 
 import { cityOptions, roomsOptions } from "../../../../data/dataOptions";
 import { path } from "../../../../constants/pages";
-import { ISelectOption } from "../../../../Interfaces/ISelectOption";
 
 import cn from "classnames";
 import classes from "./SelectGroup.module.scss";
+import { IItemsStateFilters } from "../../../../store/reducers/itemsReducer";
+import { IFilterUpdatePayload } from "../types";
 
 export interface IPropsSelectGroup {
+  filters: IItemsStateFilters;
   isHidden?: boolean;
   className?: string;
-  onChangeHandler: (newValue: SingleValue<ISelectOption>) => void;
+  onFilterChange: (newValue: IFilterUpdatePayload) => void;
 }
 
-export const SelectGroup: FC<IPropsSelectGroup> = ({ onChangeHandler }) => {
+export const SelectGroup: FC<IPropsSelectGroup> = ({
+  filters,
+  onFilterChange,
+}) => {
   const location = useLocation();
   const homePath = location.pathname === path.home ? true : false;
-  const { stateData } = useAppSelector((state) => state.filter);
 
   let [defaultValue] = useState({ value: "Выберите", label: "Выберите" });
-  let cityValue = stateData.city
-    ? { value: stateData.city, label: stateData.city }
+  let cityValue = filters.city
+    ? { value: filters.city, label: filters.city }
     : defaultValue;
-  let roomValue = stateData.room
-    ? { value: stateData.room, label: stateData.room }
+  let roomValue = filters.room
+    ? { value: filters.room, label: filters.room }
     : defaultValue;
 
   return (
@@ -40,7 +42,10 @@ export const SelectGroup: FC<IPropsSelectGroup> = ({ onChangeHandler }) => {
             value={cityValue}
             options={cityOptions}
             onChange={(newValue) => {
-              onChangeHandler(newValue);
+              onFilterChange({
+                key: "city",
+                value: newValue?.value,
+              });
             }}
             classNames={classes.select}
           />
@@ -56,7 +61,10 @@ export const SelectGroup: FC<IPropsSelectGroup> = ({ onChangeHandler }) => {
           value={roomValue}
           options={roomsOptions}
           onChange={(newValue) => {
-            onChangeHandler(newValue);
+            onFilterChange({
+              key: "room",
+              value: newValue?.value,
+            });
           }}
           classNames={classes.select}
         />

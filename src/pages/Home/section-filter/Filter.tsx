@@ -3,7 +3,6 @@ import { FC, useState } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 
 import { Filter as FilterUI } from "../../../components/FilterUI/Filter/Filter";
-import { useFilter } from "../../../hooks/useFilter";
 
 import cn from "classnames";
 import classes from "./Filter.module.scss";
@@ -17,11 +16,7 @@ const tabs = [
 const tabPanel = [{ id: 0 }, { id: 1 }, { id: 2 }, { id: 3 }];
 export const Filter: FC = () => {
   const [tabIndex, setTabIndex] = useState(0);
-  const { filterFunction } = useFilter();
 
-  const onHandleSubmit = () => {
-    filterFunction();
-  };
   return (
     <section className={cn(classes.inner, classes.container)}>
       <div className={classes.content}>
@@ -46,7 +41,7 @@ export const Filter: FC = () => {
           {tabPanel.map((panel) => {
             return (
               <TabPanel key={panel.id}>
-                <FilterUI onSubmitForm={onHandleSubmit} />
+                <FilterUI />
               </TabPanel>
             );
           })}

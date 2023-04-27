@@ -1,41 +1,30 @@
-import { useState, useEffect } from "react";
-import { useAppSelector } from "./redux-hooks";
+import { useState, useEffect, useRef, useMemo } from "react";
 
-export const usePagination = (displayPerPage: number, data: any) => {
-  const { stateData } = useAppSelector((state) => state.filter);
-  const { searchFilterValue } = useAppSelector((state) => state.news);
+export const usePagination = <T>(data: T[], displayPerPage: number) => {
+  const [page, setPage] = useState(0);
 
-  const [forcePage, setForcePage] = useState(1);
-  const [showPerPage, setShowPerPage] = useState(6);
+  const isFirst = useRef(true);
 
   useEffect(() => {
-    setForcePage(1);
-    setShowPerPage(displayPerPage);
-  }, [displayPerPage]);
+    if (isFirst.current) {
+      isFirst.current = false;
+      return;
+    }
+    setPage(0);
+  }, [data]);
 
-  const lastIndex = forcePage * showPerPage;
-
-  const firstIndex = lastIndex - showPerPage;
-
-  const slicedArray = data?.slice(firstIndex, lastIndex);
-
-  useEffect(() => {
-    setForcePage(1);
-  }, [stateData, searchFilterValue]);
-
-  const pageCount = [];
-  for (let i = 0; i < Math.ceil(data?.length / showPerPage); i++) {
-    pageCount.push(i);
-  }
-
-  const handlePageChange = ({ selected }: any) => {
-    setForcePage(selected + 1);
+  const handlePageChange = (page: number) => {
+    setPage(page);
   };
 
+  const items = useMemo(() => {
+    return data.slice(page * displayPerPage, (page + 1) * displayPerPage);
+  }, [displayPerPage, data, page]);
+
   return {
-    pageCount,
-    slicedArray,
+    page,
+    items,
+    pageCount: Math.ceil(data.length / displayPerPage),
     handlePageChange,
-    forcePage,
   };
 };

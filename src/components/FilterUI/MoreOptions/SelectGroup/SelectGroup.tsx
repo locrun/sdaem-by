@@ -11,17 +11,19 @@ import {
 import cn from "classnames";
 import classes from "./SelectGroup.module.scss";
 
-export const SelectGroup: FC<IPropsSelectGroup> = ({ onChangeHandler }) => {
-  const { stateData } = useAppSelector((state) => state.filter);
+export const SelectGroup: FC<IPropsSelectGroup> = ({
+  filters,
+  onFilterChange,
+}) => {
   let [defaultValue] = useState({ value: "Выберите", label: "Выберите" });
-  let metroValue = stateData.metro
-    ? { value: stateData.metro, label: stateData.metro }
+  let metroValue = filters.metro
+    ? { value: filters.metro, label: filters.metro }
     : defaultValue;
-  let areaValue = stateData.area
-    ? { value: stateData.area, label: stateData.area }
+  let areaValue = filters.area
+    ? { value: filters.area, label: filters.area }
     : defaultValue;
-  let capacityValue = stateData.capacity
-    ? { value: stateData.capacity, label: stateData.capacity }
+  let capacityValue = filters.capacity
+    ? { value: filters.capacity, label: filters.capacity }
     : defaultValue;
 
   return (
@@ -33,7 +35,9 @@ export const SelectGroup: FC<IPropsSelectGroup> = ({ onChangeHandler }) => {
           options={capacityOptions}
           placeholder={"Выберите"}
           classNames={classes.select}
-          onChange={(newValue) => onChangeHandler(newValue)}
+          onChange={(newValue) =>
+            onFilterChange({ key: "capacity", value: newValue?.value })
+          }
         />
       </div>
       <div className={classes.autocomplete}>
@@ -43,7 +47,9 @@ export const SelectGroup: FC<IPropsSelectGroup> = ({ onChangeHandler }) => {
           options={areaOptions}
           placeholder={"Выберите"}
           classNames={cn(classes.select)}
-          onChange={(newValue) => onChangeHandler(newValue)}
+          onChange={(newValue) =>
+            onFilterChange({ key: "area", value: newValue?.value })
+          }
         />
       </div>
       <div className={classes.autocomplete}>
@@ -53,7 +59,9 @@ export const SelectGroup: FC<IPropsSelectGroup> = ({ onChangeHandler }) => {
           options={metroOptions}
           placeholder={"Выберите"}
           classNames={cn(classes.select)}
-          onChange={(newValue) => onChangeHandler(newValue)}
+          onChange={(newValue) =>
+            onFilterChange({ key: "metro", value: newValue?.value })
+          }
         />
       </div>
     </>

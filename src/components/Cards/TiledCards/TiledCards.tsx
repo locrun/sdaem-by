@@ -11,7 +11,6 @@ import { IResponseData } from "../../../Interfaces/IResponseData";
 import cn from "classnames";
 import classes from "./TiledCards.module.scss";
 import React from "react";
-import { setIsFavorite } from "../../../store/reducers/bookmarksReducer";
 
 interface IProps {
   data: IResponseData;

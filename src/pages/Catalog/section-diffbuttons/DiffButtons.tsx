@@ -1,33 +1,32 @@
 import { FC } from "react";
-import { useAppSelector, useAppDispatch } from "../../../hooks/redux-hooks";
 
 import { Button } from "../../../components/ui-kit/Button/Button";
 import { IconSvg } from "../../../components/IconSvg/IconSvg";
 
-import { toggleProductsCards } from "../../../store/reducers/filterReducer";
-
 import cn from "classnames";
 import classes from "./DiffButtons.module.scss";
 
-export const DiffButtons: FC = () => {
-  const dispatch = useAppDispatch();
-  const { active } = useAppSelector((state) => state.filter);
+interface DiffButtonsProps {
+  view: "list" | "cards";
+  onViewChange: (view: "list" | "cards") => void;
+}
 
+export const DiffButtons: FC<DiffButtonsProps> = ({ view, onViewChange }) => {
   return (
     <div className={classes.buttons}>
       <Button
-        onClick={() => dispatch(toggleProductsCards("list"))}
+        onClick={() => onViewChange("list")}
         className={cn(classes.showListBtn, {
-          [classes.btnActiveClass]: active === "list",
+          [classes.btnActiveClass]: view === "list",
         })}
       >
         {"Список"}
         <IconSvg id={"#list"} className={classes.listIcon} />
       </Button>
       <Button
-        onClick={() => dispatch(toggleProductsCards("tiles"))}
+        onClick={() => onViewChange("cards")}
         className={cn(classes.showTilesBtn, {
-          [classes.btnActiveClass]: active === "tiles",
+          [classes.btnActiveClass]: view === "cards",
         })}
       >
         {"Плитки"}

@@ -9,14 +9,16 @@ import { ISelectOption } from "../../../../Interfaces/ISelectOption";
 
 import cn from "classnames";
 import classes from "./InputGroup.module.scss";
+import { IItemsStateFilters } from "../../../../store/reducers/itemsReducer";
+import { IFilterUpdatePayload } from "../types";
 
 export interface IPropsInput {
-  onChangeHandler: (newValue: SingleValue<ISelectOption>) => void;
+  filters: IItemsStateFilters;
+  onFilterChange: (newValue: IFilterUpdatePayload) => void;
 }
-export const InputGroup: FC<IPropsInput> = ({ onChangeHandler }) => {
+export const InputGroup: FC<IPropsInput> = ({ filters, onFilterChange }) => {
   const location = useLocation();
   const homePath = location.pathname === path.home ? true : false;
-  const { stateData } = useAppSelector((state) => state.filter);
 
   return (
     <div
@@ -27,14 +29,13 @@ export const InputGroup: FC<IPropsInput> = ({ onChangeHandler }) => {
       <span className={classes.label}>Цена за сутки (BYN)</span>
       <span>
         <input
-          value={stateData.priceMin}
+          value={filters.priceMin}
           className={classes.from}
           type="text"
           placeholder="От"
           onChange={(e) =>
-            onChangeHandler({
+            onFilterChange({
               value: e.target.value,
-              label: e.target.value,
               key: "priceMin",
             })
           }
@@ -43,14 +44,13 @@ export const InputGroup: FC<IPropsInput> = ({ onChangeHandler }) => {
         />
         <span>-</span>
         <input
-          value={stateData.priceMax}
+          value={filters.priceMax}
           className={classes.to}
           type="text"
           placeholder="До"
           onChange={(e) =>
-            onChangeHandler({
+            onFilterChange({
               value: e.target.value,
-              label: e.target.value,
               key: "priceMax",
             })
           }

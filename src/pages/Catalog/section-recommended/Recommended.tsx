@@ -30,6 +30,7 @@ export const Recommended: FC = () => {
 
   const [isActive, setIsActive] = useState(true);
   const [crumbsTitle, setCrumbsTitle] = useState<string>();
+
   useEffect(() => {
     switch (location.pathname) {
       case path.apartments:
