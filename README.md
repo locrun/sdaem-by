@@ -15,7 +15,6 @@
   пример:
 
 ```ts
-// src/shared/api/endpoints.ts
 export const endpoints = {
   ...,
   offers: {
