@@ -14,16 +14,7 @@
 - Для использования модалки, нужно ее обернуть в компонент Modal
   пример:
 
-```ts
-export const endpoints = {
-  offers: {
-    list: ...,
-    one: ...,
-    companyOffers: (companyId: number) =>
-      `/marketplace/companies/${companyId}/offers/`,
-    grade_offers: (id: number) => `/marketplace/products/${id}/offers/`,
-  },
-};
+
 ```
 
 - Вот так выглядит пример модалки, которую можно использовать
