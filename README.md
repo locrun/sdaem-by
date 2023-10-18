@@ -14,6 +14,12 @@
 
 - Для использования модалки, нужно ее обернуть в компонент Modal
   пример:
+  ```
+ <Modal>
+   <AskforQuoteModal onClose={true}>
+ </Modal>
+ 
+  ```
 
   ```
   <Modal>
