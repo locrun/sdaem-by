@@ -15,18 +15,11 @@
   пример:
 
 
-```
 
-- Вот так выглядит пример модалки, которую можно использовать
-
-```ts
-<Modal
-  isOpen={askForQuoteCommon.isOpen}
-  onClose={askForQuoteCommon.close}
->
- <AskForQuoteCommon onClose={askForQuoteCommon.close} />
-</Modal>
-
-```
-
-- Можешь тестировать
+  ```ts
+  export const AskforQuoteModal = {
+    <Modal>
+     <AskforQuoteModal onClose={true}>
+    </Modal>
+  }
+  ```
