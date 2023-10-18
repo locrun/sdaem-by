@@ -16,7 +16,7 @@
 
 ```ts
 export const endpoints = {
-  ...,
+  
   offers: {
     list: ...,
     one: ...,
@@ -24,7 +24,7 @@ export const endpoints = {
       `/marketplace/companies/${companyId}/offers/`,
     grade_offers: (id: number) => `/marketplace/products/${id}/offers/`,
   },
-  ...,
+  
 };
 ```
 
