@@ -17,9 +17,15 @@
 
 
   ```ts
-  export const AskforQuoteModal = {
-    <Modal>
-     <AskforQuoteModal onClose={true}>
-    </Modal>
-  }
+    import { Modal } from 'components/Modal'
+    import { useModal } from 'shared/hooks/useModal'
+    import { AskForQuote } from 'features'
+
+    const Example: ExamplePage = () => {
+      return (
+       <Modal>
+        <AskforQuoteModal onClose={true}>
+       </Modal>
+      )
+    }
   ```
