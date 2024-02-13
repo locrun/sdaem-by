@@ -1,2 +1,2 @@
 
-## [Ссылка на деплой](https://sdaem-qa5mdqmd4-runarnazmutdinov-gmailcom.vercel.app/)
+## [Ссылка на деплой](https://sdaem-by-one.vercel.app/)
