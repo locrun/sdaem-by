@@ -1,77 +1,83 @@
-import { FC, useState } from "react"
-import { useLocation, useNavigate } from "react-router-dom"
-import { useAppDispatch, useAppSelector } from "../../../hooks/redux-hooks"
+import { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useAppDispatch } from "../../../hooks/redux-hooks";
 
-import { MoreOptions } from "../MoreOptions/MoreOptions"
-import { ButtonGroup } from "./ButtonGroup/ButtonGroup"
-import { InputGroup } from "./InputGroup/InputGroup"
-import { SelectGroup } from "./SelectGroup/SelectGroup"
+import { MoreOptions } from "../MoreOptions/MoreOptions";
+import { ButtonGroup } from "./ButtonGroup/ButtonGroup";
+import { InputGroup } from "./InputGroup/InputGroup";
+import { SelectGroup } from "./SelectGroup/SelectGroup";
 
-import { setSelectedData } from "../../../store/reducers/filterReducer"
+import { path } from "../../../constants/pages";
+import cn from "classnames";
+import classes from "./Filter.module.scss";
+import {
+  IItemsStateFilters,
+  itemActions,
+} from "../../../store/reducers/itemsReducer";
+import { IFilterUpdatePayload } from "./types";
 
-import { SingleValue } from "react-select"
-import { ISelectOption } from "../../../Interfaces/ISelectOption"
+export const Filter = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
 
-import { path } from "../../../constants/pages"
-import cn from "classnames"
-import classes from "./Filter.module.scss"
+  const [filters, setFilters] = useState<IItemsStateFilters>({});
 
-interface IPropsFilter {
-  onSubmitForm?: () => void
-}
+  const homePath = location.pathname === "/" ? true : false;
+  const [openOptions, setOptions] = useState(false);
 
-export const Filter: FC<IPropsFilter> = ({ onSubmitForm }) => {
-  const location = useLocation()
-  const navigate = useNavigate()
-  const dispatch = useAppDispatch()
-
-  const homePath = location.pathname === "/" ? true : false
-  const { stateData } = useAppSelector(state => state.filter)
-  const [openOptions, setOptions] = useState(false)
-
-
-  const onChangeHandler = (newValue: SingleValue<ISelectOption>) => {
-    if (newValue) {
-      let key: string | number | symbol | undefined | any = newValue.key
-      dispatch(setSelectedData({
-        ...stateData,
-        [key]: newValue?.value,
-      }))
-    }
-  }
+  const onFilterChange = (filter: IFilterUpdatePayload) => {
+    setFilters((oldFilters) => ({
+      ...oldFilters,
+      [filter.key]: filter.value,
+    }));
+  };
 
   const onHandleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    if (onSubmitForm)
-      onSubmitForm()
-    if (location.pathname === path.home)
-      navigate("/catalog/flats")
-  }
+    e.preventDefault();
 
-  const onHandleClick = () => {
-    setOptions((prevState) => !prevState)
-  }
+    dispatch(itemActions.setFilterData(filters));
+
+    if (location.pathname === path.home) navigate("/catalog/flats");
+  };
+
+  const onResetFilter = () => {
+    setFilters({});
+  };
+
+  const onToggleMoreOptions = () => {
+    setOptions((prevState) => !prevState);
+  };
 
   return (
     <div className={classes.filterWrapper}>
-      <div className={cn(classes.container, {
-        [classes.containerTransform]: !homePath
-      })}>
+      <div
+        className={cn(classes.container, {
+          [classes.containerTransform]: !homePath,
+        })}
+      >
         <form onSubmit={onHandleSubmit}>
-          <div className={cn(classes.wrapper, {
-            [classes._radiusNone]: openOptions,
-            [classes.wrapperTransform]: !homePath
-          })}>
+          <div
+            className={cn(classes.wrapper, {
+              [classes._radiusNone]: openOptions,
+              [classes.wrapperTransform]: !homePath,
+            })}
+          >
             <div className={classes.content}>
-              <SelectGroup onChangeHandler={onChangeHandler} />
-              <InputGroup onChangeHandler={onChangeHandler} />
-              <ButtonGroup onHandleClick={onHandleClick} />
+              <SelectGroup filters={filters} onFilterChange={onFilterChange} />
+              <InputGroup filters={filters} onFilterChange={onFilterChange} />
+              <ButtonGroup
+                onResetFilters={onResetFilter}
+                moreOptionsOpened={openOptions}
+                onToggleMoreOptions={onToggleMoreOptions}
+              />
             </div>
           </div>
-          {openOptions && <MoreOptions />}
+          {openOptions && (
+            <MoreOptions filters={filters} onFilterChange={onFilterChange} />
+          )}
         </form>
       </div>
     </div>
-  )
-}
-
+  );
+};

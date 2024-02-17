@@ -1,25 +1,25 @@
+import { FC, useMemo } from "react";
+import { Breadcrumbs } from "../../../components/Breadcrumbs/Breadcrumbs";
+import macbook from "../../../assets/images/mac-book-pro.svg";
 
-import { FC, useMemo } from 'react'
-import { Breadcrumbs } from '../../../components/Breadcrumbs/Breadcrumbs'
-import macbook from "../../../assets/images/mac-book-pro.svg"
-
-import cn from "classnames"
-import classes from "./Placing.module.scss"
+import cn from "classnames";
+import classes from "./Placing.module.scss";
 
 export const Placing: FC = () => {
-  const breadCrumbsItems = useMemo(() =>
-    [
+  const breadCrumbsItems = useMemo(
+    () => [
       {
         id: 0,
-        title: 'Home',
-        path: '/',
+        title: "Home",
+        path: "/",
       },
       {
         id: 1,
         title: "Размещение и тарифы",
-      }
-    ], []
-  )
+      },
+    ],
+    []
+  );
   return (
     <section className={classes.wrapper}>
       <div className={cn("container", classes.container)}>
@@ -35,6 +35,6 @@ export const Placing: FC = () => {
           <img src={macbook} alt="mac book" />
         </div>
       </div>
-    </section >
-  )
-}
+    </section>
+  );
+};

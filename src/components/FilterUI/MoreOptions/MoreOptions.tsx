@@ -1,34 +1,25 @@
 import { FC } from "react";
-import { useAppDispatch, useAppSelector } from "../../../hooks/redux-hooks";
-import { setSelectedData } from "../../../store/reducers/filterReducer";
 
 import { SelectGroup } from "../MoreOptions/SelectGroup/SelectGroup";
 import { CheckboxGroup } from "./CheckboxGroup/CheckboxGroup";
 
-import { SingleValue } from "react-select";
-import { ISelectOption } from "../../../Interfaces/ISelectOption";
+import classes from "./MoreOptions.module.scss";
+import { IFilterUpdatePayload } from "../Filter/types";
+import { IItemsStateFilters } from "../../../store/reducers/itemsReducer";
 
-import classes from "./MoreOptions.module.scss"
+interface MoreOptionProps {
+  filters: IItemsStateFilters;
+  onFilterChange: (newValue: IFilterUpdatePayload) => void;
+}
 
-export const MoreOptions: FC = () => {
-
-  const dispatch = useAppDispatch()
-  const { stateData } = useAppSelector(state => state.filter)
-
-  const onChangeHandler = (newValue: SingleValue<ISelectOption>) => {
-    if (newValue) {
-      let key: string | number | symbol | undefined | any = newValue.key
-      dispatch(setSelectedData({
-        ...stateData,
-        [key]: newValue?.value,
-      }))
-    }
-  }
-
+export const MoreOptions: FC<MoreOptionProps> = ({
+  filters,
+  onFilterChange,
+}) => {
   return (
     <>
       <div className={classes.selectWrapper}>
-        <SelectGroup onChangeHandler={onChangeHandler} />
+        <SelectGroup filters={filters} onFilterChange={onFilterChange} />
       </div>
       <div className={classes.checkboxWrapper}>
         <CheckboxGroup />
@@ -36,4 +27,3 @@ export const MoreOptions: FC = () => {
     </>
   );
 };
-

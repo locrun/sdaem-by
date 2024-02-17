@@ -1,8 +1,8 @@
-import { FC } from "react"
-import { LoginForm } from "../../components/Form/LoginForm/LoginForm"
+import { FC } from "react";
+import { LoginForm } from "../../components/Form/LoginForm/LoginForm";
 
-import cn from "classnames"
-import classes from "./LogIn.module.scss"
+import cn from "classnames";
+import classes from "./LogIn.module.scss";
 
 export const LogIn: FC = () => {
   return (
@@ -10,12 +10,10 @@ export const LogIn: FC = () => {
       <div className={classes.content}>
         <h3 className={classes.title}>Авторизация</h3>
         <span className={cn(classes.text, classes.mb)}>
-          Авторизируйтесь, чтобы начать
-          публиковать свои объявления
+          Авторизируйтесь, чтобы начать публиковать свои объявления
         </span>
         <LoginForm />
       </div>
     </section>
-  )
-}
-
+  );
+};

@@ -1,17 +1,17 @@
-import { FC } from 'react'
+import { FC } from "react";
 
-import { Title } from '../Title/Title'
-import { Messengers } from '../Messengers/Messengers'
-import { Disclaimer } from '../Disclaimer/Disclaimer'
-import { IconSvg } from '../../IconSvg/IconSvg'
+import { Title } from "../Title/Title";
+import { Messengers } from "../Messengers/Messengers";
+import { Disclaimer } from "../Disclaimer/Disclaimer";
+import { IconSvg } from "../../IconSvg/IconSvg";
 
-import { useRequest } from '../../../hooks/useRequest'
-import { IContacts } from '../../../Interfaces/IContacts'
+import { useRequest } from "../../../hooks/useRequest";
+import { IContacts } from "../../../Interfaces/IContacts";
 
-import classes from "./Contacts.module.scss"
+import classes from "./Contacts.module.scss";
 
 export const Contacts: FC = () => {
-  const { data } = useRequest("/api/contacts")
+  const { data } = useRequest("/api/contacts");
 
   return (
     <div className={classes.contacts}>
@@ -34,7 +34,8 @@ export const Contacts: FC = () => {
                   href="tel:+375296214833"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={classes.link}>
+                  className={classes.link}
+                >
                   <span>{item.tel}</span>
                 </a>
                 <Messengers />
@@ -47,7 +48,8 @@ export const Contacts: FC = () => {
                   href="mailto:sdaem@sdaem.by"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={classes.link}>
+                  className={classes.link}
+                >
                   <span>{item.mail}</span>
                 </a>
               </li>
@@ -62,10 +64,10 @@ export const Contacts: FC = () => {
                 <div>{item.ip}</div>
               </li>
             </>
-          )
+          );
         })}
       </ul>
       <Disclaimer />
     </div>
-  )
-}
+  );
+};

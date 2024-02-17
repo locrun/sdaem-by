@@ -1,29 +1,31 @@
-import { FC } from "react"
-import { useAppDispatch } from "../../../hooks/redux-hooks"
-import { SubmitHandler, useForm } from "react-hook-form"
+import { FC } from "react";
+import { useAppDispatch } from "../../../hooks/redux-hooks";
+import { SubmitHandler, useForm } from "react-hook-form";
 
-import { setIsActive } from "../../../store/reducers/modalReducer"
-import { Button } from "../../ui-kit/Button/Button"
-import { Input } from "../../ui-kit/Input/Input"
+import { setIsActive } from "../../../store/reducers/modalReducer";
+import { Button } from "../../ui-kit/Button/Button";
+import { Input } from "../../ui-kit/Input/Input";
 
-import { IFormFields } from "../../../Interfaces/IFormFields"
+import { IFormFields } from "../../../Interfaces/IFormFields";
 
-import { name, email, message } from "../patterns"
+import { name, email, message } from "../patterns";
 
-import cn from "classnames"
-import classes from "./ContactForm.module.scss"
+import cn from "classnames";
+import classes from "./ContactForm.module.scss";
 
 export const ContactForm: FC = () => {
-
-  const dispatch = useAppDispatch()
-  const { register, formState: { errors }, reset, handleSubmit }
-    =
-    useForm<IFormFields>({ mode: "onSubmit" })
+  const dispatch = useAppDispatch();
+  const {
+    register,
+    formState: { errors },
+    reset,
+    handleSubmit,
+  } = useForm<IFormFields>({ mode: "onSubmit" });
 
   const onSubmit: SubmitHandler<IFormFields> = (data) => {
-    dispatch(setIsActive(true))
-    reset()
-  }
+    dispatch(setIsActive(true));
+    reset();
+  };
 
   return (
     <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
@@ -33,7 +35,7 @@ export const ContactForm: FC = () => {
           id="#name"
           {...register("name", {
             required: true,
-            pattern: name
+            pattern: name,
           })}
           error={errors.name}
           iconId="#user"
@@ -42,9 +44,9 @@ export const ContactForm: FC = () => {
         <Input
           label="Ваша электронная почта"
           id="#email"
-          {...register('email', {
+          {...register("email", {
             required: true,
-            pattern: email
+            pattern: email,
           })}
           error={errors.email}
           iconId="#mail"
@@ -52,25 +54,24 @@ export const ContactForm: FC = () => {
         />
       </div>
       <div className={cn(classes.textAreaWrapper, {})}>
-        <label htmlFor="#message" className={classes.textAreaTitle}>Ваше сообщение</label>
+        <label htmlFor="#message" className={classes.textAreaTitle}>
+          Ваше сообщение
+        </label>
         <textarea
           id="#message"
           className={cn(classes.textarea, {
-            [classes.error]: errors.message
+            [classes.error]: errors.message,
           })}
           {...register("message", {
             required: true,
-            pattern: message
+            pattern: message,
           })}
           placeholder="Сообщение"
         />
       </div>
-      <Button
-        className={classes.button}
-        type="submit"
-      >
+      <Button className={classes.button} type="submit">
         Отправить
       </Button>
     </form>
-  )
-}
+  );
+};

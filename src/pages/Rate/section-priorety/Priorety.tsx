@@ -1,18 +1,15 @@
-import { FC } from 'react'
+import { FC } from "react";
 
-import cn from "classnames"
-import classes from "./Priorety.module.scss"
-import { IconSvg } from '../../../components/IconSvg/IconSvg'
-
+import cn from "classnames";
+import classes from "./Priorety.module.scss";
+import { IconSvg } from "../../../components/IconSvg/IconSvg";
 
 export const Priorety: FC = () => {
   return (
     <section className={classes.wrapper}>
       <div className="container">
         <div className={classes.content}>
-          <h3 className={classes.title}>
-            Стоимость приоритетного размещения
-          </h3>
+          <h3 className={classes.title}>Стоимость приоритетного размещения</h3>
           <div className={classes.flexWrapper}>
             <div className={classes.cardTown}>
               <div className={classes.col}>
@@ -54,7 +51,9 @@ export const Priorety: FC = () => {
                   <div className={classes.icon}>
                     <IconSvg id="#cottage" className={classes.iconCottage} />
                   </div>
-                  <h4 className={classes.cardTitle}>Коттеджи, агроусадьбы, дома на сутки</h4>
+                  <h4 className={classes.cardTitle}>
+                    Коттеджи, агроусадьбы, дома на сутки
+                  </h4>
                 </div>
                 <div className={cn(classes.flex, classes.gold)}>
                   <div className={classes.leftCol}>
@@ -78,5 +77,5 @@ export const Priorety: FC = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};

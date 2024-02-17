@@ -1,54 +1,55 @@
-import { useState, useEffect } from 'react'
-import { SubmitHandler, useForm } from "react-hook-form"
+import { useState, useEffect } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
 import Reaptcha from "reaptcha";
 
 import { useAppDispatch } from "../../../hooks/redux-hooks";
-import { setIsActive } from "../../../store/reducers/modalReducer"
+import { setIsActive } from "../../../store/reducers/modalReducer";
 
-import { Input } from "../../ui-kit/Input/Input"
-import { Button } from "../../ui-kit/Button/Button"
+import { Input } from "../../ui-kit/Input/Input";
+import { Button } from "../../ui-kit/Button/Button";
 import { IconSvg } from "../../IconSvg/IconSvg";
 
-import { email, login, password, confirm } from '../patterns';
+import { email, login, password, confirm } from "../patterns";
 
-import cn from "classnames"
-import classes from "./RegistrationFrom.module.scss"
+import cn from "classnames";
+import classes from "./RegistrationFrom.module.scss";
 import { IFormFields } from "../../../Interfaces/IFormFields";
 
 type Error = {
-  error: boolean,
-  text: string
-}
+  error: boolean;
+  text: string;
+};
 export const RegistrationForm = () => {
-
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
   const [verified, setVerified] = useState(false);
-  const [showError, setShowError] = useState<Error>({ error: false, text: "" })
+  const [showError, setShowError] = useState<Error>({ error: false, text: "" });
   const onVerify = () => {
     setVerified(true);
   };
-  const { register, formState: { errors }, reset, handleSubmit }
-    =
-    useForm<IFormFields>({ mode: "onSubmit" })
+  const {
+    register,
+    formState: { errors },
+    reset,
+    handleSubmit,
+  } = useForm<IFormFields>({ mode: "onSubmit" });
 
   useEffect(() => {
-    const error = errors.login || errors.email || errors.password || errors.confirmPassword
-    setShowError({ error: Boolean(error), text: "Ошибка ввода" })
-  }, [errors])
+    const error =
+      errors.login || errors.email || errors.password || errors.confirmPassword;
+    setShowError({ error: Boolean(error), text: "Ошибка ввода" });
+  }, [errors]);
 
   const onSubmit: SubmitHandler<IFormFields> = (data) => {
-    dispatch(setIsActive(true))
-    reset()
-  }
+    dispatch(setIsActive(true));
+    reset();
+  };
 
   return (
-    <form
-      className={classes.form}
-      onSubmit={handleSubmit(onSubmit)}>
+    <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
       <Input
         {...register("login", {
           required: true,
-          minLength: login
+          minLength: login,
         })}
         error={errors.login}
         iconId="#user"
@@ -56,9 +57,9 @@ export const RegistrationForm = () => {
         placeholder="Логин"
       />
       <Input
-        {...register('email', {
+        {...register("email", {
           required: true,
-          pattern: email
+          pattern: email,
         })}
         error={errors.email}
         iconId="#mail"
@@ -68,7 +69,7 @@ export const RegistrationForm = () => {
       <Input
         {...register("password", {
           required: true,
-          minLength: password
+          minLength: password,
         })}
         error={errors.password}
         type="password"
@@ -79,7 +80,7 @@ export const RegistrationForm = () => {
       <Input
         {...register("confirmPassword", {
           required: true,
-          minLength: confirm
+          minLength: confirm,
         })}
         error={errors.confirmPassword}
         type="password"
@@ -91,22 +92,19 @@ export const RegistrationForm = () => {
         sitekey="6LdbXDohAAAAAOSRPg7cLWorWEB_GXXS9isiZ-eB"
         onVerify={onVerify}
       />
-      {showError.error &&
+      {showError.error && (
         <span
           className={cn(classes.inputError, {
-            [classes.showError]: showError.error
-          })}>
+            [classes.showError]: showError.error,
+          })}
+        >
           {showError.text}
           <IconSvg id="#warning" className={classes.icon} />
         </span>
-      }
-      <Button
-        type="submit"
-        className={classes.button}
-        disabled={!verified}
-      >
+      )}
+      <Button type="submit" className={classes.button} disabled={!verified}>
         Зарегистрироваться
       </Button>
     </form>
-  )
-}
+  );
+};

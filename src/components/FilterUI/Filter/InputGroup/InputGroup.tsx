@@ -1,4 +1,4 @@
-import { FC } from "react"
+import { FC } from "react";
 import { useLocation } from "react-router";
 import { useAppSelector } from "../../../../hooks/redux-hooks";
 
@@ -7,52 +7,57 @@ import { path } from "../../../../constants/pages";
 
 import { ISelectOption } from "../../../../Interfaces/ISelectOption";
 
-import cn from "classnames"
-import classes from "./InputGroup.module.scss"
+import cn from "classnames";
+import classes from "./InputGroup.module.scss";
+import { IItemsStateFilters } from "../../../../store/reducers/itemsReducer";
+import { IFilterUpdatePayload } from "../types";
 
 export interface IPropsInput {
-  onChangeHandler: (newValue: SingleValue<ISelectOption>) => void
+  filters: IItemsStateFilters;
+  onFilterChange: (newValue: IFilterUpdatePayload) => void;
 }
-export const InputGroup: FC<IPropsInput> = ({ onChangeHandler }) => {
-  const location = useLocation()
-  const homePath = location.pathname === path.home ? true : false
-  const { stateData } = useAppSelector(state => state.filter)
+export const InputGroup: FC<IPropsInput> = ({ filters, onFilterChange }) => {
+  const location = useLocation();
+  const homePath = location.pathname === path.home ? true : false;
 
   return (
-    <div className={cn(classes.autocomplete, {
-      [classes.transform]: !homePath
-    })}>
+    <div
+      className={cn(classes.autocomplete, {
+        [classes.transform]: !homePath,
+      })}
+    >
       <span className={classes.label}>Цена за сутки (BYN)</span>
       <span>
         <input
-          value={stateData.priceMin}
+          value={filters.priceMin}
           className={classes.from}
           type="text"
           placeholder="От"
-          onChange={(e) => onChangeHandler({
-            value: e.target.value,
-            label: e.target.value,
-            key: "priceMin"
-          })}
+          onChange={(e) =>
+            onFilterChange({
+              value: e.target.value,
+              key: "priceMin",
+            })
+          }
           minLength={2}
           maxLength={4}
         />
         <span>-</span>
         <input
-          value={stateData.priceMax}
+          value={filters.priceMax}
           className={classes.to}
           type="text"
           placeholder="До"
-          onChange={(e) => onChangeHandler({
-            value: e.target.value,
-            label: e.target.value,
-            key: "priceMax"
-          })}
+          onChange={(e) =>
+            onFilterChange({
+              value: e.target.value,
+              key: "priceMax",
+            })
+          }
           minLength={2}
           maxLength={4}
         />
       </span>
     </div>
-  )
-}
-
+  );
+};

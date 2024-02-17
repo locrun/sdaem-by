@@ -16,13 +16,12 @@ import { ProductDetail } from "./pages/ProductDetail/ProductDetail";
 import { UserAccount } from "./pages/UserAccount/UserAccount/UserAccount";
 import { Check } from "./pages/UserAccount/Check/Check";
 
-import { path } from "./constants/pages"
+import { path } from "./constants/pages";
 import { PrivateRouter } from "./constants/pages";
 import { AddAdvert } from "./pages/UserAccount/AddAdvert/AddAdvert";
 import { UserManual } from "./pages/UserAccount/UserManual/UserManual";
 import { RaiseAdvert } from "./pages/UserAccount/RaiseAdvert/RaiseAdvert";
 import { EditAccount } from "./pages/UserAccount/EditAccount/EditAccount";
-
 
 export const Router = () => {
   return (
@@ -50,10 +49,7 @@ export const Router = () => {
         </Route>
         <Route path={path.login} element={<LogIn />} />
         <Route path={path.registration} element={<Registration />} />
-
       </Routes>
     </BrowserRouter>
-  )
-}
-
-
+  );
+};

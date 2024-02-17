@@ -1,18 +1,16 @@
-import { FC } from 'react'
-import { IconSvg } from '../../../IconSvg/IconSvg'
+import { FC } from "react";
+import { IconSvg } from "../../../IconSvg/IconSvg";
 
-import plus from "../../../../assets/images/plus.svg"
-import classes from "./AddAds.module.scss"
+import plus from "../../../../assets/images/plus.svg";
+import classes from "./AddAds.module.scss";
 
 export const AddAds: FC = () => {
   return (
     <div className={classes.addAds}>
-
       <div className={classes.head}>
         <h3 className={classes.title}>Добавить объявление</h3>
       </div>
       <ul className={classes.list}>
-
         <li className={classes.listItem}>
           <div className={classes.flex}>
             <div className={classes.townWrapper}>
@@ -64,8 +62,7 @@ export const AddAds: FC = () => {
             <img src={plus} alt="plus" />
           </button>
         </li>
-
       </ul>
     </div>
-  )
-}
+  );
+};

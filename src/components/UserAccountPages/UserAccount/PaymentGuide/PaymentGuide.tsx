@@ -1,7 +1,7 @@
-import { FC } from 'react'
-import { Link } from 'react-router-dom'
-import file from "../../../../assets/images/file.svg"
-import classes from "./PaymentGuide.module.scss"
+import { FC } from "react";
+import { Link } from "react-router-dom";
+import file from "../../../../assets/images/file.svg";
+import classes from "./PaymentGuide.module.scss";
 
 export const PaymentGuide: FC = () => {
   return (
@@ -13,5 +13,5 @@ export const PaymentGuide: FC = () => {
         Инструкция по оплате, стоимость и система скидок
       </h3>
     </Link>
-  )
-}
+  );
+};

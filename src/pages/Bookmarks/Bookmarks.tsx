@@ -1,47 +1,52 @@
-import { FC, useEffect, useMemo } from 'react'
-import { useAppDispatch, useAppSelector } from '../../hooks/redux-hooks'
-import { Breadcrumbs } from '../../components/Breadcrumbs/Breadcrumbs'
-import { TiledCards } from '../../components/Cards/TiledCards/TiledCards'
-import { Pagination } from '../../components/Pagination/Pagination'
-import { usePagination } from '../../hooks/usePagination'
+import { FC, useEffect, useMemo } from "react";
+import { useAppDispatch, useAppSelector } from "../../hooks/redux-hooks";
+import { Breadcrumbs } from "../../components/Breadcrumbs/Breadcrumbs";
+import { TiledCards } from "../../components/Cards/TiledCards/TiledCards";
+import { Pagination } from "../../components/Pagination/Pagination";
+import { usePagination } from "../../hooks/usePagination";
 
-import { CategoryFilter } from '../../components/Filters/CategoryFilter/CategoryFilter'
-import { IResponseData } from '../../Interfaces/IResponseData'
-import { fetchFlats } from '../../store/thunks/flatThunk'
+import { CategoryFilter } from "../../components/Filters/CategoryFilter/CategoryFilter";
+import { IResponseData } from "../../Interfaces/IResponseData";
+import { fetchFlats } from "../../store/thunks/flatThunk";
 
-import classes from "./Bookmarks.module.scss"
+import classes from "./Bookmarks.module.scss";
 
 const data = [
   { id: 0, name: "Квартиры" },
   { id: 1, name: "Коттеджи / Усадьбы" },
   { id: 2, name: "Бани" },
-  { id: 3, name: "Авто напрокат" }
-]
+  { id: 3, name: "Авто напрокат" },
+];
 
 export const Bookmarks: FC = () => {
-  const dispatch = useAppDispatch()
-  const { flats } = useAppSelector(state => state.flats)
+  const dispatch = useAppDispatch();
+  const { flats } = useAppSelector((state) => state.flats);
 
   useEffect(() => {
-    dispatch(fetchFlats())
-  }, [dispatch])
-  const breadCrumbsItems = useMemo(() =>
-    [
+    dispatch(fetchFlats());
+  }, [dispatch]);
+  const breadCrumbsItems = useMemo(
+    () => [
       {
         id: 0,
-        title: 'Home',
-        path: '/',
+        title: "Home",
+        path: "/",
       },
       {
         id: 1,
         title: "Закладки",
-      }
-    ], []
-  )
+      },
+    ],
+    []
+  );
 
+  const {
+    pageCount,
+    items: slicedArray,
+    handlePageChange,
+    page,
+  } = usePagination(flats, 6);
 
-  const { pageCount, slicedArray, handlePageChange, forcePage }
-    = usePagination(6, flats)
   return (
     <section>
       <div className={classes.bg}>
@@ -55,16 +60,20 @@ export const Bookmarks: FC = () => {
       </div>
       <div className="container">
         <div className={classes.cards}>
-          {slicedArray?.map((items: IResponseData) =>
-            <TiledCards key={items.id} data={items} className={classes.shadow} />
-          )}
+          {slicedArray?.map((items: IResponseData) => (
+            <TiledCards
+              key={items.id}
+              data={items}
+              className={classes.shadow}
+            />
+          ))}
           <Pagination
-            forcePage={forcePage - 1}
-            pageCount={pageCount.length}
-            onChange={handlePageChange}
+            forcePage={page}
+            pageCount={pageCount}
+            onChange={({ selected }) => handlePageChange(selected)}
           />
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
